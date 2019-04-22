@@ -18,8 +18,8 @@ class ImApplicationsLayer(PloneSandboxLayer):
         # Load any other ZCML that is required for your tests.
         # The z3c.autoinclude feature is disabled in the Plone fixture base
         # layer.
-        import plone.restapi
-        self.loadZCML(package=plone.restapi)
+        # import plone.restapi
+        # self.loadZCML(package=plone.restapi)
         self.loadZCML(package=im.applications)
 
     def setUpPloneSite(self, portal):
