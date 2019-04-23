@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from im.applications import _
 # from plone.app.textfield import RichText
 # from plone.autoform import directives
 from plone.dexterity.content import Item
@@ -6,11 +7,10 @@ from plone.dexterity.content import Item
 from plone.supermodel import model
 # from plone.supermodel.directives import fieldset
 # from z3c.form.browser.radio import RadioFieldWidget
-# from zope import schema
+from zope import schema
 from zope.interface import implementer
-
-
-# from im.applications import _
+from zope.interface import Invalid
+from zope.interface import invariant
 
 
 class IActivitiesBudgetApplication(model.Schema):
@@ -56,8 +56,67 @@ class IActivitiesBudgetApplication(model.Schema):
     #     required=False
     # )
 
+    title = schema.TextLine(
+        title=_(u'label_applications_title', default=u'Activity Name'),
+        required=True,
+    )
+
+    minute = schema.TextLine(
+        title=_(u'label_applications_minute', default=u'Minute Number'),
+        description=_(u'help_applications_minute', default=u'Minute of Consejo Interno'),
+        required=False,
+    )
+
+    typeactivity = schema.Choice(
+        title=_(u'label_applications_typeactivity', u'Type activity Activity'),
+        required=True,
+    )
+
+    responsables = schema.Text(
+        title=_(u'label_applications_responsables', u'Responsable(s) Name'),
+        required=True,
+    )
+
+    amount = schema.Float(
+        title=_(u'label_applications_amount', u'Approved Amount'),
+        description=_(u'help_applications_amount', u'Amount when the solicitud was created'),
+        required=False,
+        min=1.0,
+        # max=25000.0,
+    )
+
+    start = schema.Datetime(
+        title=_(u'label_applications_start_date', default=u'Start date of the activity'),
+        required=True,
+    )
+
+    end = schema.Datetime(
+        title=_(u'label_applications_end_date', default=u'End date of the activity'),
+        required=True,
+    )
+
+    place_activity = schema.Text(
+        title=_(u'label_applications_place_activity', u'Place Activity'),
+        required=True,
+    )
+
+    description_activity = schema.Text(
+        title=_(u'label_applications_description_activity', u'Description Activity'),
+        required=True,
+    )
+
+    @invariant
+    def validateDateFields(data):
+        if data.end < data.start:
+            message = 'Invalid Dates: the Star Date must be greater that End Date, please correct it.'
+            raise Invalid(_('label_applications_error_datesbefore', default=message))
+
 
 @implementer(IActivitiesBudgetApplication)
 class ActivitiesBudgetApplication(Item):
     """
     """
+    def numberdays(self):
+
+        return self.end - self.tstart
+
