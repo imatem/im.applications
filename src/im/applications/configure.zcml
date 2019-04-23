@@ -25,7 +25,6 @@
       directory="profiles/default"
       description="Installs the im.applications add-on."
       provides="Products.GenericSetup.interfaces.EXTENSION"
-      post_handler=".setuphandlers.post_install"
       />
 
   <genericsetup:registerProfile
@@ -34,7 +33,6 @@
       directory="profiles/uninstall"
       description="Uninstalls the im.applications add-on."
       provides="Products.GenericSetup.interfaces.EXTENSION"
-      post_handler=".setuphandlers.uninstall"
       />
 
   <utility
