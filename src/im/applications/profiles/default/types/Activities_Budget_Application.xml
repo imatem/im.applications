@@ -33,7 +33,7 @@
     -->
     <element value="plone.app.content.interfaces.INameFromTitle"/>
     <!-- <element value="plone.locking.interfaces.ILockable"/> -->
-    <element value="plone.locking.interfaces.ITTWLockable"/>
+    <!-- <element value="plone.locking.interfaces.ITTWLockable"/> -->
 
 
     <!-- <element value="plone.namefromtitle"/> -->
@@ -94,11 +94,12 @@
       visible="True">
     <permission value="View"/>
   </action>
-  <!-- condition_expr="" -->
+  <!-- TO DO: serach the interfe for adapt -->
+  <!-- condition_expr="not:object/@@plone_lock_info/is_locked_for_current_user|python:True" -->
   <action
       action_id="edit"
       category="object"
-      condition_expr="not:object/@@plone_lock_info/is_locked_for_current_user|python:True"
+      condition_expr=""
       i18n:attributes="title"
       title="Edit"
       url_expr="string:${object_url}/edit"
