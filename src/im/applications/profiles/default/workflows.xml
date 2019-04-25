@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<object name="portal_workflow" meta_type="Plone Workflow Tool">
+  <object name="im_applications_charged_institutional_workflow"
+    meta_type="Workflow"/>
+ <bindings>
+  <type type_id="Activities Budget Application">
+   <bound-workflow workflow_id="im_applications_charged_institutional_workflow"/>
+  </type>
+ </bindings>
+</object>
