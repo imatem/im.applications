@@ -1,0 +1,30 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  xmlns:plone="http://namespaces.plone.org/plone">
+
+  <include package="plone.app.contentrules" />
+
+  <!-- Create control for activities budget applications action (no configurable options) -->
+  <adapter factory=".createControls.CreateControlsForAppicationsActionExecutor" />
+  <!-- <adapter factory=".updateControls.UpdateControlsActionExecutor"/>   -->
+
+  <browser:page
+    for="plone.app.contentrules.browser.interfaces.IRuleActionAdding"
+    name="matem.actions.applications.CreateControls"
+    class=".createControls.CreateControlsForApplicationsAddForm"
+    permission="plone.app.contentrules.ManageContentRules"
+  />
+
+  <plone:ruleAction
+    name="matem.actions.applications.CreateControls"
+    title="Create Controls for IM applications"
+    description="Create controls for im applications"
+    for="*"
+    event="zope.component.interfaces.IObjectEvent"
+    addview="matem.actions.applications.CreateControls"
+    schema=".createControls.ICreateControlsAction"
+    factory=".createControls.CreateControlsAction"
+  />
+
+</configure>
