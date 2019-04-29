@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<contentrules>
+  <rule
+      name="rule-create-controls-for-applications"
+      title="Create Controls of IM Applications for Unid Admin"
+      cascading="False"
+      description="Create the controls when the activities budget application is sended"
+      enabled="True"
+      event="Products.CMFCore.interfaces.IActionSucceededEvent"
+      stop-after="False"
+    >
+    <conditions>
+      <condition type="plone.conditions.PortalType">
+        <property name="check_types">
+          <element>Activities Budget Application</element>
+        </property>
+     </condition>
+      <condition type="plone.conditions.WorkflowTransition">
+        <property name="wf_transitions">
+          <element>send_to_UniAdmin</element>
+        </property>
+      </condition>
+    </conditions>
+    <actions>
+      <action type="matem.actions.applications.CreateControls">
+        <property name="message">Create Controls of IM Applications</property>
+        <property name="message_type">info</property>
+      </action>
+    </actions>
+   </rule>
+
+</contentrules>

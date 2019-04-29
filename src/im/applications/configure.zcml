@@ -19,6 +19,9 @@
 
   <include file="upgrades.zcml" />
 
+  <!-- for add content rules -->
+  <include package=".actions" />
+
   <genericsetup:registerProfile
       name="default"
       title="im.applications"
