@@ -63,8 +63,8 @@ class CreateControlsForAppicationsActionExecutor(object):
         # obj_person = api.content.find(portal_type='FSDPerson', id=data['ownerid'])[0].getObject()
         # classifications = [c.id for c in obj_person.getClassifications()]
         # data['classifications'] = classifications
-        data['classification'] = 'CLASIFICACION'
-        data['campus'] = 'CAMPUS'
+        data['classification'] = 'NA'
+        data['campus'] = 'NA'
         data['fecha_desde'] = DateTime(obj.start.__str__())
         data['start'] = obj.start
         data['end'] = obj.end
@@ -78,7 +78,7 @@ class CreateControlsForAppicationsActionExecutor(object):
         uniadmin_path = 'unidad/viaticos'
         uniadmin_folder = portal.unrestrictedTraverse(uniadmin_path)
         viaticalcontrol = api.content.create(
-            type='viaticalimsol',
+            type='viatical',
             title=data['title'],
             container=uniadmin_folder
         )
