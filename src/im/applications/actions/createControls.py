@@ -65,7 +65,8 @@ class CreateControlsForAppicationsActionExecutor(object):
         # data['classifications'] = classifications
         data['classification'] = 'NA'
         data['campus'] = 'NA'
-        data['fecha_desde'] = DateTime(obj.start.__str__())
+        # data['fecha_desde'] = DateTime(obj.start.__str__())
+        data['fecha_desde'] = DateTime(obj.start)
         data['start'] = obj.start
         data['end'] = obj.end
         data['amount'] = obj.amount
