@@ -11,6 +11,7 @@ from zope import schema
 from zope.interface import implementer
 from zope.interface import Invalid
 from zope.interface import invariant
+from DateTime import DateTime
 
 
 class IActivitiesBudgetApplication(model.Schema):
@@ -116,7 +117,29 @@ class IActivitiesBudgetApplication(model.Schema):
 class ActivitiesBudgetApplication(Item):
     """
     """
-    def numberdays(self):
+    # TO DO: Methods that are necessary for uni admin view
+    def getCantidadDeDias(self):
 
-        return self.end - self.tstart
+        return (self.end - self.start).days
+
+    def getFechaDesde(self):
+        return DateTime(self.start.__str__())
+
+    def actaci(self):
+        return self.minute
+
+    def getFechaHasta(self):
+        return DateTime(self.end.__str__())
+
+    def getCiudadPais(self):
+        return self.place_activity
+
+    def getPais(self):
+        return 'COUNTRY'
+
+    def getObjetoViaje(self):
+        return self.description_activity
+
+    def getCantidad_consejo_viaticos(self):
+        return self.amount
 
