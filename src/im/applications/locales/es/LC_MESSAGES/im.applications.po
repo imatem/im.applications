@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-05-03 18:19+0000\n"
+"POT-Creation-Date: 2019-05-03 20:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,6 +26,14 @@ msgstr "Editar"
 msgid "Installs the im.applications add-on."
 msgstr ""
 
+#: im/applications/profiles/default/workflows/im_applications_charged_institutional_workflow/definition.xml
+msgid "Send to Uni Admin"
+msgstr "Enviar a la Unidad Administrativa"
+
+#: im/applications/profiles/default/workflows/im_applications_charged_institutional_workflow/definition.xml
+msgid "Sent to the Administrative Unit"
+msgstr "Enviado a la Unidad Administrativa"
+
 #: im/applications/profiles/default/types/Activities_Budget_Application.xml
 msgid "Solicitud con cargo al presupuesto del IM"
 msgstr "Solicitud con cargo al presupuesto institucional"
@@ -33,6 +41,10 @@ msgstr "Solicitud con cargo al presupuesto institucional"
 #: im/applications/actions/createControls.py:34
 msgid "The im applications information will be saved in the Uni Admin Section"
 msgstr "La información de la solicitiud con cargo a presupuesto institucional será almacenada en la Unidad Administrativa"
+
+#: im/applications/profiles/default/workflows/im_applications_charged_institutional_workflow/definition.xml
+msgid "To Canceled Application"
+msgstr "Cancelar la solicitud"
 
 #: im/applications/configure.zcml:39
 msgid "Uninstalls the im.applications add-on."
