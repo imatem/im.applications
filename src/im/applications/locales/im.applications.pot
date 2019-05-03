@@ -1,0 +1,113 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-05-03 18:19+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: im.applications\n"
+
+#: im/applications/profiles/default/types/Activities_Budget_Application.xml
+msgid "Activities Budget Application"
+msgstr ""
+
+#: im/applications/profiles/default/types/Activities_Budget_Application.xml
+msgid "Edit"
+msgstr ""
+
+#: im/applications/configure.zcml:31
+msgid "Installs the im.applications add-on."
+msgstr ""
+
+#: im/applications/profiles/default/types/Activities_Budget_Application.xml
+msgid "Solicitud con cargo al presupuesto del IM"
+msgstr ""
+
+#: im/applications/actions/createControls.py:34
+msgid "The im applications information will be saved in the Uni Admin Section"
+msgstr ""
+
+#: im/applications/configure.zcml:39
+msgid "Uninstalls the im.applications add-on."
+msgstr ""
+
+#: im/applications/profiles/default/types/Activities_Budget_Application.xml
+msgid "View"
+msgstr ""
+
+#. Default: "Amount when the solicitud was created"
+#: im/applications/content/activities_budget_application.py:83
+msgid "help_applications_amount"
+msgstr ""
+
+#. Default: "Minute of Consejo Interno"
+#: im/applications/content/activities_budget_application.py:67
+msgid "help_applications_minute"
+msgstr ""
+
+#: im/applications/configure.zcml:31
+msgid "im.applications"
+msgstr ""
+
+#: im/applications/configure.zcml:39
+msgid "im.applications (uninstall)"
+msgstr ""
+
+#. Default: "Approved Amount"
+#: im/applications/content/activities_budget_application.py:82
+msgid "label_applications_amount"
+msgstr ""
+
+#. Default: "Description Activity"
+#: im/applications/content/activities_budget_application.py:105
+msgid "label_applications_description_activity"
+msgstr ""
+
+#. Default: "End date of the activity"
+#: im/applications/content/activities_budget_application.py:95
+msgid "label_applications_end_date"
+msgstr ""
+
+#: im/applications/content/activities_budget_application.py:113
+msgid "label_applications_error_datesbefore"
+msgstr ""
+
+#. Default: "Minute Number"
+#: im/applications/content/activities_budget_application.py:66
+msgid "label_applications_minute"
+msgstr ""
+
+#. Default: "Place Activity"
+#: im/applications/content/activities_budget_application.py:100
+msgid "label_applications_place_activity"
+msgstr ""
+
+#. Default: "Responsable(s) Name"
+#: im/applications/content/activities_budget_application.py:77
+msgid "label_applications_responsables"
+msgstr ""
+
+#. Default: "Start date of the activity"
+#: im/applications/content/activities_budget_application.py:90
+msgid "label_applications_start_date"
+msgstr ""
+
+#. Default: "Activity Name"
+#: im/applications/content/activities_budget_application.py:61
+msgid "label_applications_title"
+msgstr ""
+
+#. Default: "Type activity Activity"
+#: im/applications/content/activities_budget_application.py:72
+msgid "label_applications_typeactivity"
+msgstr ""

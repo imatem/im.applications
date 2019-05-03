@@ -16,11 +16,11 @@ msgstr ""
 
 #: im/applications/profiles/default/types/Activities_Budget_Application.xml
 msgid "Activities Budget Application"
-msgstr ""
+msgstr "Solicitud con presupuesto institucional"
 
 #: im/applications/profiles/default/types/Activities_Budget_Application.xml
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 #: im/applications/configure.zcml:31
 msgid "Installs the im.applications add-on."
@@ -28,11 +28,11 @@ msgstr ""
 
 #: im/applications/profiles/default/types/Activities_Budget_Application.xml
 msgid "Solicitud con cargo al presupuesto del IM"
-msgstr ""
+msgstr "Solicitud con cargo al presupuesto institucional"
 
 #: im/applications/actions/createControls.py:34
 msgid "The im applications information will be saved in the Uni Admin Section"
-msgstr ""
+msgstr "La información de la solicitiud con cargo a presupuesto institucional será almacenada en la Unidad Administrativa"
 
 #: im/applications/configure.zcml:39
 msgid "Uninstalls the im.applications add-on."
@@ -40,17 +40,17 @@ msgstr ""
 
 #: im/applications/profiles/default/types/Activities_Budget_Application.xml
 msgid "View"
-msgstr ""
+msgstr "Ver"
 
 #. Default: "Amount when the solicitud was created"
 #: im/applications/content/activities_budget_application.py:83
 msgid "help_applications_amount"
-msgstr ""
+msgstr "Cantidad cuando la solicitud fue creada"
 
 #. Default: "Minute of Consejo Interno"
 #: im/applications/content/activities_budget_application.py:67
 msgid "help_applications_minute"
-msgstr ""
+msgstr "Acta de Consejo Interno"
 
 #: im/applications/configure.zcml:31
 msgid "im.applications"
@@ -63,48 +63,48 @@ msgstr ""
 #. Default: "Approved Amount"
 #: im/applications/content/activities_budget_application.py:82
 msgid "label_applications_amount"
-msgstr ""
+msgstr "Cantidad Aprobada"
 
 #. Default: "Description Activity"
 #: im/applications/content/activities_budget_application.py:105
 msgid "label_applications_description_activity"
-msgstr ""
+msgstr "Descripción de la actividad"
 
 #. Default: "End date of the activity"
 #: im/applications/content/activities_budget_application.py:95
 msgid "label_applications_end_date"
-msgstr ""
+msgstr "Fecha de termino de la actividad"
 
 #: im/applications/content/activities_budget_application.py:113
 msgid "label_applications_error_datesbefore"
-msgstr ""
+msgstr "Fechas no válidas: La fecha de termino debe ser mayor que la fecha de inicio, por favor corrígela"
 
 #. Default: "Minute Number"
 #: im/applications/content/activities_budget_application.py:66
 msgid "label_applications_minute"
-msgstr ""
+msgstr "Número de Acta"
 
 #. Default: "Place Activity"
 #: im/applications/content/activities_budget_application.py:100
 msgid "label_applications_place_activity"
-msgstr ""
+msgstr "Lugar de la actividad"
 
 #. Default: "Responsable(s) Name"
 #: im/applications/content/activities_budget_application.py:77
 msgid "label_applications_responsables"
-msgstr ""
+msgstr "Nombre(s) de los responsable(s)"
 
 #. Default: "Start date of the activity"
 #: im/applications/content/activities_budget_application.py:90
 msgid "label_applications_start_date"
-msgstr ""
+msgstr "Fecha de inicio de la actividad"
 
 #. Default: "Activity Name"
 #: im/applications/content/activities_budget_application.py:61
 msgid "label_applications_title"
-msgstr ""
+msgstr "Nombre de la actividad"
 
 #. Default: "Type activity Activity"
 #: im/applications/content/activities_budget_application.py:72
 msgid "label_applications_typeactivity"
-msgstr ""
+msgstr "Tipo de la actividad"
