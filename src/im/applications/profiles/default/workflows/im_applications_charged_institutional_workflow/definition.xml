@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<dc-workflow workflow_id="im_applications_charged_institutional_workflow" title="Workflow for applications charged to the institutional budget" description="- Essentially a workflow with two transitions and three states:  Pending, Sent to the administrative unit, Canceled" state_variable="review_state" initial_state="pending" manager_bypass="False">
+<dc-workflow workflow_id="im_applications_charged_institutional_workflow" title="Workflow for applications charged to the institutional budget" description="- Essentially a workflow with two transitions and three states:  Pending, Sent to the administrative unit, Canceled" state_variable="review_state" initial_state="pending" manager_bypass="False"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="im.applications">
  <permission>Access contents information</permission>
  <permission>Add portal content</permission>
  <permission>Change portal events</permission>
@@ -66,7 +67,7 @@
   <permission-map name="View" acquired="True">
   </permission-map>
  </state>
- <state state_id="sent_to_uniadmin" title="Sent to the Administrative Unit">
+ <state state_id="sent_to_uniadmin" title="Sent to the Administrative Unit" i18n:attributes="title">
   <exit-transition transition_id="to_canceled"/>
   <permission-map name="Access contents information" acquired="False">
    <permission-role>Contributor</permission-role>
@@ -113,13 +114,13 @@
   </permission-map>
  </state>
  <transition transition_id="send_to_UniAdmin" title="Send to Uni Admin" new_state="sent_to_uniadmin" trigger="USER" before_script="" after_script="">
-  <action url="%(content_url)s/content_status_modify?workflow_action=send_to_UniAdmin" category="workflow" icon="">Send to Uni Admin</action>
+  <action url="%(content_url)s/content_status_modify?workflow_action=send_to_UniAdmin" category="workflow" icon="" i18n:translate="">Send to Uni Admin</action>
   <guard>
    <guard-permission>Review portal content</guard-permission>
   </guard>
  </transition>
- <transition transition_id="to_canceled" title="To cancel" new_state="canceled" trigger="USER" before_script="" after_script="">
-  <action url="%(content_url)s/content_status_modify?workflow_action=to_canceled" category="workflow" icon="">To Canceled</action>
+ <transition transition_id="to_canceled" title="To Cancel Application" new_state="canceled" trigger="USER" before_script="" after_script="">
+  <action url="%(content_url)s/content_status_modify?workflow_action=to_canceled" category="workflow" icon="" i18n:translate="">To Canceled Application</action>
   <guard>
    <guard-permission>Review portal content</guard-permission>
   </guard>
