@@ -7,6 +7,12 @@
   <!-- -*- extra stuff goes here -*- -->
 
     <permission
+        id="im.applications.AddColoquioApplication"
+        title="im.applications: Add ColoquioApplication"
+    />
+
+
+    <permission
         id="im.applications.AddMoneysack"
         title="im.applications: Add Moneysack"
     />

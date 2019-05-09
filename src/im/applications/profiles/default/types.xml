@@ -4,4 +4,5 @@
   <!--<object name="example_ct" meta_type="Dexterity FTI"/>-->
   <object meta_type="Dexterity FTI" name="Activities Budget Application"/>
   <object meta_type="Dexterity FTI" name="moneysack"/>
+  <object meta_type="Dexterity FTI" name="coloquio_application"/>
 </object>
