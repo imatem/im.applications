@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from im.applications import _
-from plone import schema
+# from plone import schema
+from zope import schema
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.dexterity.interfaces import IDexterityContent
 from plone.supermodel import model
