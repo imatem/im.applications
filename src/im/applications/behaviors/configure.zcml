@@ -10,6 +10,16 @@
     <!-- -*- extra stuff goes here -*- -->
 
     <plone:behavior
+        name="im.applications.registrationfees"
+        title="Registrationfees"
+        description="This behavior provides the amount fields for registration fees"
+        provides=".registrationfees.IRegistrationfees"
+        factory=".registrationfees.Registrationfees"
+        marker=".registrationfees.IRegistrationfeesMarker"
+        />
+
+
+    <plone:behavior
         name="im.applications.transportationexpenses"
         title="Transportationexpenses"
         description="This behavior provides the amount fields for transportation  expenses"
