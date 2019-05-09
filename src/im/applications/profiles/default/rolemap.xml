@@ -3,6 +3,14 @@
   <permissions>
   <!-- -*- extra stuff goes here -*- -->
 
+    <permission name="im.applications: Add Moneysack" acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <!-- <role name="Owner"/> -->
+      <!-- <role name="Contributor"/> -->
+    </permission>
+
+
     <permission name="im.applications: Add ActivitiesBudgetApplication" acquire="True">
       <role name="Manager"/>
       <role name="Site Administrator"/>

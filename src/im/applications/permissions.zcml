@@ -7,6 +7,12 @@
   <!-- -*- extra stuff goes here -*- -->
 
     <permission
+        id="im.applications.AddMoneysack"
+        title="im.applications: Add Moneysack"
+    />
+
+
+    <permission
         id="im.applications.AddActivitiesBudgetApplication"
         title="im.applications: Add ActivitiesBudgetApplication"
     />
