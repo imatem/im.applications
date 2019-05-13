@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-05-07 15:32+0000\n"
+"POT-Creation-Date: 2019-05-13 19:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,12 +19,34 @@ msgid "Activities Budget Application"
 msgstr "Solicitud con presupuesto institucional"
 
 #: im/applications/profiles/default/types/Activities_Budget_Application.xml
+#: im/applications/profiles/default/types/coloquio_application.xml
+#: im/applications/profiles/default/types/moneysack.xml
 msgid "Edit"
 msgstr "Editar"
+
+#: im/applications/behaviors/registrationfees.py:25
+#: im/applications/behaviors/transportationexpenses.py:25
+#: im/applications/behaviors/travelexpenses.py:25
+msgid "Give in a project name"
+msgstr ""
 
 #: im/applications/configure.zcml:31
 msgid "Installs the im.applications add-on."
 msgstr ""
+
+#: im/applications/behaviors/registrationfees.py:24
+#: im/applications/behaviors/transportationexpenses.py:24
+#: im/applications/behaviors/travelexpenses.py:24
+msgid "Project"
+msgstr ""
+
+#: im/applications/behaviors/configure.zcml:19
+msgid "Registrationfees"
+msgstr ""
+
+#: im/applications/profiles/default/types/moneysack.xml
+msgid "Resources for special activities"
+msgstr "Bolsa de recursos para actividades especiales, por ejemplo, pláticas coloquio."
 
 #: im/applications/profiles/default/workflows/im_applications_charged_institutional_workflow/definition.xml
 msgid "Send to Uni Admin"
@@ -42,17 +64,47 @@ msgstr "Solicitud con cargo al presupuesto institucional"
 msgid "The im applications information will be saved in the Uni Admin Section"
 msgstr "La información de la solicitiud con cargo a presupuesto institucional será almacenada en la Unidad Administrativa"
 
+#: im/applications/behaviors/configure.zcml:19
+msgid "This behavior provides the amount fields for registration fees"
+msgstr ""
+
+#: im/applications/behaviors/configure.zcml:29
+msgid "This behavior provides the amount fields for transportation  expenses"
+msgstr ""
+
+#: im/applications/behaviors/configure.zcml:39
+msgid "This behavior provides the amount fields for travel expenses"
+msgstr ""
+
+#: im/applications/profiles/default/types/coloquio_application.xml
+msgid "This content is excluse for coloquio responsables, thsi application will generate the the control for Unid Admin"
+msgstr ""
+
 #: im/applications/profiles/default/workflows/im_applications_charged_institutional_workflow/definition.xml
 msgid "To Canceled Application"
 msgstr "Cancelar la solicitud"
+
+#: im/applications/behaviors/configure.zcml:29
+msgid "Transportationexpenses"
+msgstr ""
+
+#: im/applications/behaviors/configure.zcml:39
+msgid "Travelexpenses"
+msgstr ""
 
 #: im/applications/configure.zcml:39
 msgid "Uninstalls the im.applications add-on."
 msgstr ""
 
 #: im/applications/profiles/default/types/Activities_Budget_Application.xml
+#: im/applications/profiles/default/types/coloquio_application.xml
+#: im/applications/profiles/default/types/moneysack.xml
 msgid "View"
 msgstr "Ver"
+
+#: im/applications/profiles/default/types/coloquio_application.xml
+msgid "coloquio_application"
+msgstr ""
 
 #. Default: "Amount when the solicitud was created"
 #: im/applications/content/activities_budget_application.py:83
@@ -88,6 +140,7 @@ msgid "label_applications_end_date"
 msgstr "Fecha de termino de la actividad"
 
 #: im/applications/content/activities_budget_application.py:113
+#: im/applications/content/moneysack.py:40
 msgid "label_applications_error_datesbefore"
 msgstr "Fechas no válidas: La fecha de termino debe ser mayor que la fecha de inicio, por favor corrígela"
 
@@ -95,6 +148,26 @@ msgstr "Fechas no válidas: La fecha de termino debe ser mayor que la fecha de i
 #: im/applications/content/activities_budget_application.py:66
 msgid "label_applications_minute"
 msgstr "Número de Acta"
+
+#. Default: "Approved Amount"
+#: im/applications/content/moneysack.py:30
+msgid "label_applications_moneysack_amount"
+msgstr "Cantidad Aprobada"
+
+#. Default: "End date of the activity"
+#: im/applications/content/moneysack.py:25
+msgid "label_applications_moneysack_end_date"
+msgstr "Fecha de termino de vigencia de la bolsa"
+
+#. Default: "Start date of the activity"
+#: im/applications/content/moneysack.py:20
+msgid "label_applications_moneysack_start_date"
+msgstr "Fecha de inicio de la vigencia de la bolsa"
+
+#. Default: "Title of sack"
+#: im/applications/content/moneysack.py:15
+msgid "label_applications_moneysack_title"
+msgstr "Título de la bolsa de recursos"
 
 #. Default: "Place Activity"
 #: im/applications/content/activities_budget_application.py:100
@@ -120,3 +193,7 @@ msgstr "Nombre de la actividad"
 #: im/applications/content/activities_budget_application.py:72
 msgid "label_applications_typeactivity"
 msgstr "Tipo de la actividad"
+
+#: im/applications/profiles/default/types/moneysack.xml
+msgid "moneysack"
+msgstr "Bolsa de dinero"
