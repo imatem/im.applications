@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-05-13 19:50+0000\n"
+"POT-Creation-Date: 2019-05-13 21:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,20 +27,8 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: im/applications/behaviors/registrationfees.py:25
-#: im/applications/behaviors/transportationexpenses.py:25
-#: im/applications/behaviors/travelexpenses.py:25
-msgid "Give in a project name"
-msgstr ""
-
 #: im/applications/configure.zcml:31
 msgid "Installs the im.applications add-on."
-msgstr ""
-
-#: im/applications/behaviors/registrationfees.py:24
-#: im/applications/behaviors/transportationexpenses.py:24
-#: im/applications/behaviors/travelexpenses.py:24
-msgid "Project"
 msgstr ""
 
 #: im/applications/behaviors/configure.zcml:19
@@ -130,6 +118,66 @@ msgstr ""
 #. Default: "Approved Amount"
 #: im/applications/content/activities_budget_application.py:82
 msgid "label_applications_amount"
+msgstr ""
+
+#. Default: "Amount for Registration Fees"
+#: im/applications/behaviors/registrationfees.py:23
+msgid "label_applications_amount_registration"
+msgstr ""
+
+#. Default: "Approved Amount by Consejo Interno for Registration Fees"
+#: im/applications/behaviors/registrationfees.py:35
+msgid "label_applications_amount_registration_internalc"
+msgstr ""
+
+#. Default: "Approved Amount by Special Comision for Registration Fees"
+#: im/applications/behaviors/registrationfees.py:29
+msgid "label_applications_amount_registration_specialc"
+msgstr ""
+
+#. Default: "Amount for Transportation Expenses"
+#: im/applications/behaviors/transportationexpenses.py:23
+msgid "label_applications_amount_transportation"
+msgstr ""
+
+#. Default: "Approved Amount by Consejo Interno for Transportation Expenses"
+#: im/applications/behaviors/transportationexpenses.py:35
+msgid "label_applications_amount_transportation_internalc"
+msgstr ""
+
+#. Default: "Approved Amount by Special Comision for Transportation Expenses"
+#: im/applications/behaviors/transportationexpenses.py:29
+msgid "label_applications_amount_transportation_specialc"
+msgstr ""
+
+#. Default: "Amount for Travel Expenses"
+#: im/applications/behaviors/travelexpenses.py:23
+msgid "label_applications_amount_travel"
+msgstr ""
+
+#. Default: "Approved Amount by Consejo Interno for Travel Expenses"
+#: im/applications/behaviors/travelexpenses.py:35
+msgid "label_applications_amount_travel_internalc"
+msgstr ""
+
+#. Default: "Approved Amount by Special Comision for Travel Expenses"
+#: im/applications/behaviors/travelexpenses.py:29
+msgid "label_applications_amount_travel_specialc"
+msgstr ""
+
+#. Default: "Exposition Date"
+#: im/applications/content/coloquio_application.py:32
+msgid "label_applications_coloquio_exposition_date"
+msgstr ""
+
+#. Default: "Speaker Institution"
+#: im/applications/content/coloquio_application.py:27
+msgid "label_applications_coloquio_institution"
+msgstr ""
+
+#. Default: "Speaker Name"
+#: im/applications/content/coloquio_application.py:22
+msgid "label_applications_coloquio_title"
 msgstr ""
 
 #. Default: "Description Activity"
