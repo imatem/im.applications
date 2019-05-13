@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 from im.applications import _
 # from plone import schema
 from zope import schema
@@ -20,10 +19,22 @@ class ITravelexpenses(model.Schema):
     """
     """
 
-    project = schema.TextLine(
-        title=_(u'Project'),
-        description=_(u'Give in a project name'),
-        required=False,
+    amount_travel = schema.Float(
+        title=_(u'label_applications_amount_travel', u'Amount for Travel Expenses'),
+        required=True,
+        min=0.0,
+    )
+
+    amount_travel_specialc = schema.Float(
+        title=_(u'label_applications_amount_travel_specialc', u'Approved Amount by Special Comision for Travel Expenses'),
+        required=True,
+        min=0.0,
+    )
+
+    amount_travel_internalc = schema.Float(
+        title=_(u'label_applications_amount_travel_internalc', u'Approved Amount by Consejo Interno for Travel Expenses'),
+        required=True,
+        min=0.0,
     )
 
 
@@ -33,12 +44,12 @@ class Travelexpenses(object):
     def __init__(self, context):
         self.context = context
 
-    @property
-    def project(self):
-        if hasattr(self.context, 'project'):
-            return self.context.project
-        return None
+    # @property
+    # def project(self):
+    #     if hasattr(self.context, 'project'):
+    #         return self.context.project
+    #     return None
 
-    @project.setter
-    def project(self, value):
-        self.context.project = value
+    # @project.setter
+    # def project(self, value):
+    #     self.context.project = value
