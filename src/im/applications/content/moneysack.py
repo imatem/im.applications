@@ -8,9 +8,6 @@ from zope.interface import invariant
 from zope.interface import implementer
 
 
-# from im.applications import _
-
-
 class IMoneysack(model.Schema):
     """ Marker interface and Dexterity Python Schema for Moneysack
     """
@@ -31,7 +28,6 @@ class IMoneysack(model.Schema):
 
     amount = schema.Float(
         title=_(u'label_applications_moneysack_amount', u'Approved Amount'),
-        description=_(u'help_applications_maneysack_amount', u'Amount when the solicitud was created'),
         required=True,
         min=1.0,
         # max=25000.0,
@@ -48,3 +44,12 @@ class IMoneysack(model.Schema):
 class Moneysack(Container):
     """
     """
+
+    @property
+    def amount_used(self):
+        amount_used = 0.0
+        return amount_used
+
+
+
+
