@@ -34,7 +34,6 @@
     <element value="plone.app.content.interfaces.INameFromTitle"/>
     <element value="im.applications.travelexpenses"/>
     <element value="im.applications.transportationexpenses"/>
-    <element value="im.applications.registrationfees"/>
   </property>
 
   <!-- View information -->
