@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from im.applications import _
 # from plone import schema
+from plone.autoform import directives
 from zope import schema
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.dexterity.interfaces import IDexterityContent
@@ -25,12 +26,16 @@ class IRegistrationfees(model.Schema):
         min=0.0,
     )
 
+    directives.read_permission(amount_registration_specialc='Solicitud: Comision Revisa Solicitud')
+    directives.write_permission(amount_registration_specialc='Solicitud: Comision Revisa Solicitud')
     amount_registration_specialc = schema.Float(
         title=_(u'label_applications_amount_registration_specialc', u'Approved Amount by Special Comision for Registration Fees'),
         required=True,
         min=0.0,
     )
 
+    directives.read_permission(amount_registration_internalc='Solicitud: Consejo Revisa Solicitud')
+    directives.write_permission(amount_registration_internalc='Solicitud: Consejo Revisa Solicitud')
     amount_registration_internalc = schema.Float(
         title=_(u'label_applications_amount_registration_internalc', u'Approved Amount by Consejo Interno for Registration Fees'),
         required=True,
