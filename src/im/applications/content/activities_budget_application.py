@@ -68,6 +68,11 @@ class IActivitiesBudgetApplication(model.Schema):
         required=False,
     )
 
+    internalc_date = schema.Date(
+        title=_(u'label_applications_amount_internalc_date', default=u'Consejo Interno Date'),
+        required=True,
+    )
+
     typeactivity = schema.TextLine(
         title=_(u'label_applications_typeactivity', u'Type activity Activity'),
         required=True,
