@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-05-13 21:33+0000\n"
+"POT-Creation-Date: 2019-05-20 15:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -95,12 +95,13 @@ msgid "coloquio_application"
 msgstr "Solicitud de rescursos para coloquio"
 
 #. Default: "Amount when the solicitud was created"
-#: im/applications/content/activities_budget_application.py:83
+#: im/applications/content/activities_budget_application.py:88
 msgid "help_applications_amount"
 msgstr "Cantidad cuando la solicitud fue creada"
 
 #. Default: "Minute of Consejo Interno"
 #: im/applications/content/activities_budget_application.py:67
+#: im/applications/content/coloquio_application.py:47
 msgid "help_applications_minute"
 msgstr "Acta de Consejo Interno"
 
@@ -113,52 +114,63 @@ msgid "im.applications (uninstall)"
 msgstr ""
 
 #. Default: "Approved Amount"
-#: im/applications/content/activities_budget_application.py:82
+#: im/applications/content/activities_budget_application.py:87
 msgid "label_applications_amount"
 msgstr "Cantidad Aprobada"
 
+#. Default: "Consejo Interno Date"
+#: im/applications/content/activities_budget_application.py:72
+#: im/applications/content/coloquio_application.py:54
+msgid "label_applications_amount_internalc_date"
+msgstr "Fecha de revisión por el Consejo Interno"
+
 #. Default: "Amount for Registration Fees"
-#: im/applications/behaviors/registrationfees.py:23
+#: im/applications/behaviors/registrationfees.py:24
 msgid "label_applications_amount_registration"
 msgstr "Cantidad solicitada para cuotas de inscripción"
 
 #. Default: "Approved Amount by Consejo Interno for Registration Fees"
-#: im/applications/behaviors/registrationfees.py:35
+#: im/applications/behaviors/registrationfees.py:40
 msgid "label_applications_amount_registration_internalc"
 msgstr "Cantidad aprobada por el consejo interno para cuotas de inscripción´"
 
 #. Default: "Approved Amount by Special Comision for Registration Fees"
-#: im/applications/behaviors/registrationfees.py:29
+#: im/applications/behaviors/registrationfees.py:32
 msgid "label_applications_amount_registration_specialc"
 msgstr "Cantidad aprobada por la Comisión Especial para cuotas de Inscripción"
 
+#. Default: "Special Comision Date"
+#: im/applications/content/coloquio_application.py:39
+msgid "label_applications_amount_specialc_date"
+msgstr "Fecha de revisión por la Comisión Especial"
+
 #. Default: "Amount for Transportation Expenses"
-#: im/applications/behaviors/transportationexpenses.py:23
+#: im/applications/behaviors/transportationexpenses.py:24
 msgid "label_applications_amount_transportation"
 msgstr "Cantidad solicitida para gastos de transporte"
 
 #. Default: "Approved Amount by Consejo Interno for Transportation Expenses"
-#: im/applications/behaviors/transportationexpenses.py:35
+#: im/applications/behaviors/transportationexpenses.py:40
 msgid "label_applications_amount_transportation_internalc"
 msgstr "Cantidad aprobada por el Consejo Interno para gastos de transporte"
 
 #. Default: "Approved Amount by Special Comision for Transportation Expenses"
-#: im/applications/behaviors/transportationexpenses.py:29
+#: im/applications/behaviors/transportationexpenses.py:32
 msgid "label_applications_amount_transportation_specialc"
 msgstr "Cantidad aprobada por la Comisión Especial para gastos de transporte"
 
 #. Default: "Amount for Travel Expenses"
-#: im/applications/behaviors/travelexpenses.py:23
+#: im/applications/behaviors/travelexpenses.py:24
 msgid "label_applications_amount_travel"
 msgstr "Cantidad solicitada para gastos de viáticos"
 
 #. Default: "Approved Amount by Consejo Interno for Travel Expenses"
-#: im/applications/behaviors/travelexpenses.py:35
+#: im/applications/behaviors/travelexpenses.py:40
 msgid "label_applications_amount_travel_internalc"
 msgstr "Cantidad aprobada por el Consejo Internop para gastos de viáticos"
 
 #. Default: "Approved Amount by Special Comision for Travel Expenses"
-#: im/applications/behaviors/travelexpenses.py:29
+#: im/applications/behaviors/travelexpenses.py:32
 msgid "label_applications_amount_travel_specialc"
 msgstr "Cantidad aprobada por la Comisión Especial para gastos de viáticos"
 
@@ -178,22 +190,23 @@ msgid "label_applications_coloquio_title"
 msgstr "Nombre del Expositor"
 
 #. Default: "Description Activity"
-#: im/applications/content/activities_budget_application.py:105
+#: im/applications/content/activities_budget_application.py:110
 msgid "label_applications_description_activity"
 msgstr "Descripción de la actividad"
 
 #. Default: "End date of the activity"
-#: im/applications/content/activities_budget_application.py:95
+#: im/applications/content/activities_budget_application.py:100
 msgid "label_applications_end_date"
 msgstr "Fecha de termino de la actividad"
 
-#: im/applications/content/activities_budget_application.py:113
+#: im/applications/content/activities_budget_application.py:118
 #: im/applications/content/moneysack.py:40
 msgid "label_applications_error_datesbefore"
 msgstr "Fechas no válidas: La fecha de termino debe ser mayor que la fecha de inicio, por favor corrígela"
 
 #. Default: "Minute Number"
 #: im/applications/content/activities_budget_application.py:66
+#: im/applications/content/coloquio_application.py:46
 msgid "label_applications_minute"
 msgstr "Número de Acta"
 
@@ -218,17 +231,17 @@ msgid "label_applications_moneysack_title"
 msgstr "Título de la bolsa de recursos"
 
 #. Default: "Place Activity"
-#: im/applications/content/activities_budget_application.py:100
+#: im/applications/content/activities_budget_application.py:105
 msgid "label_applications_place_activity"
 msgstr "Lugar de la actividad"
 
 #. Default: "Responsable(s) Name"
-#: im/applications/content/activities_budget_application.py:77
+#: im/applications/content/activities_budget_application.py:82
 msgid "label_applications_responsables"
 msgstr "Nombre(s) de los responsable(s)"
 
 #. Default: "Start date of the activity"
-#: im/applications/content/activities_budget_application.py:90
+#: im/applications/content/activities_budget_application.py:95
 msgid "label_applications_start_date"
 msgstr "Fecha de inicio de la actividad"
 
@@ -238,7 +251,7 @@ msgid "label_applications_title"
 msgstr "Nombre de la actividad"
 
 #. Default: "Type activity Activity"
-#: im/applications/content/activities_budget_application.py:72
+#: im/applications/content/activities_budget_application.py:77
 msgid "label_applications_typeactivity"
 msgstr "Tipo de la actividad"
 
