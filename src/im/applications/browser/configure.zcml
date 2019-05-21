@@ -6,6 +6,9 @@
 
   <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
   <include package="z3c.jbot" file="meta.zcml" />
+
+  <include file="../permissions.zcml" />
+
   <browser:jbot
       directory="overrides"
       layer="im.applications.interfaces.IImApplicationsLayer"
@@ -17,5 +20,13 @@
       type="plone"
       directory="static"
       />
+
+  <browser:page
+      name="moneysack_view"
+      template="moneysack.pt"
+      for="..content.moneysack.IMoneysack"
+      class=".moneysack.MoneySackView"
+      permission="zope2.View"
+    />
 
 </configure>
