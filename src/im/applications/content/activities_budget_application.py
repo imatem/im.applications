@@ -85,18 +85,18 @@ class IActivitiesBudgetApplication(model.Schema):
 
     amount = schema.Float(
         title=_(u'label_applications_amount', u'Approved Amount'),
-        description=_(u'help_applications_amount', u'Amount when the solicitud was created'),
+        # description=_(u'help_applications_amount', u'Amount when the solicitud was created'),
         required=False,
         min=1.0,
         # max=25000.0,
     )
 
-    start = schema.Datetime(
+    start = schema.Date(
         title=_(u'label_applications_start_date', default=u'Start date of the activity'),
         required=True,
     )
 
-    end = schema.Datetime(
+    end = schema.Date(
         title=_(u'label_applications_end_date', default=u'End date of the activity'),
         required=True,
     )
@@ -128,15 +128,15 @@ class ActivitiesBudgetApplication(Item):
         return (self.end - self.start).days
 
     def getFechaDesde(self):
-        # return DateTime(self.start.__str__())
-        return DateTime(self.start)
+        return DateTime(self.start.__str__())
+        # return DateTime(self.start)
 
     def actaci(self):
         return self.minute
 
     def getFechaHasta(self):
-        # return DateTime(self.end.__str__())
-        return DateTime(self.end)
+        return DateTime(self.end.__str__())
+        # return DateTime(self.end)
 
     def getCiudadPais(self):
         return self.place_activity

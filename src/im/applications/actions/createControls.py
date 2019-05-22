@@ -15,6 +15,8 @@ from zope.interface import implements
 from zope.interface import Interface
 from zope.lifecycleevent import ObjectModifiedEvent
 
+import datetime
+
 
 class ICreateControlsAction(Interface):
     """Interface for the configurable aspects of create controls action.
@@ -66,9 +68,11 @@ class CreateControlsForAppicationsActionExecutor(object):
         data['classification'] = 'NA'
         data['campus'] = 'NA'
         # data['fecha_desde'] = DateTime(obj.start.__str__())
-        data['fecha_desde'] = DateTime(obj.start)
+        # data['fecha_desde'] = DateTime(obj.start)
         data['start'] = obj.start
+        # data['start'] = DateTime(obj.start.__str__())
         data['end'] = obj.end
+        # data['end'] = DateTime(obj.end.__str__())
         data['amount'] = obj.amount
 
         if obj.portal_type == 'Activities Budget Application':
@@ -87,15 +91,20 @@ class CreateControlsForAppicationsActionExecutor(object):
         viaticalcontrol.classification = data['classification']
         viaticalcontrol.campus = data['campus']
         viaticalcontrol.amount = data['amount']
-        viaticalcontrol.start = data['start']
-        viaticalcontrol.end = data['end']
-        today = DateTime()
-        if data['fecha_desde'] - today >= 20:
+        # viaticalcontrol.start = data['start']
+        # viaticalcontrol.end = data['end']
+        viaticalcontrol.start = DateTime(data['start'].__str__())
+        viaticalcontrol.end = DateTime(data['end'].__str__())
+        # today = DateTime()
+        today = datetime.date.today()
+        # if data['fecha_desde'] - today >= 20:
+        if (data['start'] - today).days >= 20:
             viaticalcontrol.payment_type = 'payment'
         else:
             viaticalcontrol.payment_type = 'repayment'
 
-        if data['fecha_desde'] - today >= 20:
+        # if data['fecha_desde'] - today >= 20:
+        if (data['start'] - today).days >= 20:
             viaticalcontrol.timecontrol_type = 'timely'
         else:
             viaticalcontrol.timecontrol_type = 'untimely'
