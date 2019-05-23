@@ -93,8 +93,8 @@ class CreateControlsForAppicationsActionExecutor(object):
         viaticalcontrol.amount = data['amount']
         # viaticalcontrol.start = data['start']
         # viaticalcontrol.end = data['end']
-        viaticalcontrol.start = DateTime(data['start'].__str__())
-        viaticalcontrol.end = DateTime(data['end'].__str__())
+        viaticalcontrol.start = DateTime(data['start'].__str__()).asdatetime().replace(tzinfo=None)
+        viaticalcontrol.end = DateTime(data['end'].__str__()).asdatetime().replace(tzinfo=None)
         # today = DateTime()
         today = datetime.date.today()
         # if data['fecha_desde'] - today >= 20:
