@@ -128,15 +128,15 @@ class ActivitiesBudgetApplication(Item):
         return (self.end - self.start).days
 
     def getFechaDesde(self):
-        return DateTime(self.start.__str__())
-        # return DateTime(self.start)
+        datetzinfo = DateTime(self.start.__str__()).asdatetime().replace(tzinfo=None)
+        return DateTime(datetzinfo)
 
     def actaci(self):
         return self.minute
 
     def getFechaHasta(self):
-        return DateTime(self.end.__str__())
-        # return DateTime(self.end)
+        datetzinfo = DateTime(self.end.__str__()).asdatetime().replace(tzinfo=None)
+        return DateTime(datetzinfo)
 
     def getCiudadPais(self):
         return self.place_activity
