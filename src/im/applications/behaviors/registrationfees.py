@@ -26,16 +26,16 @@ class IRegistrationfees(model.Schema):
         min=0.0,
     )
 
-    directives.read_permission(amount_registration_specialc='Solicitud: Comision Revisa Solicitud')
-    directives.write_permission(amount_registration_specialc='Solicitud: Comision Revisa Solicitud')
+    directives.read_permission(amount_registration_specialc='matem.solicitudes.SolicitudComisionRevisaSolicitud')
+    directives.write_permission(amount_registration_specialc='matem.solicitudes.SolicitudComisionRevisaSolicitud')
     amount_registration_specialc = schema.Float(
         title=_(u'label_applications_amount_registration_specialc', u'Approved Amount by Special Comision for Registration Fees'),
         required=True,
         min=0.0,
     )
 
-    directives.read_permission(amount_registration_internalc='Solicitud: Consejo Revisa Solicitud')
-    directives.write_permission(amount_registration_internalc='Solicitud: Consejo Revisa Solicitud')
+    directives.read_permission(amount_registration_internalc='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
+    directives.write_permission(amount_registration_internalc='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
     amount_registration_internalc = schema.Float(
         title=_(u'label_applications_amount_registration_internalc', u'Approved Amount by Consejo Interno for Registration Fees'),
         required=True,

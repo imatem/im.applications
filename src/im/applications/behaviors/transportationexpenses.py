@@ -26,16 +26,16 @@ class ITransportationexpenses(model.Schema):
         min=0.0,
     )
 
-    directives.read_permission(amount_transportation_specialc='Solicitud: Comision Revisa Solicitud')
-    directives.write_permission(amount_transportation_specialc='Solicitud: Comision Revisa Solicitud')
+    directives.read_permission(amount_transportation_specialc='matem.solicitudes.SolicitudComisionRevisaSolicitud')
+    directives.write_permission(amount_transportation_specialc='matem.solicitudes.SolicitudComisionRevisaSolicitud')
     amount_transportation_specialc = schema.Float(
         title=_(u'label_applications_amount_transportation_specialc', u'Approved Amount by Special Comision for Transportation Expenses'),
         required=True,
         min=0.0,
     )
 
-    directives.read_permission(amount_transportation_internalc='Solicitud: Consejo Revisa Solicitud')
-    directives.write_permission(amount_transportation_internalc='Solicitud: Consejo Revisa Solicitud')
+    directives.read_permission(amount_transportation_internalc='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
+    directives.write_permission(amount_transportation_internalc='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
     amount_transportation_internalc = schema.Float(
         title=_(u'label_applications_amount_transportation_internalc', u'Approved Amount by Consejo Interno for Transportation Expenses'),
         required=True,
@@ -48,6 +48,17 @@ class ITransportationexpenses(model.Schema):
 class Transportationexpenses(object):
     def __init__(self, context):
         self.context = context
+
+
+    @property
+    def amount_transportation(self):
+        if hasattr(self.context, 'amount_transportation'):
+            return self.context.amount_transportation
+        return None
+
+    @amount_transportation.setter
+    def amount_transportation(self, value):
+        self.context.amount_transportation = value
 
     # @property
     # def project(self):

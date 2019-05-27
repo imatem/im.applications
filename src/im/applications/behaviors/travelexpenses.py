@@ -10,6 +10,7 @@ from zope.component import adapter
 from zope.interface import Interface
 from zope.interface import implementer
 from zope.interface import provider
+from zope.interface import alsoProvides
 
 
 class ITravelexpensesMarker(Interface):
@@ -26,16 +27,16 @@ class ITravelexpenses(model.Schema):
         min=0.0,
     )
 
-    directives.read_permission(amount_travel_specialc='Solicitud: Comision Revisa Solicitud')
-    directives.write_permission(amount_travel_specialc='Solicitud: Comision Revisa Solicitud')
+    directives.read_permission(amount_travel_specialc='matem.solicitudes.SolicitudComisionRevisaSolicitud')
+    directives.write_permission(amount_travel_specialc='matem.solicitudes.SolicitudComisionRevisaSolicitud')
     amount_travel_specialc = schema.Float(
         title=_(u'label_applications_amount_travel_specialc', u'Approved Amount by Special Comision for Travel Expenses'),
         required=True,
         min=0.0,
     )
 
-    directives.read_permission(amount_travel_internalc='Solicitud: Consejo Revisa Solicitud')
-    directives.write_permission(amount_travel_internalc='Solicitud: Consejo Revisa Solicitud')
+    directives.read_permission(amount_travel_internalc='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
+    directives.write_permission(amount_travel_internalc='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
     amount_travel_internalc = schema.Float(
         title=_(u'label_applications_amount_travel_internalc', u'Approved Amount by Consejo Interno for Travel Expenses'),
         required=True,
@@ -48,6 +49,16 @@ class ITravelexpenses(model.Schema):
 class Travelexpenses(object):
     def __init__(self, context):
         self.context = context
+
+    @property
+    def amount_travel(self):
+        if hasattr(self.context, 'amount_travel'):
+            return self.context.amount_travel
+        return None
+
+    @amount_travel.setter
+    def amount_travel(self, value):
+        self.context.amount_travel = value
 
     # @property
     # def project(self):
