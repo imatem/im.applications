@@ -60,6 +60,28 @@ class Travelexpenses(object):
     def amount_travel(self, value):
         self.context.amount_travel = value
 
+    @property
+    def amount_travel_specialc(self):
+        if hasattr(self.context, 'amount_travel_specialc'):
+            return self.context.amount_travel_specialc
+        return None
+
+    @amount_travel_specialc.setter
+    def amount_travel_specialc(self, value):
+        self.context.amount_travel_specialc = value
+
+
+    @property
+    def amount_travel_internalc(self):
+        if hasattr(self.context, 'amount_travel_internalc'):
+            return self.context.amount_travel_internalc
+        return None
+
+    @amount_travel_internalc.setter
+    def amount_travel_internalc(self, value):
+        self.context.amount_travel_internalc = value
+
+
     # @property
     # def project(self):
     #     if hasattr(self.context, 'project'):

@@ -49,12 +49,34 @@ class Registrationfees(object):
     def __init__(self, context):
         self.context = context
 
-    # @property
-    # def project(self):
-    #     if hasattr(self.context, 'project'):
-    #         return self.context.project
-    #     return None
 
-    # @project.setter
-    # def project(self, value):
-    #     self.context.project = value
+    @property
+    def amount_registration(self):
+        if hasattr(self.context, 'amount_registration'):
+            return self.context.amount_registration
+        return None
+
+    @amount_registration.setter
+    def amount_registration(self, value):
+        self.context.amount_registration = value
+
+    @property
+    def amount_registration_specialc(self):
+        if hasattr(self.context, 'amount_registration_specialc'):
+            return self.context.amount_registration_specialc
+        return None
+
+    @amount_registration_specialc.setter
+    def amount_registration_specialc(self, value):
+        self.context.amount_registration_specialc = value
+
+    @property
+    def amount_registration_internalc(self):
+        if hasattr(self.context, 'amount_registration_internalc'):
+            return self.context.amount_registration_internalc
+        return None
+
+    @amount_registration_internalc.setter
+    def amount_registration_internalc(self, value):
+        self.context.amount_registration_internalc = value
+
