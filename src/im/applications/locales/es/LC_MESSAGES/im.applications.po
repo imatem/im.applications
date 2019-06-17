@@ -167,7 +167,7 @@ msgstr "Cantidad solicitada para gastos de viáticos"
 #. Default: "Approved Amount by Consejo Interno for Travel Expenses"
 #: im/applications/behaviors/travelexpenses.py:40
 msgid "label_applications_amount_travel_internalc"
-msgstr "Cantidad aprobada por el Consejo Internop para gastos de viáticos"
+msgstr "Cantidad aprobada por el Consejo Interno para gastos de viáticos"
 
 #. Default: "Approved Amount by Special Comision for Travel Expenses"
 #: im/applications/behaviors/travelexpenses.py:32
