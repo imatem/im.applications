@@ -43,6 +43,15 @@ class ITravelexpenses(model.Schema):
         min=0.0,
     )
 
+    directives.read_permission(amount_travel_authorized='matem.solicitudes.SolicitudConsejoCambiaSolicitud')
+    directives.write_permission(amount_travel_authorized='matem.solicitudes.SolicitudConsejoCambiaSolicitud')
+    amount_travel_authorized = schema.Float(
+        title=_(u'label_applications_amount_travel_authorized', u'Approved Amount for Travel Expenses'),
+        required=True,
+        min=0.0,
+    )
+
+
 
 @implementer(ITravelexpenses)
 @adapter(ITravelexpensesMarker)
@@ -80,6 +89,17 @@ class Travelexpenses(object):
     @amount_travel_internalc.setter
     def amount_travel_internalc(self, value):
         self.context.amount_travel_internalc = value
+
+
+    @property
+    def amount_travel_authorized(self):
+        if hasattr(self.context, 'amount_travel_authorized'):
+            return self.context.amount_travel_authorized
+        return None
+
+    @amount_travel_authorized.setter
+    def amount_travel_authorized(self, value):
+        self.context.amount_travel_authorized = value
 
 
     # @property

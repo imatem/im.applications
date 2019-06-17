@@ -42,6 +42,14 @@ class IRegistrationfees(model.Schema):
         min=0.0,
     )
 
+    directives.read_permission(amount_registration_authorized='matem.solicitudes.SolicitudConsejoCambiaSolicitud')
+    directives.write_permission(amount_registration_authorized='matem.solicitudes.SolicitudConsejoCambiaSolicitud')
+    amount_registration_authorized = schema.Float(
+        title=_(u'label_applications_amount_registration_authorized', u'Approved Amount for Registration Fees'),
+        required=True,
+        min=0.0,
+    )
+
 
 @implementer(IRegistrationfees)
 @adapter(IRegistrationfeesMarker)
@@ -79,4 +87,14 @@ class Registrationfees(object):
     @amount_registration_internalc.setter
     def amount_registration_internalc(self, value):
         self.context.amount_registration_internalc = value
+
+    @property
+    def amount_registration_authorized(self):
+        if hasattr(self.context, 'amount_registration_authorized'):
+            return self.context.amount_registration_authorized
+        return None
+
+    @amount_registration_authorized.setter
+    def amount_registration_authorized(self, value):
+        self.context.amount_registration_authorized = value
 
