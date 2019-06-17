@@ -9,6 +9,8 @@ from plone.supermodel import model
 # from z3c.form.browser.radio import RadioFieldWidget
 from zope import schema
 from zope.interface import implementer
+from plone import api
+from Products.CMFCore.utils import getToolByName
 
 # from plone.directives import dexterity
 
@@ -64,12 +66,67 @@ class ColoquioApplication(Item):
     """
 
     def pasarValorComisionado(self):
-        import pdb; pdb.set_trace()
-        # pasaje = self.getCantidadPasaje()
-        # viaticos = self.getCantidadViaticos()
-        # inscripcion = self.getCantidadInscripcion()
+        with api.env.adopt_user(username='admin'):
+            self.amount_travel_specialc = self.amount_travel
+            self.amount_transportation_specialc = self.amount_transportation
 
-        # self.setCantidad_recomendada_pasaje(pasaje)
-        # self.setCantidad_recomendada_viaticos(viaticos)
-        # self.setCantidad_recomendada_inscripcion(inscripcion)
         return True
+
+    def pasarValorConsejero(self):
+        with api.env.adopt_user(username='admin'):
+            self.amount_travel_internalc = self.amount_travel_specialc
+            self.amount_transportation_internalc = self.amount_transportation_specialc
+
+        return True
+
+    def pasarValorAutorizado(self):
+        with api.env.adopt_user(username='admin'):
+            self.amount_travel_authorized = self.amount_travel_internalc
+            self.amount_transportation_authorized = self.amount_transportation_internalc
+        return True
+
+    def actualizarInvestigador(self):
+        # folder = self.aq_parent
+
+        # solicitante = self.getIdOwner()
+
+        # folder.sumarACantidadAutorizada(None, self.getCantidadAutorizadaTotal(), 0, solicitante,
+        #                                 self.getCargo_presupuesto())
+        return True
+
+    def desactualizarInvestigador(self):
+        # folder = self.aq_parent
+
+        # solicitante = self.getIdOwner()
+
+        # folder.restarACantidadAutorizada(None, self.getCantidadAutorizadaTotal(), 0, solicitante)
+        return True
+
+    def getIdOwner(self):
+        return self.getOwner().getId()
+
+    def sendMail(self, state='aprobada'):
+        mt = getToolByName(self, 'portal_membership')
+        member = mt.getMemberById(self.getIdOwner())
+        mail_to = member.getProperty('email', None)
+        mail_from = 'solicitudes@matem.unam.mx'
+        subject = '[matem] Su solicitud ha sido ' + state
+        msg = """
+        Su solicitud de expositor (%s) para el coloquio del %s ha sido %s.
+
+
+        Para más información vaya a %s.
+
+        ------------------------------------------------------------------
+        Éste es un correo electrónico automático, por favor no lo responda
+        """
+        msg = msg.decode('utf-8') % (
+            self.title,
+            self.exposition_date.strftime('%d/%m/%Y'),
+            state,
+            self.absolute_url(),
+        )
+        getToolByName(self, 'MailHost').send(msg, mail_to, mail_from, subject)
+
+        return True
+
