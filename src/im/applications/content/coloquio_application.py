@@ -51,8 +51,8 @@ class IColoquioApplication(model.Schema):
         required=False,
     )
 
-    directives.read_permission(minute='matem.solicitudes.SolicitudComisionRevisaSolicitud')
-    directives.write_permission(minute='matem.solicitudes.SolicitudComisionRevisaSolicitud')
+    directives.read_permission(minute='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
+    directives.write_permission(minute='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
     minute = schema.TextLine(
         title=_(u'label_applications_minute', default=u'Minute Number'),
         description=_(u'help_applications_minute', default=u'Minute of Consejo Interno'),
