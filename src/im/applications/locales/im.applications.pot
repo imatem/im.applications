@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-05-20 15:51+0000\n"
+"POT-Creation-Date: 2019-06-18 16:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,7 +51,7 @@ msgstr ""
 msgid "Solicitud con cargo al presupuesto del IM"
 msgstr ""
 
-#: im/applications/actions/createControls.py:34
+#: im/applications/actions/createControls.py:36
 msgid "The im applications information will be saved in the Uni Admin Section"
 msgstr ""
 
@@ -97,14 +97,9 @@ msgstr ""
 msgid "coloquio_application"
 msgstr ""
 
-#. Default: "Amount when the solicitud was created"
-#: im/applications/content/activities_budget_application.py:88
-msgid "help_applications_amount"
-msgstr ""
-
 #. Default: "Minute of Consejo Interno"
 #: im/applications/content/activities_budget_application.py:67
-#: im/applications/content/coloquio_application.py:47
+#: im/applications/content/coloquio_application.py:58
 msgid "help_applications_minute"
 msgstr ""
 
@@ -123,7 +118,7 @@ msgstr ""
 
 #. Default: "Consejo Interno Date"
 #: im/applications/content/activities_budget_application.py:72
-#: im/applications/content/coloquio_application.py:54
+#: im/applications/content/coloquio_application.py:65
 msgid "label_applications_amount_internalc_date"
 msgstr ""
 
@@ -134,16 +129,21 @@ msgstr ""
 
 #. Default: "Approved Amount by Consejo Interno for Registration Fees"
 #: im/applications/behaviors/registrationfees.py:40
-msgid "label_applications_amount_registration_internalc"
+msgid "label_applications_amount_registration_authorized"
 msgstr ""
 
 #. Default: "Approved Amount by Special Comision for Registration Fees"
 #: im/applications/behaviors/registrationfees.py:32
-msgid "label_applications_amount_registration_specialc"
+msgid "label_applications_amount_registration_recommended"
+msgstr ""
+
+#. Default: "Used Amount for Registration Fees"
+#: im/applications/behaviors/registrationfees.py:48
+msgid "label_applications_amount_registration_used"
 msgstr ""
 
 #. Default: "Special Comision Date"
-#: im/applications/content/coloquio_application.py:39
+#: im/applications/content/coloquio_application.py:43
 msgid "label_applications_amount_specialc_date"
 msgstr ""
 
@@ -154,42 +154,62 @@ msgstr ""
 
 #. Default: "Approved Amount by Consejo Interno for Transportation Expenses"
 #: im/applications/behaviors/transportationexpenses.py:40
-msgid "label_applications_amount_transportation_internalc"
+msgid "label_applications_amount_transportation_authorized"
 msgstr ""
 
 #. Default: "Approved Amount by Special Comision for Transportation Expenses"
 #: im/applications/behaviors/transportationexpenses.py:32
-msgid "label_applications_amount_transportation_specialc"
+msgid "label_applications_amount_transportation_recommended"
+msgstr ""
+
+#. Default: "Used Amount for Transportation Expenses"
+#: im/applications/behaviors/transportationexpenses.py:48
+msgid "label_applications_amount_transportation_used"
 msgstr ""
 
 #. Default: "Amount for Travel Expenses"
-#: im/applications/behaviors/travelexpenses.py:24
+#: im/applications/behaviors/travelexpenses.py:25
 msgid "label_applications_amount_travel"
 msgstr ""
 
 #. Default: "Approved Amount by Consejo Interno for Travel Expenses"
-#: im/applications/behaviors/travelexpenses.py:40
-msgid "label_applications_amount_travel_internalc"
+#: im/applications/behaviors/travelexpenses.py:41
+msgid "label_applications_amount_travel_authorized"
 msgstr ""
 
 #. Default: "Approved Amount by Special Comision for Travel Expenses"
-#: im/applications/behaviors/travelexpenses.py:32
-msgid "label_applications_amount_travel_specialc"
+#: im/applications/behaviors/travelexpenses.py:33
+msgid "label_applications_amount_travel_recommended"
+msgstr ""
+
+#. Default: "Used Amount for Travel Expenses"
+#: im/applications/behaviors/travelexpenses.py:49
+msgid "label_applications_amount_travel_used"
 msgstr ""
 
 #. Default: "Exposition Date"
-#: im/applications/content/coloquio_application.py:32
+#: im/applications/content/coloquio_application.py:36
 msgid "label_applications_coloquio_exposition_date"
 msgstr ""
 
 #. Default: "Speaker Institution"
-#: im/applications/content/coloquio_application.py:27
+#: im/applications/content/coloquio_application.py:31
 msgid "label_applications_coloquio_institution"
 msgstr ""
 
 #. Default: "Speaker Name"
-#: im/applications/content/coloquio_application.py:22
+#: im/applications/content/coloquio_application.py:26
 msgid "label_applications_coloquio_title"
+msgstr ""
+
+#. Default: "Consejo Interno Comments"
+#: im/applications/content/coloquio_application.py:72
+msgid "label_applications_comments_authorized"
+msgstr ""
+
+#. Default: "Special Comision Comments"
+#: im/applications/content/coloquio_application.py:50
+msgid "label_applications_comments_recommended"
 msgstr ""
 
 #. Default: "Description Activity"
@@ -209,7 +229,7 @@ msgstr ""
 
 #. Default: "Minute Number"
 #: im/applications/content/activities_budget_application.py:66
-#: im/applications/content/coloquio_application.py:46
+#: im/applications/content/coloquio_application.py:57
 msgid "label_applications_minute"
 msgstr ""
 
