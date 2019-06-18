@@ -29,7 +29,7 @@ class IRegistrationfees(model.Schema):
     directives.read_permission(amount_registration_recommended='matem.solicitudes.SolicitudComisionRevisaSolicitud')
     directives.write_permission(amount_registration_recommended='matem.solicitudes.SolicitudComisionRevisaSolicitud')
     amount_registration_recommended = schema.Float(
-        title=_(u'label_applications_amount_registration_specialc', u'Approved Amount by Special Comision for Registration Fees'),
+        title=_(u'label_applications_amount_registration_recommended', u'Approved Amount by Special Comision for Registration Fees'),
         required=True,
         min=0.0,
     )
@@ -37,7 +37,7 @@ class IRegistrationfees(model.Schema):
     directives.read_permission(amount_registration_authorized='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
     directives.write_permission(amount_registration_authorized='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
     amount_registration_authorized = schema.Float(
-        title=_(u'label_applications_amount_registration_internalc', u'Approved Amount by Consejo Interno for Registration Fees'),
+        title=_(u'label_applications_amount_registration_authorized', u'Approved Amount by Consejo Interno for Registration Fees'),
         required=True,
         min=0.0,
     )
@@ -45,7 +45,7 @@ class IRegistrationfees(model.Schema):
     directives.read_permission(amount_registration_used='matem.solicitudes.SolicitudConsejoCambiaSolicitud')
     directives.write_permission(amount_registration_used='matem.solicitudes.SolicitudConsejoCambiaSolicitud')
     amount_registration_used = schema.Float(
-        title=_(u'label_applications_amount_registration_authorized', u'Approved Amount for Registration Fees'),
+        title=_(u'label_applications_amount_registration_used', u'Used Amount for Registration Fees'),
         required=True,
         min=0.0,
     )

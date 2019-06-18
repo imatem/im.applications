@@ -30,7 +30,7 @@ class ITravelexpenses(model.Schema):
     directives.read_permission(amount_travel_recommended='matem.solicitudes.SolicitudComisionRevisaSolicitud')
     directives.write_permission(amount_travel_recommended='matem.solicitudes.SolicitudComisionRevisaSolicitud')
     amount_travel_recommended = schema.Float(
-        title=_(u'label_applications_amount_travel_specialc', u'Approved Amount by Special Comision for Travel Expenses'),
+        title=_(u'label_applications_amount_travel_recommended', u'Approved Amount by Special Comision for Travel Expenses'),
         required=True,
         min=0.0,
     )
@@ -38,7 +38,7 @@ class ITravelexpenses(model.Schema):
     directives.read_permission(amount_travel_authorized='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
     directives.write_permission(amount_travel_authorized='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
     amount_travel_authorized = schema.Float(
-        title=_(u'label_applications_amount_travel_internalc', u'Approved Amount by Consejo Interno for Travel Expenses'),
+        title=_(u'label_applications_amount_travel_authorized', u'Approved Amount by Consejo Interno for Travel Expenses'),
         required=True,
         min=0.0,
     )
@@ -46,7 +46,7 @@ class ITravelexpenses(model.Schema):
     directives.read_permission(amount_travel_used='matem.solicitudes.SolicitudConsejoCambiaSolicitud')
     directives.write_permission(amount_travel_used='matem.solicitudes.SolicitudConsejoCambiaSolicitud')
     amount_travel_used = schema.Float(
-        title=_(u'label_applications_amount_travel_authorized', u'Approved Amount for Travel Expenses'),
+        title=_(u'label_applications_amount_travel_used', u'Used Amount for Travel Expenses'),
         required=True,
         min=0.0,
     )

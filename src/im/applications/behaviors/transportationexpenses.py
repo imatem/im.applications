@@ -45,7 +45,7 @@ class ITransportationexpenses(model.Schema):
     directives.read_permission(amount_transportation_used='matem.solicitudes.SolicitudConsejoCambiaSolicitud')
     directives.write_permission(amount_transportation_used='matem.solicitudes.SolicitudConsejoCambiaSolicitud')
     amount_transportation_used = schema.Float(
-        title=_(u'label_applications_amount_transportation_used', u'Approved Amount for Transportation Expenses'),
+        title=_(u'label_applications_amount_transportation_used', u'Used Amount for Transportation Expenses'),
         required=True,
         min=0.0,
     )
