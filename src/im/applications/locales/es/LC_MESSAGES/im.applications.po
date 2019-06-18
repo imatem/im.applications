@@ -152,7 +152,7 @@ msgstr "Cantidad solicitida para gastos de transporte"
 #. Default: "Approved Amount by Consejo Interno for Transportation Expenses"
 #: im/applications/behaviors/transportationexpenses.py:40
 msgid "label_applications_amount_transportation_authorized"
-msgstr "Cantidad aprobada por el Consejo Interno para Gastos de Transporte"
+msgstr "Cantidad aprobada por el Consejo Interno para gastos de transporte"
 
 #. Default: "Approved Amount by Special Comision for Transportation Expenses"
 #: im/applications/behaviors/transportationexpenses.py:32
