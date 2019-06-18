@@ -26,25 +26,25 @@ class IRegistrationfees(model.Schema):
         min=0.0,
     )
 
-    directives.read_permission(amount_registration_specialc='matem.solicitudes.SolicitudComisionRevisaSolicitud')
-    directives.write_permission(amount_registration_specialc='matem.solicitudes.SolicitudComisionRevisaSolicitud')
-    amount_registration_specialc = schema.Float(
+    directives.read_permission(amount_registration_recommended='matem.solicitudes.SolicitudComisionRevisaSolicitud')
+    directives.write_permission(amount_registration_recommended='matem.solicitudes.SolicitudComisionRevisaSolicitud')
+    amount_registration_recommended = schema.Float(
         title=_(u'label_applications_amount_registration_specialc', u'Approved Amount by Special Comision for Registration Fees'),
         required=True,
         min=0.0,
     )
 
-    directives.read_permission(amount_registration_internalc='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
-    directives.write_permission(amount_registration_internalc='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
-    amount_registration_internalc = schema.Float(
+    directives.read_permission(amount_registration_authorized='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
+    directives.write_permission(amount_registration_authorized='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
+    amount_registration_authorized = schema.Float(
         title=_(u'label_applications_amount_registration_internalc', u'Approved Amount by Consejo Interno for Registration Fees'),
         required=True,
         min=0.0,
     )
 
-    directives.read_permission(amount_registration_authorized='matem.solicitudes.SolicitudConsejoCambiaSolicitud')
-    directives.write_permission(amount_registration_authorized='matem.solicitudes.SolicitudConsejoCambiaSolicitud')
-    amount_registration_authorized = schema.Float(
+    directives.read_permission(amount_registration_used='matem.solicitudes.SolicitudConsejoCambiaSolicitud')
+    directives.write_permission(amount_registration_used='matem.solicitudes.SolicitudConsejoCambiaSolicitud')
+    amount_registration_used = schema.Float(
         title=_(u'label_applications_amount_registration_authorized', u'Approved Amount for Registration Fees'),
         required=True,
         min=0.0,
@@ -69,24 +69,14 @@ class Registrationfees(object):
         self.context.amount_registration = value
 
     @property
-    def amount_registration_specialc(self):
-        if hasattr(self.context, 'amount_registration_specialc'):
-            return self.context.amount_registration_specialc
+    def amount_registration_recommended(self):
+        if hasattr(self.context, 'amount_registration_recommended'):
+            return self.context.amount_registration_recommended
         return None
 
-    @amount_registration_specialc.setter
-    def amount_registration_specialc(self, value):
-        self.context.amount_registration_specialc = value
-
-    @property
-    def amount_registration_internalc(self):
-        if hasattr(self.context, 'amount_registration_internalc'):
-            return self.context.amount_registration_internalc
-        return None
-
-    @amount_registration_internalc.setter
-    def amount_registration_internalc(self, value):
-        self.context.amount_registration_internalc = value
+    @amount_registration_recommended.setter
+    def amount_registration_recommended(self, value):
+        self.context.amount_registration_recommended = value
 
     @property
     def amount_registration_authorized(self):
@@ -97,4 +87,14 @@ class Registrationfees(object):
     @amount_registration_authorized.setter
     def amount_registration_authorized(self, value):
         self.context.amount_registration_authorized = value
+
+    @property
+    def amount_registration_used(self):
+        if hasattr(self.context, 'amount_registration_used'):
+            return self.context.amount_registration_used
+        return None
+
+    @amount_registration_used.setter
+    def amount_registration_used(self, value):
+        self.context.amount_registration_used = value
 
