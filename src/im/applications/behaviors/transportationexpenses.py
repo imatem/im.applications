@@ -26,25 +26,25 @@ class ITransportationexpenses(model.Schema):
         min=0.0,
     )
 
-    directives.read_permission(amount_transportation_specialc='matem.solicitudes.SolicitudComisionRevisaSolicitud')
-    directives.write_permission(amount_transportation_specialc='matem.solicitudes.SolicitudComisionRevisaSolicitud')
-    amount_transportation_specialc = schema.Float(
+    directives.read_permission(amount_transportation_recommended='matem.solicitudes.SolicitudComisionRevisaSolicitud')
+    directives.write_permission(amount_transportation_recommended='matem.solicitudes.SolicitudComisionRevisaSolicitud')
+    amount_transportation_recommended = schema.Float(
         title=_(u'label_applications_amount_transportation_specialc', u'Approved Amount by Special Comision for Transportation Expenses'),
         required=True,
         min=0.0,
     )
 
-    directives.read_permission(amount_transportation_internalc='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
-    directives.write_permission(amount_transportation_internalc='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
-    amount_transportation_internalc = schema.Float(
+    directives.read_permission(amount_transportation_authorized='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
+    directives.write_permission(amount_transportation_authorized='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
+    amount_transportation_authorized = schema.Float(
         title=_(u'label_applications_amount_transportation_internalc', u'Approved Amount by Consejo Interno for Transportation Expenses'),
         required=True,
         min=0.0,
     )
 
-    directives.read_permission(amount_transportation_authorized='matem.solicitudes.SolicitudConsejoCambiaSolicitud')
-    directives.write_permission(amount_transportation_authorized='matem.solicitudes.SolicitudConsejoCambiaSolicitud')
-    amount_transportation_authorized = schema.Float(
+    directives.read_permission(amount_transportation_used='matem.solicitudes.SolicitudConsejoCambiaSolicitud')
+    directives.write_permission(amount_transportation_used='matem.solicitudes.SolicitudConsejoCambiaSolicitud')
+    amount_transportation_used = schema.Float(
         title=_(u'label_applications_amount_transportation_authorized', u'Approved Amount for Transportation Expenses'),
         required=True,
         min=0.0,
@@ -70,24 +70,14 @@ class Transportationexpenses(object):
 
 
     @property
-    def amount_transportation_specialc(self):
-        if hasattr(self.context, 'amount_transportation_specialc'):
-            return self.context.amount_transportation_specialc
+    def amount_transportation_recommended(self):
+        if hasattr(self.context, 'amount_transportation_recommended'):
+            return self.context.amount_transportation_recommended
         return None
 
-    @amount_transportation_specialc.setter
-    def amount_transportation_specialc(self, value):
-        self.context.amount_transportation_specialc = value
-
-    @property
-    def amount_transportation_internalc(self):
-        if hasattr(self.context, 'amount_transportation_internalc'):
-            return self.context.amount_transportation_internalc
-        return None
-
-    @amount_transportation_internalc.setter
-    def amount_transportation_internalc(self, value):
-        self.context.amount_transportation_internalc = value
+    @amount_transportation_recommended.setter
+    def amount_transportation_recommended(self, value):
+        self.context.amount_transportation_recommended = value
 
     @property
     def amount_transportation_authorized(self):
@@ -98,3 +88,13 @@ class Transportationexpenses(object):
     @amount_transportation_authorized.setter
     def amount_transportation_authorized(self, value):
         self.context.amount_transportation_authorized = value
+
+    @property
+    def amount_transportation_used(self):
+        if hasattr(self.context, 'amount_transportation_used'):
+            return self.context.amount_transportation_used
+        return None
+
+    @amount_transportation_used.setter
+    def amount_transportation_used(self, value):
+        self.context.amount_transportation_used = value
