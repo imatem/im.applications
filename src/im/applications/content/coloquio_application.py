@@ -44,6 +44,13 @@ class IColoquioApplication(model.Schema):
         required=True,
     )
 
+    directives.read_permission(comments_recommended='matem.solicitudes.SolicitudComisionRevisaSolicitud')
+    directives.write_permission(comments_recommended='matem.solicitudes.SolicitudComisionRevisaSolicitud')
+    comments_recommended = schema.Text(
+        title=_(u'label_applications_comments_recommended', u'Special Comision Comments'),
+        required=False,
+    )
+
     directives.read_permission(minute='matem.solicitudes.SolicitudComisionRevisaSolicitud')
     directives.write_permission(minute='matem.solicitudes.SolicitudComisionRevisaSolicitud')
     minute = schema.TextLine(
@@ -57,6 +64,13 @@ class IColoquioApplication(model.Schema):
     internalc_date = schema.Date(
         title=_(u'label_applications_amount_internalc_date', default=u'Consejo Interno Date'),
         required=True,
+    )
+
+    directives.read_permission(comments_authorized='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
+    directives.write_permission(comments_authorized='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
+    comments_authorized = schema.Text(
+        title=_(u'label_applications_comments_authorized', u'Consejo Interno Comments'),
+        required=False,
     )
 
 
