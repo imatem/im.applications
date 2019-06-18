@@ -27,25 +27,25 @@ class ITravelexpenses(model.Schema):
         min=0.0,
     )
 
-    directives.read_permission(amount_travel_specialc='matem.solicitudes.SolicitudComisionRevisaSolicitud')
-    directives.write_permission(amount_travel_specialc='matem.solicitudes.SolicitudComisionRevisaSolicitud')
-    amount_travel_specialc = schema.Float(
+    directives.read_permission(amount_travel_recommended='matem.solicitudes.SolicitudComisionRevisaSolicitud')
+    directives.write_permission(amount_travel_recommended='matem.solicitudes.SolicitudComisionRevisaSolicitud')
+    amount_travel_recommended = schema.Float(
         title=_(u'label_applications_amount_travel_specialc', u'Approved Amount by Special Comision for Travel Expenses'),
         required=True,
         min=0.0,
     )
 
-    directives.read_permission(amount_travel_internalc='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
-    directives.write_permission(amount_travel_internalc='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
-    amount_travel_internalc = schema.Float(
+    directives.read_permission(amount_travel_authorized='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
+    directives.write_permission(amount_travel_authorized='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
+    amount_travel_authorized = schema.Float(
         title=_(u'label_applications_amount_travel_internalc', u'Approved Amount by Consejo Interno for Travel Expenses'),
         required=True,
         min=0.0,
     )
 
-    directives.read_permission(amount_travel_authorized='matem.solicitudes.SolicitudConsejoCambiaSolicitud')
-    directives.write_permission(amount_travel_authorized='matem.solicitudes.SolicitudConsejoCambiaSolicitud')
-    amount_travel_authorized = schema.Float(
+    directives.read_permission(amount_travel_used='matem.solicitudes.SolicitudConsejoCambiaSolicitud')
+    directives.write_permission(amount_travel_used='matem.solicitudes.SolicitudConsejoCambiaSolicitud')
+    amount_travel_used = schema.Float(
         title=_(u'label_applications_amount_travel_authorized', u'Approved Amount for Travel Expenses'),
         required=True,
         min=0.0,
@@ -70,25 +70,14 @@ class Travelexpenses(object):
         self.context.amount_travel = value
 
     @property
-    def amount_travel_specialc(self):
-        if hasattr(self.context, 'amount_travel_specialc'):
-            return self.context.amount_travel_specialc
+    def amount_travel_recommended(self):
+        if hasattr(self.context, 'amount_travel_recommended'):
+            return self.context.amount_travel_recommended
         return None
 
-    @amount_travel_specialc.setter
-    def amount_travel_specialc(self, value):
-        self.context.amount_travel_specialc = value
-
-
-    @property
-    def amount_travel_internalc(self):
-        if hasattr(self.context, 'amount_travel_internalc'):
-            return self.context.amount_travel_internalc
-        return None
-
-    @amount_travel_internalc.setter
-    def amount_travel_internalc(self, value):
-        self.context.amount_travel_internalc = value
+    @amount_travel_recommended.setter
+    def amount_travel_recommended(self, value):
+        self.context.amount_travel_recommended = value
 
 
     @property
@@ -100,6 +89,17 @@ class Travelexpenses(object):
     @amount_travel_authorized.setter
     def amount_travel_authorized(self, value):
         self.context.amount_travel_authorized = value
+
+
+    @property
+    def amount_travel_used(self):
+        if hasattr(self.context, 'amount_travel_used'):
+            return self.context.amount_travel_used
+        return None
+
+    @amount_travel_used.setter
+    def amount_travel_used(self, value):
+        self.context.amount_travel_used = value
 
 
     # @property

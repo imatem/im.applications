@@ -67,21 +67,21 @@ class ColoquioApplication(Item):
 
     def pasarValorComisionado(self):
         with api.env.adopt_user(username='admin'):
-            self.amount_travel_specialc = self.amount_travel
+            self.amount_travel_recommended = self.amount_travel
             self.amount_transportation_recommended = self.amount_transportation
 
         return True
 
     def pasarValorConsejero(self):
         with api.env.adopt_user(username='admin'):
-            self.amount_travel_internalc = self.amount_travel_specialc
+            self.amount_travel_authorized = self.amount_travel_recommended
             self.amount_transportation_authorized = self.amount_transportation_recommended
 
         return True
 
     def pasarValorAutorizado(self):
         with api.env.adopt_user(username='admin'):
-            self.amount_travel_authorized = self.amount_travel_internalc
+            self.amount_travel_used = self.amount_travel_authorized
             self.amount_transportation_used = self.amount_transportation_authorized
         return True
 
