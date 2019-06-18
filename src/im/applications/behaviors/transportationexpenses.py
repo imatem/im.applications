@@ -29,23 +29,37 @@ class ITransportationexpenses(model.Schema):
     directives.read_permission(amount_transportation_recommended='matem.solicitudes.SolicitudComisionRevisaSolicitud')
     directives.write_permission(amount_transportation_recommended='matem.solicitudes.SolicitudComisionRevisaSolicitud')
     amount_transportation_recommended = schema.Float(
-        title=_(u'label_applications_amount_transportation_specialc', u'Approved Amount by Special Comision for Transportation Expenses'),
+        title=_(u'label_applications_amount_transportation_recommended', u'Approved Amount by Special Comision for Transportation Expenses'),
         required=True,
         min=0.0,
+    )
+
+    directives.read_permission(comments_recommended='matem.solicitudes.SolicitudComisionRevisaSolicitud')
+    directives.write_permission(comments_recommended='matem.solicitudes.SolicitudComisionRevisaSolicitud')
+    comments_recommended = schema.Text(
+        title=_(u'label_applications_comments_recommended', u'Special Comision Comments'),
+        required=False,
     )
 
     directives.read_permission(amount_transportation_authorized='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
     directives.write_permission(amount_transportation_authorized='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
     amount_transportation_authorized = schema.Float(
-        title=_(u'label_applications_amount_transportation_internalc', u'Approved Amount by Consejo Interno for Transportation Expenses'),
+        title=_(u'label_applications_amount_transportation_authorized', u'Approved Amount by Consejo Interno for Transportation Expenses'),
         required=True,
         min=0.0,
+    )
+
+    directives.read_permission(comments_authorized='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
+    directives.write_permission(comments_authorized='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
+    comments_authorized = schema.Text(
+        title=_(u'label_applications_comments_authorized', u'Consejo Interno Comments'),
+        required=False,
     )
 
     directives.read_permission(amount_transportation_used='matem.solicitudes.SolicitudConsejoCambiaSolicitud')
     directives.write_permission(amount_transportation_used='matem.solicitudes.SolicitudConsejoCambiaSolicitud')
     amount_transportation_used = schema.Float(
-        title=_(u'label_applications_amount_transportation_authorized', u'Approved Amount for Transportation Expenses'),
+        title=_(u'label_applications_amount_transportation_used', u'Approved Amount for Transportation Expenses'),
         required=True,
         min=0.0,
     )
