@@ -37,37 +37,37 @@ class IColoquioApplication(model.Schema):
         required=True,
     )
 
-    directives.read_permission(specialc_date='matem.solicitudes.SolicitudComisionRevisaSolicitud')
-    directives.write_permission(specialc_date='matem.solicitudes.SolicitudComisionRevisaSolicitud')
+    directives.read_permission(specialc_date='im.applications.ViewComision')
+    directives.write_permission(specialc_date='im.applications.EditComision')
     specialc_date = schema.Date(
         title=_(u'label_applications_amount_specialc_date', default=u'Special Comision Date'),
         required=True,
     )
 
-    directives.read_permission(comments_recommended='matem.solicitudes.SolicitudComisionRevisaSolicitud')
-    directives.write_permission(comments_recommended='matem.solicitudes.SolicitudComisionRevisaSolicitud')
+    directives.read_permission(comments_recommended='im.applications.ViewComision')
+    directives.write_permission(comments_recommended='im.applications.EditComision')
     comments_recommended = schema.Text(
         title=_(u'label_applications_comments_recommended', u'Special Comision Comments'),
         required=False,
     )
 
-    directives.read_permission(minute='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
-    directives.write_permission(minute='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
+    directives.read_permission(minute='im.applications.ViewConsejo')
+    directives.write_permission(minute='im.applications.EditConsejo')
     minute = schema.TextLine(
         title=_(u'label_applications_minute', default=u'Minute Number'),
         description=_(u'help_applications_minute', default=u'Minute of Consejo Interno'),
         required=False,
     )
 
-    directives.read_permission(internalc_date='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
-    directives.write_permission(internalc_date='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
+    directives.read_permission(internalc_date='im.applications.ViewConsejo')
+    directives.write_permission(internalc_date='im.applications.EditConsejo')
     internalc_date = schema.Date(
         title=_(u'label_applications_amount_internalc_date', default=u'Consejo Interno Date'),
         required=True,
     )
 
-    directives.read_permission(comments_authorized='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
-    directives.write_permission(comments_authorized='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
+    directives.read_permission(comments_authorized='im.applications.ViewConsejo')
+    directives.write_permission(comments_authorized='im.applications.EditConsejo')
     comments_authorized = schema.Text(
         title=_(u'label_applications_comments_authorized', u'Consejo Interno Comments'),
         required=False,

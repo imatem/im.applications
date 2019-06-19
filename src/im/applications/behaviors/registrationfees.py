@@ -26,24 +26,24 @@ class IRegistrationfees(model.Schema):
         min=0.0,
     )
 
-    directives.read_permission(amount_registration_recommended='matem.solicitudes.SolicitudComisionRevisaSolicitud')
-    directives.write_permission(amount_registration_recommended='matem.solicitudes.SolicitudComisionRevisaSolicitud')
+    directives.read_permission(amount_registration_recommended='im.applications.ViewComision')
+    directives.write_permission(amount_registration_recommended='im.applications.EditComision')
     amount_registration_recommended = schema.Float(
         title=_(u'label_applications_amount_registration_recommended', u'Approved Amount by Special Comision for Registration Fees'),
         required=True,
         min=0.0,
     )
 
-    directives.read_permission(amount_registration_authorized='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
-    directives.write_permission(amount_registration_authorized='matem.solicitudes.SolicitudConsejoRevisaSolicitud')
+    directives.read_permission(amount_registration_authorized='im.applications.ViewConsejo')
+    directives.write_permission(amount_registration_authorized='im.applications.EditConsejo')
     amount_registration_authorized = schema.Float(
         title=_(u'label_applications_amount_registration_authorized', u'Approved Amount by Consejo Interno for Registration Fees'),
         required=True,
         min=0.0,
     )
 
-    directives.read_permission(amount_registration_used='matem.solicitudes.SolicitudConsejoCambiaSolicitud')
-    directives.write_permission(amount_registration_used='matem.solicitudes.SolicitudConsejoCambiaSolicitud')
+    directives.read_permission(amount_registration_used='im.applications.ViewConsejo')
+    directives.write_permission(amount_registration_used='im.applications.EditConsejo')
     amount_registration_used = schema.Float(
         title=_(u'label_applications_amount_registration_used', u'Used Amount for Registration Fees'),
         required=True,
