@@ -11,17 +11,36 @@
         title="im.applications: Add ColoquioApplication"
     />
 
-
     <permission
         id="im.applications.AddMoneysack"
         title="im.applications: Add Moneysack"
     />
 
-
     <permission
         id="im.applications.AddActivitiesBudgetApplication"
         title="im.applications: Add ActivitiesBudgetApplication"
     />
+
+    <permission
+        id="im.applications.ViewComision"
+        title="im.applications: View Comision"
+    />
+
+    <permission
+        id="im.applications.ViewConsejo"
+        title="im.applications: View Consejo"
+    />
+
+    <permission
+        id="im.applications.EditComision"
+        title="im.applications: Edit Comision"
+    />
+
+    <permission
+        id="im.applications.EditConsejo"
+        title="im.applications: Edit Consejo"
+    />
+
 
 
 

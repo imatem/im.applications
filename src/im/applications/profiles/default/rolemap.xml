@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <rolemap>
+  <roles>
+    <role name="IMConsejero"/>
+  </roles>
   <permissions>
   <!-- -*- extra stuff goes here -*- -->
 
@@ -27,5 +30,27 @@
     </permission>
 
 
+    <permission name="im.applications: View Consejo" acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="IMConsejero"/>
+    </permission>
+
+    <permission name="im.applications: View Comision">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+    </permission>
+
+
+    <permission name="im.applications: Edit Consejo">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+    </permission>
+
+
+    <permission name="im.applications: Edit Comision">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+    </permission>
   </permissions>
 </rolemap>
