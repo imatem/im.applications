@@ -17,8 +17,6 @@
     <permission name="im.applications: Add Moneysack" acquire="True">
       <role name="Manager"/>
       <role name="Site Administrator"/>
-      <!-- <role name="Owner"/> -->
-      <!-- <role name="Contributor"/> -->
     </permission>
 
 
@@ -36,19 +34,19 @@
       <role name="IMConsejero"/>
     </permission>
 
-    <permission name="im.applications: View Comision">
+    <permission name="im.applications: View Comision" acquire="True">
       <role name="Manager"/>
       <role name="Site Administrator"/>
     </permission>
 
 
-    <permission name="im.applications: Edit Consejo">
+    <permission name="im.applications: Edit Consejo" acquire="True">
       <role name="Manager"/>
       <role name="Site Administrator"/>
     </permission>
 
 
-    <permission name="im.applications: Edit Comision">
+    <permission name="im.applications: Edit Comision" acquire="True">
       <role name="Manager"/>
       <role name="Site Administrator"/>
     </permission>
