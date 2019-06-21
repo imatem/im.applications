@@ -38,6 +38,13 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <genericsetup:importStep
+        name="im.applications-postInstall"
+        title="im.applications post_install import step"
+        description="Post install import step from im.applications"
+        handler=".setuphandlers.post_install">
+    </genericsetup:importStep>
+
   <utility
       factory=".setuphandlers.HiddenProfiles"
       name="im.applications-hiddenprofiles"
