@@ -2,6 +2,7 @@
 from Products.CMFPlone.interfaces import INonInstallable
 from zope.interface import implementer
 from plone import api
+from im.applications.utilities import allGroupsCommissions
 
 
 @implementer(INonInstallable)
@@ -117,3 +118,24 @@ def post_install(context):
 def uninstall(context):
     """Uninstall script"""
     # Do something at the end of the uninstallation of this package.
+    # actual_groups = [gp.id for gp in api.group.get_groups()]
+
+    # for gcommissioners in allGroupsCommissions['commissioners']:
+    #     if gcommissioners in actual_groups:
+    #         api.group.delete(groupname=gcommissioners)
+
+    # for gassistantscommissioners in allGroupsCommissions['assistants']:
+    #     if gassistantscommissioners in actual_groups:
+    #         api.group.delete(groupname=gassistantscommissioners)
+
+
+
+
+
+
+
+
+
+
+
+
