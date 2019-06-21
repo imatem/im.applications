@@ -13,14 +13,21 @@ from plone import api
 from Products.CMFCore.utils import getToolByName
 
 # from plone.directives import dexterity
-
-
-# from im.applications import _
+from im.applications.utilities import cleanPermissionsCommissions
+from im.applications.utilities import getGroupsCommision
 
 
 class IColoquioApplication(model.Schema):
     """ Marker interface and Dexterity Python Schema for ColoquioApplication
     """
+
+    directives.read_permission(campus='cmf.ManagePortal')
+    directives.write_permission(campus='cmf.ManagePortal')
+    campus = schema.Choice(
+        title=_(u'label_applications_campus', default=u'Campus Applications'),
+        vocabulary='im.applications.IMCampus',
+        required=False,
+    )
 
     title = schema.TextLine(
         title=_(u'label_applications_coloquio_title', default=u'Speaker Name'),
@@ -78,7 +85,6 @@ class IColoquioApplication(model.Schema):
 class ColoquioApplication(Item):
     """
     """
-
     def hasSpecialDate(self):
         if self.specialc_date:
             return True
@@ -90,6 +96,66 @@ class ColoquioApplication(Item):
             return True
 
         return False
+
+    def getIdOwner(self):
+        return self.getOwner().getId()
+
+    def prepareToCommission(self):
+
+        with api.env.adopt_user(username='admin'):
+            self.amount_travel_recommended = self.amount_travel
+            self.amount_transportation_recommended = self.amount_transportation
+            if self.campus:
+                cleanPermissionsCommissions(self.context)
+                groups = getGroupsCommision(self.campus)
+
+            else:
+                ownerid = self.getIdOwner()
+                member = api.content.find(portal_type='FSDPerson', id=ownerid)[0].getObject()
+                self.campus = member.sede
+                groups = getGroupsCommision(member.sede)
+
+            api.group.grant_roles(groupname=groups['commissioners'], roles=['Reader'], obj=self.context)
+            api.group.grant_roles(groupname=groups['assistants'], roles=['Reader', 'Editor'], obj=self.context)
+
+    def prepareToConsejo(self):
+        with api.env.adopt_user(username='admin'):
+            self.amount_travel_authorized = self.amount_travel_recommended
+            self.amount_transportation_authorized = self.amount_transportation_recommended
+
+            if self.campus:
+                groups = getGroupsCommision(self.campus)
+
+            else:
+                ownerid = self.getIdOwner()
+                member = api.content.find(portal_type='FSDPerson', id=ownerid)[0].getObject()
+                self.campus = member.sede
+                groups = getGroupsCommision(member.sede)
+
+            cleanPermissionsCommissions(self.context)
+            api.group.grant_roles(groupname=groups['commissioners'], roles=['Reader'], obj=self.context)
+            api.group.grant_roles(groupname=groups['assistants'], roles=['Reader'], obj=self.context)
+            api.group.grant_roles(groupname='imconsejeros', roles=['IMConsejero'], obj=self.context)
+            api.group.grant_roles(groupname='assistants_imconsejeros', roles=['Reader', 'Editor'], obj=self.context)
+
+        return True
+
+    def returnToCommission(self):
+        if self.campus:
+                groups = getGroupsCommision(self.campus)
+
+        else:
+            ownerid = self.getIdOwner()
+            member = api.content.find(portal_type='FSDPerson', id=ownerid)[0].getObject()
+            self.campus = member.sede
+            groups = getGroupsCommision(member.sede)
+
+        cleanPermissionsCommissions(self.context)
+        api.group.revoke_roles(groupname='imconsejeros', roles=['IMConsejero'], obj=self.context)
+        api.group.revoke_roles(groupname='assistants_imconsejeros', roles=['Editor'], obj=self.context)
+
+        api.group.grant_roles(groupname=groups['commissioners'], roles=['Reader'], obj=self.context)
+        api.group.grant_roles(groupname=groups['assistants'], roles=['Reader', 'Editor'], obj=self.context)
 
 
     # ########################################################################
@@ -131,8 +197,7 @@ class ColoquioApplication(Item):
         # folder.restarACantidadAutorizada(None, self.getCantidadAutorizadaTotal(), 0, solicitante)
         return True
 
-    def getIdOwner(self):
-        return self.getOwner().getId()
+
 
     def sendMail(self, state='aprobada'):
         mt = getToolByName(self, 'portal_membership')
