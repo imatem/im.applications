@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from zope.interface import directlyProvides
 from zope.schema.interfaces import IVocabularyFactory
+from zope.schema.vocabulary import SimpleVocabulary
 
 FSD_VOCABULARIES = True
 try:
@@ -12,10 +13,9 @@ except ImportError:
 
 def IMCampusVocabulary(context):
     if FSD_VOCABULARIES:
-        return SedeVocabularyFactory
-        # campusvocab = SedeVocabularyFactory(context)
-        # items = campusvocab._terms
+        campusvocab = SedeVocabularyFactory(context)
+        items = campusvocab._terms
         # items.append(SimpleTerm('NA', 'NA', 'N/A'))
-        # return SimpleVocabulary(items)
+        return SimpleVocabulary(items)
     return None
 directlyProvides(IMCampusVocabulary, IVocabularyFactory)
