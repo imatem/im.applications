@@ -47,5 +47,11 @@
 
     <include package=".behaviors" />
 
+  <!-- Vocabularies -->
+  <utility
+      component=".vocabularies.IMCampusVocabulary"
+      name="im.applications.IMCampus"
+  />
+
 
 </configure>
