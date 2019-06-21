@@ -14,25 +14,25 @@ def allGroupsCommissions():
 def getGroupsCommision(campusOwner):
     if campusOwner == 'Cuernavaca':
         return {
-            'commissioners': api.group.get(groupname='cuer_commissioners'),
-            'assistants': api.group.get(groupname='cuer_assistants_commissioners')
+            'commissioners': 'cuer_commissioners',
+            'assistants': 'cuer_assistants_commissioners'
         }
 
     if campusOwner == 'Juriquilla':
         return {
-            'commissioners': api.group.get(groupname='jur_commissioners'),
-            'assistants': api.group.get(groupname='jur_assistants_commissioners')
+            'commissioners': 'jur_commissioners',
+            'assistants': 'jur_assistants_commissioners'
         }
 
     if campusOwner == 'Oaxaca':
         return {
-            'commissioners': api.group.get(groupname='oax_commissioners'),
-            'assistants': api.group.get(groupname='oax_assistants_commissioners')
+            'commissioners': 'oax_commissioners',
+            'assistants': 'oax_assistants_commissioners'
         }
 
     return {
-        'commissioners': api.group.get(groupname='cu_commissioners'),
-        'assistants': api.group.get(groupname='cu_assistants_commissioners')
+        'commissioners': 'cu_commissioners',
+        'assistants': 'cu_assistants_commissioners'
     }
 
 
