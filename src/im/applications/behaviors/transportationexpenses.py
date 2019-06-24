@@ -42,8 +42,8 @@ class ITransportationexpenses(model.Schema):
         min=0.0,
     )
 
-    directives.read_permission(amount_transportation_used='im.applications.ViewConsejo')
-    directives.write_permission(amount_transportation_used='im.applications.EditConsejo')
+    directives.read_permission(amount_transportation_used='im.applications.ViewCantidadUtilizada')
+    directives.write_permission(amount_transportation_used='im.applications.EditCantidadUtilizada')
     amount_transportation_used = schema.Float(
         title=_(u'label_applications_amount_transportation_used', u'Used Amount for Transportation Expenses'),
         required=True,

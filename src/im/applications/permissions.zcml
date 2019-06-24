@@ -32,6 +32,11 @@
     />
 
     <permission
+        id="im.applications.ViewCantidadUtilizada"
+        title="im.applications: View Cantidad Utilizada"
+    />
+
+    <permission
         id="im.applications.EditComision"
         title="im.applications: Edit Comision"
     />
@@ -41,7 +46,10 @@
         title="im.applications: Edit Consejo"
     />
 
-
+    <permission
+        id="im.applications.EditCantidadUtilizada"
+        title="im.applications: Edit Cantidad Utilizada"
+    />
 
 
   </configure>

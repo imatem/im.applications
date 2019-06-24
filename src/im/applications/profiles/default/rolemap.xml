@@ -39,6 +39,11 @@
       <role name="Site Administrator"/>
     </permission>
 
+    <permission name="im.applications: View Cantidad Utilizada" acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+    </permission>
+
 
     <permission name="im.applications: Edit Consejo" acquire="True">
       <role name="Manager"/>
@@ -50,5 +55,11 @@
       <role name="Manager"/>
       <role name="Site Administrator"/>
     </permission>
+
+    <permission name="im.applications: Edit Cantidad Utilizada" acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+    </permission>
+
   </permissions>
 </rolemap>
