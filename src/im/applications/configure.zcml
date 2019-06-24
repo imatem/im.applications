@@ -60,5 +60,8 @@
       name="im.applications.IMCampus"
   />
 
+  <!-- Subscribers -->
+  <subscriber handler=".handlers.handlerPrepareToNextState" />
+
 
 </configure>
