@@ -37,12 +37,12 @@ def getGroupsCommision(campusOwner):
 
 
 def cleanPermissionsCommissions(obj):
-    for gcommissioners in allGroupsCommissions['commissioners']:
+    for gcommissioners in allGroupsCommissions()['commissioners']:
         roles = api.group.get_roles(groupname=gcommissioners, obj=obj, inherit=False)
         if roles:
             api.group.revoke_roles(groupname=gcommissioners, roles=['Reader'], obj=obj)
 
-    for gassistantscommissioners in allGroupsCommissions['assistants']:
+    for gassistantscommissioners in allGroupsCommissions()['assistants']:
         roles = api.group.get_roles(groupname=gassistantscommissioners, obj=obj, inherit=False)
         if roles:
             api.group.revoke_roles(groupname=gassistantscommissioners, roles=['Reader', 'Editor'], obj=obj)

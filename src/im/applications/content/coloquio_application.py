@@ -102,45 +102,64 @@ class ColoquioApplication(Item):
 
     def prepareToCommission(self):
 
-        with api.env.adopt_user(username='admin'):
-            self.amount_travel_recommended = self.amount_travel
-            self.amount_transportation_recommended = self.amount_transportation
-            if self.campus:
-                cleanPermissionsCommissions(self)
-                groups = getGroupsCommision(self.campus)
+        # with api.env.adopt_user(username='admin'):
+        self.amount_travel_recommended = self.amount_travel
+        self.amount_transportation_recommended = self.amount_transportation
+        if self.campus:
+            cleanPermissionsCommissions(self)
+            groups = getGroupsCommision(self.campus)
 
-            else:
-                ownerid = self.getIdOwner()
-                member = api.content.find(portal_type='FSDPerson', id=ownerid)[0].getObject()
-                self.campus = member.sede
-                groups = getGroupsCommision(member.sede)
+        else:
+            ownerid = self.getIdOwner()
+            member = api.content.find(portal_type='FSDPerson', id=ownerid)[0].getObject()
+            self.campus = member.sede
+            groups = getGroupsCommision(member.sede)
 
-            api.group.grant_roles(groupname=groups['commissioners'], roles=['Reader'], obj=self)
-            api.group.grant_roles(groupname=groups['assistants'], roles=['Reader', 'Editor'], obj=self)
+        api.group.grant_roles(groupname=groups['commissioners'], roles=['Reader'], obj=self)
+        api.group.grant_roles(groupname=groups['assistants'], roles=['Reader', 'Editor'], obj=self)
 
         return True
 
     def prepareToConsejo(self):
-        with api.env.adopt_user(username='admin'):
-            self.amount_travel_authorized = self.amount_travel_recommended
-            self.amount_transportation_authorized = self.amount_transportation_recommended
+        self.amount_travel_authorized = self.amount_travel_recommended
+        self.amount_transportation_authorized = self.amount_transportation_recommended
 
-            if self.campus:
-                groups = getGroupsCommision(self.campus)
+        if self.campus:
+            groups = getGroupsCommision(self.campus)
 
-            else:
-                ownerid = self.getIdOwner()
-                member = api.content.find(portal_type='FSDPerson', id=ownerid)[0].getObject()
-                self.campus = member.sede
-                groups = getGroupsCommision(member.sede)
+        else:
+            ownerid = self.getIdOwner()
+            member = api.content.find(portal_type='FSDPerson', id=ownerid)[0].getObject()
+            self.campus = member.sede
+            groups = getGroupsCommision(member.sede)
 
-            cleanPermissionsCommissions(self)
-            api.group.grant_roles(groupname=groups['commissioners'], roles=['Reader'], obj=self)
-            api.group.grant_roles(groupname=groups['assistants'], roles=['Reader'], obj=self)
-            api.group.grant_roles(groupname='imconsejeros', roles=['IMConsejero'], obj=self)
-            api.group.grant_roles(groupname='assistants_imconsejeros', roles=['Reader', 'Editor'], obj=self)
+        cleanPermissionsCommissions(self)
+        api.group.grant_roles(groupname=groups['commissioners'], roles=['Reader'], obj=self)
+        api.group.grant_roles(groupname=groups['assistants'], roles=['Reader'], obj=self)
+        api.group.grant_roles(groupname='imconsejeros', roles=['IMConsejero'], obj=self)
+        api.group.grant_roles(groupname='assistants_imconsejeros', roles=['Reader', 'Editor'], obj=self)
 
         return True
+
+    def prepareToFinalize(self):
+        amount_travel_used = self.amount_travel_authorized
+        amount_transportation_used = self.amount_transportation_authorized
+        # if self.campus:
+        #     groups = getGroupsCommision(self.campus)
+
+        # else:
+        #     ownerid = self.getIdOwner()
+        #     member = api.content.find(portal_type='FSDPerson', id=ownerid)[0].getObject()
+        #     self.campus = member.sede
+        #     groups = getGroupsCommision(member.sede)
+
+        # cleanPermissionsCommissions(self)
+        # api.group.grant_roles(groupname=groups['commissioners'], roles=['Reader'], obj=self)
+        # api.group.grant_roles(groupname=groups['assistants'], roles=['Reader'], obj=self)
+        # api.group.grant_roles(groupname='imconsejeros', roles=['IMConsejero'], obj=self)
+        # api.group.grant_roles(groupname='assistants_imconsejeros', roles=['Reader', 'Editor'], obj=self)
+
+
 
     def returnToCommission(self):
         if self.campus:
