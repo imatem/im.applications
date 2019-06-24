@@ -8,7 +8,10 @@
  <permission>im.applications: Edit Consejo</permission>
  <permission>im.applications: View Comision</permission>
  <permission>im.applications: View Consejo</permission>
+ <permission>im.applications: Edit Cantidad Utilizada</permission>
+ <permission>im.applications: View Cantidad Utilizada</permission>
  <state state_id="approved" title="Approved Application">
+  <exit-transition transition_id="cancel"/>
   <exit-transition transition_id="return_consejo"/>
   <permission-map name="Access contents information" acquired="False">
    <permission-role>Manager</permission-role>
@@ -32,11 +35,19 @@
    <permission-role>Reader</permission-role>
    <permission-role>Site Administrator</permission-role>
   </permission-map>
+  <permission-map name="im.applications: Edit Cantidad Utilizada" acquired="True">
+   <permission-role>Editor</permission-role>
+  </permission-map>
   <permission-map name="im.applications: Edit Comision" acquired="True">
    <permission-role>Editor</permission-role>
   </permission-map>
   <permission-map name="im.applications: Edit Consejo" acquired="True">
    <permission-role>Editor</permission-role>
+  </permission-map>
+  <permission-map name="im.applications: View Cantidad Utilizada" acquired="True">
+   <permission-role>Editor</permission-role>
+   <permission-role>IMConsejero</permission-role>
+   <permission-role>Owner</permission-role>
   </permission-map>
   <permission-map name="im.applications: View Comision" acquired="True">
    <permission-role>Editor</permission-role>
@@ -47,6 +58,8 @@
    <permission-role>Editor</permission-role>
    <permission-role>IMConsejero</permission-role>
   </permission-map>
+ </state>
+ <state state_id="canceled" title="Canceled">
  </state>
  <state state_id="commission" title="Application in revision by Special Commission">
   <exit-transition transition_id="submit_consejo"/>
@@ -75,7 +88,7 @@
   <permission-map name="im.applications: Edit Comision" acquired="True">
    <permission-role>Editor</permission-role>
   </permission-map>
-  <permission-map name="im.applications: Edit Consejo" acquired="True">
+  <permission-map name="im.applications: Edit Consejo" acquired="False">
   </permission-map>
   <permission-map name="im.applications: View Comision" acquired="True">
    <permission-role>Editor</permission-role>
@@ -110,11 +123,15 @@
    <permission-role>Reader</permission-role>
    <permission-role>Site Administrator</permission-role>
   </permission-map>
+  <permission-map name="im.applications: Edit Cantidad Utilizada" acquired="False">
+  </permission-map>
   <permission-map name="im.applications: Edit Comision" acquired="True">
    <permission-role>Editor</permission-role>
   </permission-map>
   <permission-map name="im.applications: Edit Consejo" acquired="True">
    <permission-role>Editor</permission-role>
+  </permission-map>
+  <permission-map name="im.applications: View Cantidad Utilizada" acquired="True">
   </permission-map>
   <permission-map name="im.applications: View Comision" acquired="True">
    <permission-role>Editor</permission-role>
@@ -182,11 +199,19 @@
    <permission-role>Reader</permission-role>
    <permission-role>Site Administrator</permission-role>
   </permission-map>
+  <permission-map name="im.applications: Edit Cantidad Utilizada" acquired="True">
+   <permission-role>Editor</permission-role>
+  </permission-map>
   <permission-map name="im.applications: Edit Comision" acquired="True">
    <permission-role>Editor</permission-role>
   </permission-map>
   <permission-map name="im.applications: Edit Consejo" acquired="True">
    <permission-role>Editor</permission-role>
+  </permission-map>
+  <permission-map name="im.applications: View Cantidad Utilizada" acquired="True">
+   <permission-role>Editor</permission-role>
+   <permission-role>IMConsejero</permission-role>
+   <permission-role>Owner</permission-role>
   </permission-map>
   <permission-map name="im.applications: View Comision" acquired="True">
    <permission-role>Editor</permission-role>
@@ -207,6 +232,12 @@
    <guard-expression>python:here.hasInternalDate()</guard-expression>
   </guard>
  </transition>
+ <transition transition_id="cancel" title="Cancel" new_state="canceled" trigger="USER" before_script="" after_script="">
+  <action url="%(content_url)s/content_status_modify?workflow_action=cancel" category="workflow" icon="">Cancel</action>
+  <guard>
+   <guard-role>Manager</guard-role>
+  </guard>
+ </transition>
  <transition transition_id="reject" title="Reject Application" new_state="rejected" trigger="USER" before_script="" after_script="">
   <action url="%(content_url)s/content_status_modify?workflow_action=reject" category="workflow" icon="">Reject Application</action>
   <guard>
@@ -216,7 +247,7 @@
    <guard-expression>python:here.hasInternalDate()</guard-expression>
   </guard>
  </transition>
- <transition transition_id="return_commission" title="Return to Commission" new_state="commission" trigger="USER" before_script="" after_script="return_to_commission">
+ <transition transition_id="return_commission" title="Return to Commission" new_state="commission" trigger="USER" before_script="" after_script="">
   
   <guard>
    <guard-permission>im.applications: Edit Consejo</guard-permission>
@@ -230,15 +261,15 @@
    <guard-role>Manager</guard-role>
   </guard>
  </transition>
- <transition transition_id="submit_commission" title="Submit Application to Commission" new_state="commission" trigger="USER" before_script="" after_script="prepare_to_commission">
+ <transition transition_id="submit_commission" title="Submit Application to Commission" new_state="commission" trigger="USER" before_script="" after_script="">
   <action url="%(content_url)s/content_status_modify?workflow_action=submit_commission" category="workflow" icon="">Submit Application to Commission</action>
   <guard>
    <guard-role>Owner</guard-role>
    <guard-role>Manager</guard-role>
   </guard>
  </transition>
- <transition transition_id="submit_consejo" title="Submit Application to Consejo Interno" new_state="consejo" trigger="USER" before_script="" after_script="prepare_to_consejo">
-  
+ <transition transition_id="submit_consejo" title="Submit Application to Consejo Interno" new_state="consejo" trigger="USER" before_script="" after_script="">
+  <action url="%(content_url)s/content_status_modify?workflow_action=submit_consejo" category="workflow" icon="">Submit Application to Consejo Interno</action>
   <guard>
    <guard-permission>im.applications: Edit Comision</guard-permission>
    <guard-role>Editor</guard-role>
@@ -293,7 +324,4 @@
   <guard>
   </guard>
  </variable>
- <script script_id="prepare_to_commission" type="Script (Python)" filename="workflows/im_applications_workflow/scripts/prepare_to_commission.py" module="" function=""/>
- <script script_id="prepare_to_consejo" type="Script (Python)" filename="workflows/im_applications_workflow/scripts/prepare_to_consejo.py" module="" function=""/>
- <script script_id="return_to_commission" type="Script (Python)" filename="workflows/im_applications_workflow/scripts/return_to_commission.py" module="" function=""/>
 </dc-workflow>

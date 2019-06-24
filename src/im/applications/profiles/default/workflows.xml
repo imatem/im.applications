@@ -7,5 +7,9 @@
   <type type_id="Activities Budget Application">
    <bound-workflow workflow_id="im_applications_charged_institutional_workflow"/>
   </type>
+  <type type_id="coloquio_application">
+   <bound-workflow workflow_id="im_applications_workflow"/>
+  </type>
+
  </bindings>
 </object>
