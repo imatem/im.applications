@@ -141,25 +141,15 @@ class ColoquioApplication(Item):
 
         return True
 
-    def prepareToFinalize(self):
-        amount_travel_used = self.amount_travel_authorized
-        amount_transportation_used = self.amount_transportation_authorized
-        # if self.campus:
-        #     groups = getGroupsCommision(self.campus)
+    def prepareToApprove(self):
+        self.amount_travel_used = self.amount_travel_authorized
+        self.amount_transportation_used = self.amount_transportation_authorized
+        self.sendMail()
 
-        # else:
-        #     ownerid = self.getIdOwner()
-        #     member = api.content.find(portal_type='FSDPerson', id=ownerid)[0].getObject()
-        #     self.campus = member.sede
-        #     groups = getGroupsCommision(member.sede)
-
-        # cleanPermissionsCommissions(self)
-        # api.group.grant_roles(groupname=groups['commissioners'], roles=['Reader'], obj=self)
-        # api.group.grant_roles(groupname=groups['assistants'], roles=['Reader'], obj=self)
-        # api.group.grant_roles(groupname='imconsejeros', roles=['IMConsejero'], obj=self)
-        # api.group.grant_roles(groupname='assistants_imconsejeros', roles=['Reader', 'Editor'], obj=self)
-
-
+    def prepareToReject(self):
+        self.amount_travel_used = 0
+        self.amount_transportation_used = 0
+        self.sendMail('rechazada')
 
     def returnToCommission(self):
         if self.campus:
@@ -171,12 +161,51 @@ class ColoquioApplication(Item):
             self.campus = member.sede
             groups = getGroupsCommision(member.sede)
 
-        cleanPermissionsCommissions(self.context)
+        cleanPermissionsCommissions(self)
         api.group.revoke_roles(groupname='imconsejeros', roles=['IMConsejero'], obj=self)
         api.group.revoke_roles(groupname='assistants_imconsejeros', roles=['Editor'], obj=self)
 
         api.group.grant_roles(groupname=groups['commissioners'], roles=['Reader'], obj=self)
         api.group.grant_roles(groupname=groups['assistants'], roles=['Reader', 'Editor'], obj=self)
+
+    def returnToConsejo(self):
+        if self.campus:
+                groups = getGroupsCommision(self.campus)
+
+        else:
+            ownerid = self.getIdOwner()
+            member = api.content.find(portal_type='FSDPerson', id=ownerid)[0].getObject()
+            self.campus = member.sede
+            groups = getGroupsCommision(member.sede)
+
+        cleanPermissionsCommissions(self)
+        api.group.grant_roles(groupname=groups['commissioners'], roles=['Reader'], obj=self)
+        api.group.grant_roles(groupname=groups['assistants'], roles=['Reader'], obj=self)
+
+    def sendMail(self, state='aprobada'):
+        mt = getToolByName(self, 'portal_membership')
+        member = mt.getMemberById(self.getIdOwner())
+        mail_to = member.getProperty('email', None)
+        mail_from = 'solicitudes@matem.unam.mx'
+        subject = '[matem] Su solicitud ha sido ' + state
+        msg = """
+        Su solicitud de expositor (%s) para el coloquio del %s ha sido %s.
+
+
+        Para más información ir a %s.
+
+        ------------------------------------------------------------------
+        Éste es un correo electrónico automático, por favor no lo responda
+        """
+        msg = msg.decode('utf-8') % (
+            self.title,
+            self.exposition_date.strftime('%d/%m/%Y'),
+            state,
+            self.absolute_url(),
+        )
+        getToolByName(self, 'MailHost').send(msg, mail_to, mail_from, subject)
+
+        return True
 
 
     # ########################################################################

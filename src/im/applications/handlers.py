@@ -22,11 +22,13 @@ def handlerPrepareToNextState(self, event):
         self.prepareToConsejo()
 
     elif event.transition.id == 'return_commission':
-        self.return_commission()
+        self.returnToCommission()
 
     elif event.transition.id == 'approve':
-        self.prepareToFinalize
+        self.prepareToApprove()
 
+    elif event.transition.id == 'reject':
+        self.prepareToReject()
 
-
-
+    elif event.transition.id == 'return_consejo':
+        self.returnToConsejo()
