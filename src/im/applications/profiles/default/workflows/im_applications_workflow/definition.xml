@@ -60,13 +60,51 @@
   </permission-map>
  </state>
  <state state_id="canceled" title="Canceled">
+  <permission-map name="Access contents information" acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Site Administrator</permission-role>
+  </permission-map>
+  <permission-map name="Change portal events" acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Site Administrator</permission-role>
+  </permission-map>
+  <permission-map name="Modify portal content" acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Site Administrator</permission-role>
+  </permission-map>
+  <permission-map name="View" acquired="False">
+   <permission-role>Editor</permission-role>
+   <permission-role>IMConsejero</permission-role>
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Site Administrator</permission-role>
+  </permission-map>
+  <permission-map name="im.applications: Edit Cantidad Utilizada" acquired="True">
+  </permission-map>
+  <permission-map name="im.applications: Edit Comision" acquired="True">
+  </permission-map>
+  <permission-map name="im.applications: Edit Consejo" acquired="True">
+  </permission-map>
+  <permission-map name="im.applications: View Cantidad Utilizada" acquired="True">
+   <permission-role>Editor</permission-role>
+   <permission-role>IMConsejero</permission-role>
+   <permission-role>Owner</permission-role>
+  </permission-map>
+  <permission-map name="im.applications: View Comision" acquired="True">
+   <permission-role>Editor</permission-role>
+   <permission-role>IMConsejero</permission-role>
+   <permission-role>Reader</permission-role>
+  </permission-map>
+  <permission-map name="im.applications: View Consejo" acquired="True">
+   <permission-role>Editor</permission-role>
+   <permission-role>IMConsejero</permission-role>
+  </permission-map>
  </state>
  <state state_id="commission" title="Application in revision by Special Commission">
   <exit-transition transition_id="submit_consejo"/>
   <permission-map name="Access contents information" acquired="False">
    <permission-role>Manager</permission-role>
-   <permission-role>Owner</permission-role>
-   <permission-role>Reader</permission-role>
    <permission-role>Site Administrator</permission-role>
   </permission-map>
   <permission-map name="Change portal events" acquired="False">
@@ -80,21 +118,26 @@
    <permission-role>Site Administrator</permission-role>
   </permission-map>
   <permission-map name="View" acquired="False">
+   <permission-role>Editor</permission-role>
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
    <permission-role>Reader</permission-role>
    <permission-role>Site Administrator</permission-role>
+  </permission-map>
+  <permission-map name="im.applications: Edit Cantidad Utilizada" acquired="False">
   </permission-map>
   <permission-map name="im.applications: Edit Comision" acquired="True">
    <permission-role>Editor</permission-role>
   </permission-map>
   <permission-map name="im.applications: Edit Consejo" acquired="False">
   </permission-map>
+  <permission-map name="im.applications: View Cantidad Utilizada" acquired="False">
+  </permission-map>
   <permission-map name="im.applications: View Comision" acquired="True">
    <permission-role>Editor</permission-role>
    <permission-role>Reader</permission-role>
   </permission-map>
-  <permission-map name="im.applications: View Consejo" acquired="True">
+  <permission-map name="im.applications: View Consejo" acquired="False">
   </permission-map>
  </state>
  <state state_id="consejo" title=" Application in revision by Consejo Interno">
@@ -131,7 +174,7 @@
   <permission-map name="im.applications: Edit Consejo" acquired="True">
    <permission-role>Editor</permission-role>
   </permission-map>
-  <permission-map name="im.applications: View Cantidad Utilizada" acquired="True">
+  <permission-map name="im.applications: View Cantidad Utilizada" acquired="False">
   </permission-map>
   <permission-map name="im.applications: View Comision" acquired="True">
    <permission-role>Editor</permission-role>
@@ -248,7 +291,7 @@
   </guard>
  </transition>
  <transition transition_id="return_commission" title="Return to Commission" new_state="commission" trigger="USER" before_script="" after_script="">
-  
+  <action url="%(content_url)s/content_status_modify?workflow_action=return_commission" category="workflow" icon="">Return to Commission</action>
   <guard>
    <guard-permission>im.applications: Edit Consejo</guard-permission>
    <guard-role>Editor</guard-role>
@@ -256,7 +299,7 @@
   </guard>
  </transition>
  <transition transition_id="return_consejo" title="Return to Consejo" new_state="consejo" trigger="USER" before_script="" after_script="">
-  
+  <action url="%(content_url)s/content_status_modify?workflow_action=return_consejo" category="workflow" icon="">Return to Consejo</action>
   <guard>
    <guard-role>Manager</guard-role>
   </guard>
@@ -280,7 +323,7 @@
  <variable variable_id="action" for_catalog="False" for_status="True" update_always="True">
   <description>Previous transition</description>
   <default>
-   
+
    <expression>transition/getId|nothing</expression>
   </default>
   <guard>
@@ -289,7 +332,7 @@
  <variable variable_id="actor" for_catalog="False" for_status="True" update_always="True">
   <description>The ID of the user who performed the last transition</description>
   <default>
-   
+
    <expression>user/getId</expression>
   </default>
   <guard>
@@ -298,7 +341,7 @@
  <variable variable_id="comments" for_catalog="False" for_status="True" update_always="True">
   <description>Comment about the last transition</description>
   <default>
-   
+
    <expression>python:state_change.kwargs.get('comment', '')</expression>
   </default>
   <guard>
@@ -307,7 +350,7 @@
  <variable variable_id="review_history" for_catalog="False" for_status="False" update_always="False">
   <description>Provides access to workflow history</description>
   <default>
-   
+
    <expression>state_change/getHistory</expression>
   </default>
   <guard>
@@ -318,7 +361,7 @@
  <variable variable_id="time" for_catalog="False" for_status="True" update_always="True">
   <description>When the previous transition was performed</description>
   <default>
-   
+
    <expression>state_change/getDateTime</expression>
   </default>
   <guard>
