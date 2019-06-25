@@ -10,6 +10,5 @@
   <type type_id="coloquio_application">
    <bound-workflow workflow_id="im_applications_workflow"/>
   </type>
-
  </bindings>
 </object>
