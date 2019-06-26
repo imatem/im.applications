@@ -155,7 +155,7 @@ msgstr "Acta de Consejo Interno"
 #. Default: "If this field is empty the max amount application is the Approved Amount"
 #: im/applications/content/moneysack.py:38
 msgid "help_applications_moneysack_amountmax"
-msgstr "Si este campo está vacío la solicitud puede solicitar la cantidad máxima"
+msgstr "Si este campo está vacío las solicitudes pueden pedir cualquier cantidad sin exceder la Cantidad Aprobada o disponible"
 
 #: im/applications/configure.zcml:31
 msgid "im.applications"
