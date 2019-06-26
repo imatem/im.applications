@@ -36,7 +36,7 @@ class IMoneysack(model.Schema):
     amountmax = schema.Float(
         title=_(u'label_applications_moneysack_amountmax', u'Max Approved Amount by application'),
         description=_(u'help_applications_moneysack_amountmax', u'If this field is empty the max amount application is the Approved Amount'),
-        required=True,
+        required=False,
         min=1.0,
         # max=25000.0,
     )
