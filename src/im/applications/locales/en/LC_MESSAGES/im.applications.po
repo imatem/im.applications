@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-06-26 15:01+0000\n"
+"POT-Creation-Date: 2019-06-26 15:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,30 @@ msgstr ""
 msgid "Activities Budget Application"
 msgstr ""
 
+#: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
+msgid "Application in revision by Consejo Interno"
+msgstr ""
+
+#: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
+msgid "Application in revision by Special Commission"
+msgstr ""
+
+#: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
+msgid "Approve Application"
+msgstr ""
+
+#: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
+msgid "Approved Application"
+msgstr ""
+
+#: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
+msgid "Cancel"
+msgstr ""
+
+#: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
+msgid "Canceled"
+msgstr ""
+
 #: im/applications/profiles/default/types/Activities_Budget_Application.xml
 #: im/applications/profiles/default/types/coloquio_application.xml
 #: im/applications/profiles/default/types/moneysack.xml
@@ -28,12 +52,32 @@ msgstr ""
 msgid "Installs the im.applications add-on."
 msgstr ""
 
+#: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
+msgid "Private Application. Not sended"
+msgstr ""
+
 #: im/applications/behaviors/configure.zcml:19
 msgid "Registrationfees"
 msgstr ""
 
+#: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
+msgid "Reject Application"
+msgstr ""
+
+#: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
+msgid "Rejected Application"
+msgstr ""
+
 #: im/applications/profiles/default/types/moneysack.xml
 msgid "Resources for special activities"
+msgstr ""
+
+#: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
+msgid "Return to Commission"
+msgstr ""
+
+#: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
+msgid "Return to Consejo"
 msgstr ""
 
 #: im/applications/profiles/default/workflows/im_applications_charged_institutional_workflow/definition.xml
@@ -46,6 +90,14 @@ msgstr ""
 
 #: im/applications/profiles/default/types/Activities_Budget_Application.xml
 msgid "Solicitud con cargo al presupuesto del IM"
+msgstr ""
+
+#: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
+msgid "Submit Application to Commission"
+msgstr ""
+
+#: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
+msgid "Submit Application to Consejo Interno"
 msgstr ""
 
 #: im/applications/actions/createControls.py:36

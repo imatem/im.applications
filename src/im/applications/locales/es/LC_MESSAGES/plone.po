@@ -27,3 +27,58 @@ msgstr "Enviado a la Unidad Administrativa"
 #: im/applications/profiles/default/workflows/im_applications_charged_institutional_workflow/definition.xml
 msgid "To Canceled Application"
 msgstr "Cancelar la solicitud"
+
+
+#: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
+msgid "Application in revision by Consejo Interno"
+msgstr "Solicitud en Revisión por el Consejo Interno"
+
+
+#: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
+msgid "Application in revision by Special Commission"
+msgstr "Solicitud en Revisión por la Comisión Especial"
+
+#: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
+msgid "Approve Application"
+msgstr "Aprobar Solicitud"
+
+#: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
+msgid "Approved Application"
+msgstr "Solicitud Aprobada"
+
+#: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
+msgid "Canceled"
+msgstr "Solicitud Cancelada"
+
+
+#: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
+msgid "Private Application. Not sended"
+msgstr "Solicitud Privada. No enviada"
+
+#: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
+msgid "Reject Application"
+msgstr "Rechazar Solicitud"
+
+#: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
+msgid "Rejected Application"
+msgstr "Solicitud Rechazada"
+
+#: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
+msgid "Return to Commission"
+msgstr "Regresar a Revisión por la Comisión Especial"
+
+#: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
+msgid "Return to Consejo"
+msgstr "Regresar a Revisión por el Consejo Interno"
+
+#: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
+msgid "Submit Application to Commission"
+msgstr "Enviar Solicitud a Revisión por la Comisión Especial"
+
+#: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
+msgid "Submit Application to Consejo Interno"
+msgstr "Enviar Solicitud a Revisión por el Consejo Interno"
