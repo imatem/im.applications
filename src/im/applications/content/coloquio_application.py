@@ -188,14 +188,20 @@ class ColoquioApplication(Item):
         mail_to = member.getProperty('email', None)
         mail_from = 'solicitudes@matem.unam.mx'
         subject = '[matem] Su solicitud ha sido ' + state
+        # msg = """
+        # Su solicitud de expositor (%s) para el coloquio del %s ha sido %s.
+
+
+        # Para más información ir a %s.
+
+        # ------------------------------------------------------------------
+        # Éste es un correo electrónico automático, por favor no lo responda
+        # """
         msg = """
-        Su solicitud de expositor (%s) para el coloquio del %s ha sido %s.
+            Su solicitud de expositor (%s) para el coloquio del %s ha sido %s.
 
+            %s.
 
-        Para más información ir a %s.
-
-        ------------------------------------------------------------------
-        Éste es un correo electrónico automático, por favor no lo responda
         """
         msg = msg.decode('utf-8') % (
             self.title,
@@ -246,31 +252,3 @@ class ColoquioApplication(Item):
 
         # folder.restarACantidadAutorizada(None, self.getCantidadAutorizadaTotal(), 0, solicitante)
         return True
-
-
-
-    def sendMail(self, state='aprobada'):
-        mt = getToolByName(self, 'portal_membership')
-        member = mt.getMemberById(self.getIdOwner())
-        mail_to = member.getProperty('email', None)
-        mail_from = 'solicitudes@matem.unam.mx'
-        subject = '[matem] Su solicitud ha sido ' + state
-        msg = """
-        Su solicitud de expositor (%s) para el coloquio del %s ha sido %s.
-
-
-        Para más información vaya a %s.
-
-        ------------------------------------------------------------------
-        Éste es un correo electrónico automático, por favor no lo responda
-        """
-        msg = msg.decode('utf-8') % (
-            self.title,
-            self.exposition_date.strftime('%d/%m/%Y'),
-            state,
-            self.absolute_url(),
-        )
-        getToolByName(self, 'MailHost').send(msg, mail_to, mail_from, subject)
-
-        return True
-
