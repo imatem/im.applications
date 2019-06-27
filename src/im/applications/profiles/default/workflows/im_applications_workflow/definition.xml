@@ -5,12 +5,14 @@
  <permission>Change portal events</permission>
  <permission>Modify portal content</permission>
  <permission>View</permission>
+ <permission>im.applications: Edit Cantidad Utilizada</permission>
  <permission>im.applications: Edit Comision</permission>
  <permission>im.applications: Edit Consejo</permission>
+ <permission>im.applications: View Cantidad Utilizada</permission>
  <permission>im.applications: View Comision</permission>
  <permission>im.applications: View Consejo</permission>
- <permission>im.applications: Edit Cantidad Utilizada</permission>
- <permission>im.applications: View Cantidad Utilizada</permission>
+ <permission>im.applications: View Cantidad Autorizada</permission>
+ <permission>Copy or Move</permission>
  <state state_id="approved" title="Approved Application" i18n:attributes="title">
   <exit-transition transition_id="cancel"/>
   <exit-transition transition_id="return_consejo"/>
@@ -23,6 +25,10 @@
    <permission-role>Manager</permission-role>
    <permission-role>Site Administrator</permission-role>
   </permission-map>
+  <permission-map name="Copy or Move" acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Site Administrator</permission-role>
+  </permission-map>
   <permission-map name="Modify portal content" acquired="False">
    <permission-role>Editor</permission-role>
    <permission-role>Manager</permission-role>
@@ -30,6 +36,7 @@
   </permission-map>
   <permission-map name="View" acquired="False">
    <permission-role>Editor</permission-role>
+   <permission-role>IMComisionado</permission-role>
    <permission-role>IMConsejero</permission-role>
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
@@ -45,15 +52,23 @@
   <permission-map name="im.applications: Edit Consejo" acquired="True">
    <permission-role>Editor</permission-role>
   </permission-map>
+  <permission-map name="im.applications: View Cantidad Autorizada" acquired="True">
+   <permission-role>Contributor</permission-role>
+   <permission-role>Editor</permission-role>
+   <permission-role>IMComisionado</permission-role>
+   <permission-role>IMConsejero</permission-role>
+   <permission-role>Owner</permission-role>
+  </permission-map>
   <permission-map name="im.applications: View Cantidad Utilizada" acquired="True">
+   <permission-role>Contributor</permission-role>
    <permission-role>Editor</permission-role>
    <permission-role>IMConsejero</permission-role>
    <permission-role>Owner</permission-role>
   </permission-map>
   <permission-map name="im.applications: View Comision" acquired="True">
    <permission-role>Editor</permission-role>
+   <permission-role>IMComisionado</permission-role>
    <permission-role>IMConsejero</permission-role>
-   <permission-role>Reader</permission-role>
   </permission-map>
   <permission-map name="im.applications: View Consejo" acquired="True">
    <permission-role>Editor</permission-role>
@@ -69,12 +84,17 @@
    <permission-role>Manager</permission-role>
    <permission-role>Site Administrator</permission-role>
   </permission-map>
+  <permission-map name="Copy or Move" acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Site Administrator</permission-role>
+  </permission-map>
   <permission-map name="Modify portal content" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Site Administrator</permission-role>
   </permission-map>
   <permission-map name="View" acquired="False">
    <permission-role>Editor</permission-role>
+   <permission-role>IMComisionado</permission-role>
    <permission-role>IMConsejero</permission-role>
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
@@ -87,15 +107,23 @@
   </permission-map>
   <permission-map name="im.applications: Edit Consejo" acquired="True">
   </permission-map>
+  <permission-map name="im.applications: View Cantidad Autorizada" acquired="True">
+   <permission-role>Contributor</permission-role>
+   <permission-role>Editor</permission-role>
+   <permission-role>IMComisionado</permission-role>
+   <permission-role>IMConsejero</permission-role>
+   <permission-role>Owner</permission-role>
+  </permission-map>
   <permission-map name="im.applications: View Cantidad Utilizada" acquired="True">
+   <permission-role>Contributor</permission-role>
    <permission-role>Editor</permission-role>
    <permission-role>IMConsejero</permission-role>
    <permission-role>Owner</permission-role>
   </permission-map>
   <permission-map name="im.applications: View Comision" acquired="True">
    <permission-role>Editor</permission-role>
+   <permission-role>IMComisionado</permission-role>
    <permission-role>IMConsejero</permission-role>
-   <permission-role>Reader</permission-role>
   </permission-map>
   <permission-map name="im.applications: View Consejo" acquired="True">
    <permission-role>Editor</permission-role>
@@ -113,6 +141,10 @@
    <permission-role>Manager</permission-role>
    <permission-role>Site Administrator</permission-role>
   </permission-map>
+  <permission-map name="Copy or Move" acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Site Administrator</permission-role>
+  </permission-map>
   <permission-map name="Modify portal content" acquired="False">
    <permission-role>Editor</permission-role>
    <permission-role>Manager</permission-role>
@@ -120,6 +152,7 @@
   </permission-map>
   <permission-map name="View" acquired="False">
    <permission-role>Editor</permission-role>
+   <permission-role>IMComisionado</permission-role>
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
    <permission-role>Reader</permission-role>
@@ -132,11 +165,13 @@
   </permission-map>
   <permission-map name="im.applications: Edit Consejo" acquired="False">
   </permission-map>
+  <permission-map name="im.applications: View Cantidad Autorizada" acquired="False">
+  </permission-map>
   <permission-map name="im.applications: View Cantidad Utilizada" acquired="False">
   </permission-map>
   <permission-map name="im.applications: View Comision" acquired="True">
    <permission-role>Editor</permission-role>
-   <permission-role>Reader</permission-role>
+   <permission-role>IMComisionado</permission-role>
   </permission-map>
   <permission-map name="im.applications: View Consejo" acquired="False">
   </permission-map>
@@ -154,6 +189,10 @@
    <permission-role>Manager</permission-role>
    <permission-role>Site Administrator</permission-role>
   </permission-map>
+  <permission-map name="Copy or Move" acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Site Administrator</permission-role>
+  </permission-map>
   <permission-map name="Modify portal content" acquired="False">
    <permission-role>Editor</permission-role>
    <permission-role>Manager</permission-role>
@@ -161,6 +200,7 @@
   </permission-map>
   <permission-map name="View" acquired="False">
    <permission-role>Editor</permission-role>
+   <permission-role>IMComisionado</permission-role>
    <permission-role>IMConsejero</permission-role>
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
@@ -175,12 +215,16 @@
   <permission-map name="im.applications: Edit Consejo" acquired="True">
    <permission-role>Editor</permission-role>
   </permission-map>
+  <permission-map name="im.applications: View Cantidad Autorizada" acquired="True">
+   <permission-role>Editor</permission-role>
+   <permission-role>IMConsejero</permission-role>
+  </permission-map>
   <permission-map name="im.applications: View Cantidad Utilizada" acquired="False">
   </permission-map>
   <permission-map name="im.applications: View Comision" acquired="True">
    <permission-role>Editor</permission-role>
+   <permission-role>IMComisionado</permission-role>
    <permission-role>IMConsejero</permission-role>
-   <permission-role>Reader</permission-role>
   </permission-map>
   <permission-map name="im.applications: View Consejo" acquired="True">
    <permission-role>Editor</permission-role>
@@ -200,6 +244,15 @@
    <permission-role>Owner</permission-role>
    <permission-role>Site Administrator</permission-role>
   </permission-map>
+  <permission-map name="Copy or Move" acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Site Administrator</permission-role>
+  </permission-map>
+  <permission-map name="Delete objects" acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Site Administrator</permission-role>
+  </permission-map>
   <permission-map name="Modify portal content" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
@@ -210,9 +263,15 @@
    <permission-role>Owner</permission-role>
    <permission-role>Site Administrator</permission-role>
   </permission-map>
+  <permission-map name="im.applications: Edit Cantidad Utilizada" acquired="True">
+  </permission-map>
   <permission-map name="im.applications: Edit Comision" acquired="True">
   </permission-map>
   <permission-map name="im.applications: Edit Consejo" acquired="True">
+  </permission-map>
+  <permission-map name="im.applications: View Cantidad Autorizada" acquired="True">
+  </permission-map>
+  <permission-map name="im.applications: View Cantidad Utilizada" acquired="True">
   </permission-map>
   <permission-map name="im.applications: View Comision" acquired="True">
   </permission-map>
@@ -230,6 +289,10 @@
    <permission-role>Manager</permission-role>
    <permission-role>Site Administrator</permission-role>
   </permission-map>
+  <permission-map name="Copy or Move" acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Site Administrator</permission-role>
+  </permission-map>
   <permission-map name="Modify portal content" acquired="False">
    <permission-role>Editor</permission-role>
    <permission-role>Manager</permission-role>
@@ -237,6 +300,7 @@
   </permission-map>
   <permission-map name="View" acquired="False">
    <permission-role>Editor</permission-role>
+   <permission-role>IMComisionado</permission-role>
    <permission-role>IMConsejero</permission-role>
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
@@ -252,15 +316,22 @@
   <permission-map name="im.applications: Edit Consejo" acquired="True">
    <permission-role>Editor</permission-role>
   </permission-map>
+  <permission-map name="im.applications: View Cantidad Autorizada" acquired="True">
+   <permission-role>Contributor</permission-role>
+   <permission-role>Editor</permission-role>
+   <permission-role>IMConsejero</permission-role>
+   <permission-role>Owner</permission-role>
+  </permission-map>
   <permission-map name="im.applications: View Cantidad Utilizada" acquired="True">
+   <permission-role>Contributor</permission-role>
    <permission-role>Editor</permission-role>
    <permission-role>IMConsejero</permission-role>
    <permission-role>Owner</permission-role>
   </permission-map>
   <permission-map name="im.applications: View Comision" acquired="True">
    <permission-role>Editor</permission-role>
+   <permission-role>IMComisionado</permission-role>
    <permission-role>IMConsejero</permission-role>
-   <permission-role>Reader</permission-role>
   </permission-map>
   <permission-map name="im.applications: View Consejo" acquired="True">
    <permission-role>Editor</permission-role>
