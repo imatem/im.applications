@@ -2,6 +2,7 @@
 <rolemap>
   <roles>
     <role name="IMConsejero"/>
+    <role name="IMComisionado"/>
   </roles>
   <permissions>
   <!-- -*- extra stuff goes here -*- -->
@@ -37,6 +38,7 @@
     <permission name="im.applications: View Comision" acquire="True">
       <role name="Manager"/>
       <role name="Site Administrator"/>
+      <role name="IMComisionado"/>
     </permission>
 
     <permission name="im.applications: View Cantidad Utilizada" acquire="True">
@@ -44,12 +46,15 @@
       <role name="Site Administrator"/>
     </permission>
 
+    <permission name="im.applications: View Cantidad Autorizada" acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+    </permission>
 
     <permission name="im.applications: Edit Consejo" acquire="True">
       <role name="Manager"/>
       <role name="Site Administrator"/>
     </permission>
-
 
     <permission name="im.applications: Edit Comision" acquire="True">
       <role name="Manager"/>

@@ -32,6 +32,11 @@
     />
 
     <permission
+        id="im.applications.ViewCantidadAutorizada"
+        title="im.applications: View Cantidad Autorizada"
+    />
+
+    <permission
         id="im.applications.ViewCantidadUtilizada"
         title="im.applications: View Cantidad Utilizada"
     />
@@ -50,7 +55,6 @@
         id="im.applications.EditCantidadUtilizada"
         title="im.applications: Edit Cantidad Utilizada"
     />
-
 
   </configure>
 
