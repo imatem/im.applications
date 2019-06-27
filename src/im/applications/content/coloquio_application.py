@@ -115,8 +115,8 @@ class ColoquioApplication(Item):
             self.campus = member.sede
             groups = getGroupsCommision(member.sede)
 
-        api.group.grant_roles(groupname=groups['commissioners'], roles=['Reader'], obj=self)
-        api.group.grant_roles(groupname=groups['assistants'], roles=['Reader', 'Editor'], obj=self)
+        api.group.grant_roles(groupname=groups['commissioners'], roles=['IMComisionado'], obj=self)
+        api.group.grant_roles(groupname=groups['assistants'], roles=['IMComisionado', 'Editor'], obj=self)
 
         return True
 
@@ -134,10 +134,10 @@ class ColoquioApplication(Item):
             groups = getGroupsCommision(member.sede)
 
         cleanPermissionsCommissions(self)
-        api.group.grant_roles(groupname=groups['commissioners'], roles=['Reader'], obj=self)
-        api.group.grant_roles(groupname=groups['assistants'], roles=['Reader'], obj=self)
+        api.group.grant_roles(groupname=groups['commissioners'], roles=['IMComisionado'], obj=self)
+        api.group.grant_roles(groupname=groups['assistants'], roles=['IMComisionado'], obj=self)
         api.group.grant_roles(groupname='imconsejeros', roles=['IMConsejero'], obj=self)
-        api.group.grant_roles(groupname='assistants_imconsejeros', roles=['Reader', 'Editor'], obj=self)
+        api.group.grant_roles(groupname='assistants_imconsejeros', roles=['IMComisionado', 'Editor'], obj=self)
 
         return True
 
@@ -165,8 +165,8 @@ class ColoquioApplication(Item):
         api.group.revoke_roles(groupname='imconsejeros', roles=['IMConsejero'], obj=self)
         api.group.revoke_roles(groupname='assistants_imconsejeros', roles=['Editor'], obj=self)
 
-        api.group.grant_roles(groupname=groups['commissioners'], roles=['Reader'], obj=self)
-        api.group.grant_roles(groupname=groups['assistants'], roles=['Reader', 'Editor'], obj=self)
+        api.group.grant_roles(groupname=groups['commissioners'], roles=['IMComisionado'], obj=self)
+        api.group.grant_roles(groupname=groups['assistants'], roles=['IMComisionado', 'Editor'], obj=self)
 
     def returnToConsejo(self):
         if self.campus:
@@ -179,8 +179,8 @@ class ColoquioApplication(Item):
             groups = getGroupsCommision(member.sede)
 
         cleanPermissionsCommissions(self)
-        api.group.grant_roles(groupname=groups['commissioners'], roles=['Reader'], obj=self)
-        api.group.grant_roles(groupname=groups['assistants'], roles=['Reader'], obj=self)
+        api.group.grant_roles(groupname=groups['commissioners'], roles=['IMComisionado'], obj=self)
+        api.group.grant_roles(groupname=groups['assistants'], roles=['IMComisionado'], obj=self)
 
     def sendMail(self, state='aprobada'):
         mt = getToolByName(self, 'portal_membership')

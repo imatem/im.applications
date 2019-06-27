@@ -35,7 +35,7 @@ class ITravelexpenses(model.Schema):
         min=0.0,
     )
 
-    directives.read_permission(amount_travel_authorized='im.applications.ViewConsejo')
+    directives.read_permission(amount_travel_authorized='im.applications.ViewCantidadAutorizada')
     directives.write_permission(amount_travel_authorized='im.applications.EditConsejo')
     amount_travel_authorized = schema.Float(
         title=_(u'label_applications_amount_travel_authorized', u'Approved Amount by Consejo Interno for Travel Expenses'),

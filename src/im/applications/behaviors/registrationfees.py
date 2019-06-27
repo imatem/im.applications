@@ -34,7 +34,7 @@ class IRegistrationfees(model.Schema):
         min=0.0,
     )
 
-    directives.read_permission(amount_registration_authorized='im.applications.ViewConsejo')
+    directives.read_permission(amount_registration_authorized='im.applications.ViewCantidadAutorizada')
     directives.write_permission(amount_registration_authorized='im.applications.EditConsejo')
     amount_registration_authorized = schema.Float(
         title=_(u'label_applications_amount_registration_authorized', u'Approved Amount by Consejo Interno for Registration Fees'),
