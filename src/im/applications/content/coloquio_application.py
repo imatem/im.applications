@@ -1,20 +1,17 @@
 # -*- coding: utf-8 -*-
+from DateTime import DateTime
+from datetime import timedelta
 from im.applications import _
-# from plone.app.textfield import RichText
+from im.applications.utilities import cleanPermissionsCommissions
+from im.applications.utilities import createViaticalControl
+from im.applications.utilities import getGroupsCommision
+from plone import api
 from plone.autoform import directives
 from plone.dexterity.content import Item
-# from plone.namedfile import field as namedfile
 from plone.supermodel import model
-# from plone.supermodel.directives import fieldset
-# from z3c.form.browser.radio import RadioFieldWidget
+from Products.CMFCore.utils import getToolByName
 from zope import schema
 from zope.interface import implementer
-from plone import api
-from Products.CMFCore.utils import getToolByName
-
-# from plone.directives import dexterity
-from im.applications.utilities import cleanPermissionsCommissions
-from im.applications.utilities import getGroupsCommision
 
 
 class IColoquioApplication(model.Schema):
@@ -100,6 +97,23 @@ class ColoquioApplication(Item):
     def getIdOwner(self):
         return self.getOwner().getId()
 
+    def nombre_owner(self):
+        ownerid = self.getIdOwner()
+        member = api.content.find(portal_type='FSDPerson', id=ownerid)[0].getObject()
+        if member.apellidoMaterno:
+            lastN = member.lastName + ' ' + member.apellidoMaterno
+        else:
+            lastN = member.lastName
+
+        return lastN + ', ' + member.firstName
+
+    def campus_owner(self):
+        if self.campus:
+            return self.campus
+        ownerid = self.getIdOwner()
+        member = api.content.find(portal_type='FSDPerson', id=ownerid)[0].getObject()
+        return member.sede
+
     def prepareToCommission(self):
 
         # with api.env.adopt_user(username='admin'):
@@ -145,6 +159,7 @@ class ColoquioApplication(Item):
         self.amount_travel_used = self.amount_travel_authorized
         self.amount_transportation_used = self.amount_transportation_authorized
         self.sendMail()
+        self.createControls()
 
     def prepareToReject(self):
         self.amount_travel_used = 0
@@ -188,20 +203,14 @@ class ColoquioApplication(Item):
         mail_to = member.getProperty('email', None)
         mail_from = 'solicitudes@matem.unam.mx'
         subject = '[matem] Su solicitud ha sido ' + state
-        # msg = """
-        # Su solicitud de expositor (%s) para el coloquio del %s ha sido %s.
-
-
-        # Para más información ir a %s.
-
-        # ------------------------------------------------------------------
-        # Éste es un correo electrónico automático, por favor no lo responda
-        # """
         msg = """
-            Su solicitud de expositor (%s) para el coloquio del %s ha sido %s.
+        Su solicitud de expositor (%s) para el coloquio del %s ha sido %s.
 
-            %s.
 
+        Para más información ir a %s.\n
+
+        ------------------------------------------------------------------
+        Éste es un correo electrónico automático, por favor no lo responda
         """
         msg = msg.decode('utf-8') % (
             self.title,
@@ -209,46 +218,56 @@ class ColoquioApplication(Item):
             state,
             self.absolute_url(),
         )
-        getToolByName(self, 'MailHost').send(msg, mail_to, mail_from, subject)
+
+        getToolByName(self, 'MailHost').send(msg.encode('utf-8'), mail_to, mail_from, subject)
 
         return True
 
+    def createControls(self):
+        data = {}
+        data['title'] = self.title
+        data['relatedsolicitud'] = self.UID()
+        data['classification'] = 'NA'
+        data['campus'] = self.campus_owner()
+        data['start'] = self.exposition_date
+        data['end'] = self.end()
 
-    # ########################################################################
-
-    def pasarValorComisionado(self):
-        with api.env.adopt_user(username='admin'):
-            self.amount_travel_recommended = self.amount_travel
-            self.amount_transportation_recommended = self.amount_transportation
+        if self.amount_travel_authorized > 0 and data['campus'] != 'Cuernavaca':
+            data['amount'] = self.amount_travel_authorized
+            if not api.content.find(portal_type='viatical', relatedsolicitud=data['relatedsolicitud']):
+                createViaticalControl(data)
+        if self.amount_transportation_authorized > 0 and data['campus'] != 'Cuernavaca':
+            data['amount'] = self.amount_transportation_authorized
 
         return True
 
-    def pasarValorConsejero(self):
-        with api.env.adopt_user(username='admin'):
-            self.amount_travel_authorized = self.amount_travel_recommended
-            self.amount_transportation_authorized = self.amount_transportation_recommended
+    def end(self):
+        return self.exposition_date + timedelta(days=1)
 
-        return True
+    # TO DO: Methods that are necessary for uni admin view
+    def getCantidadDeDias(self):
+        return (self.end() - self.exposition_date).days
 
-    def pasarValorAutorizado(self):
-        with api.env.adopt_user(username='admin'):
-            self.amount_travel_used = self.amount_travel_authorized
-            self.amount_transportation_used = self.amount_transportation_authorized
-        return True
+    def getFechaDesde(self):
+        datetzinfo = DateTime(self.exposition_date.__str__()).asdatetime().replace(tzinfo=None)
+        return DateTime(datetzinfo)
 
-    def actualizarInvestigador(self):
-        # folder = self.aq_parent
+    def actaci(self):
+        return self.minute
 
-        # solicitante = self.getIdOwner()
+    def getFechaHasta(self):
+        datetzinfo = DateTime(self.end().__str__()).asdatetime().replace(tzinfo=None)
+        return DateTime(datetzinfo)
 
-        # folder.sumarACantidadAutorizada(None, self.getCantidadAutorizadaTotal(), 0, solicitante,
-        #                                 self.getCargo_presupuesto())
-        return True
+    def getCiudadPais(self):
+        return 'N/A'
 
-    def desactualizarInvestigador(self):
-        # folder = self.aq_parent
+    def getPais(self):
+        return 'COUNTRY'
 
-        # solicitante = self.getIdOwner()
+    def getObjetoViaje(self):
+        # return self.description_activity
+        return 'DESCRIPTION'
 
-        # folder.restarACantidadAutorizada(None, self.getCantidadAutorizadaTotal(), 0, solicitante)
-        return True
+    def getCantidad_consejo_viaticos(self):
+        return self.amount_travel_authorized
