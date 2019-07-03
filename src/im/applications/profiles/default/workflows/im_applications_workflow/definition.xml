@@ -3,16 +3,17 @@
   xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="im.applications">
  <permission>Access contents information</permission>
  <permission>Change portal events</permission>
+ <permission>Copy or Move</permission>
  <permission>Modify portal content</permission>
  <permission>View</permission>
  <permission>im.applications: Edit Cantidad Utilizada</permission>
  <permission>im.applications: Edit Comision</permission>
  <permission>im.applications: Edit Consejo</permission>
+ <permission>im.applications: View Cantidad Autorizada</permission>
  <permission>im.applications: View Cantidad Utilizada</permission>
  <permission>im.applications: View Comision</permission>
  <permission>im.applications: View Consejo</permission>
- <permission>im.applications: View Cantidad Autorizada</permission>
- <permission>Copy or Move</permission>
+ <permission>Delete objects</permission>
  <state state_id="approved" title="Approved Application" i18n:attributes="title">
   <exit-transition transition_id="cancel"/>
   <exit-transition transition_id="return_consejo"/>
@@ -26,6 +27,10 @@
    <permission-role>Site Administrator</permission-role>
   </permission-map>
   <permission-map name="Copy or Move" acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Site Administrator</permission-role>
+  </permission-map>
+  <permission-map name="Delete objects" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Site Administrator</permission-role>
   </permission-map>
@@ -88,6 +93,10 @@
    <permission-role>Manager</permission-role>
    <permission-role>Site Administrator</permission-role>
   </permission-map>
+  <permission-map name="Delete objects" acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Site Administrator</permission-role>
+  </permission-map>
   <permission-map name="Modify portal content" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Site Administrator</permission-role>
@@ -145,6 +154,10 @@
    <permission-role>Manager</permission-role>
    <permission-role>Site Administrator</permission-role>
   </permission-map>
+  <permission-map name="Delete objects" acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Site Administrator</permission-role>
+  </permission-map>
   <permission-map name="Modify portal content" acquired="False">
    <permission-role>Editor</permission-role>
    <permission-role>Manager</permission-role>
@@ -190,6 +203,10 @@
    <permission-role>Site Administrator</permission-role>
   </permission-map>
   <permission-map name="Copy or Move" acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Site Administrator</permission-role>
+  </permission-map>
+  <permission-map name="Delete objects" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Site Administrator</permission-role>
   </permission-map>
@@ -248,10 +265,7 @@
    <permission-role>Manager</permission-role>
    <permission-role>Site Administrator</permission-role>
   </permission-map>
-  <permission-map name="Delete objects" acquired="False">
-   <permission-role>Manager</permission-role>
-   <permission-role>Owner</permission-role>
-   <permission-role>Site Administrator</permission-role>
+  <permission-map name="Delete objects" acquired="True">
   </permission-map>
   <permission-map name="Modify portal content" acquired="False">
    <permission-role>Manager</permission-role>
@@ -290,6 +304,10 @@
    <permission-role>Site Administrator</permission-role>
   </permission-map>
   <permission-map name="Copy or Move" acquired="False">
+   <permission-role>Manager</permission-role>
+   <permission-role>Site Administrator</permission-role>
+  </permission-map>
+  <permission-map name="Delete objects" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Site Administrator</permission-role>
   </permission-map>
