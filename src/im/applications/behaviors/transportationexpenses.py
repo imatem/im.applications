@@ -20,6 +20,19 @@ class ITransportationexpenses(model.Schema):
     """
     """
 
+    # orderItems = schema.Set(
+    #         title=_(u"Your order"),
+    #         value_type=schema.Choice(values=[_(u'Margherita'), _(u'Pepperoni'), _(u'Hawaiian')])
+    #     )
+
+    transportation_type = schema.Set(
+        title=_(u'label_applications_transportation_type', default=u'Type Transportation'),
+        value_type=schema.Choice(
+            vocabulary='im.applications.TransportationType',
+        ),
+        required=False,
+    )
+
     amount_transportation = schema.Float(
         title=_(u'label_applications_amount_transportation', u'Amount for Transportation Expenses'),
         required=True,

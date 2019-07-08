@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
+from im.applications import _
 from zope.interface import directlyProvides
 from zope.schema.interfaces import IVocabularyFactory
+from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
+
 
 FSD_VOCABULARIES = True
 try:
@@ -19,3 +22,16 @@ def IMCampusVocabulary(context):
         return SimpleVocabulary(items)
     return None
 directlyProvides(IMCampusVocabulary, IVocabularyFactory)
+
+
+def TransportationTypeVocabulary(context):
+    items = [
+        (_(u'Car'), 'car'),
+        (_(u'Bus'), 'bus'),
+        (_(u'Airplane'), 'airplane'),
+    ]
+
+    items = [SimpleTerm(i[1], i[1], i[0]) for i in items]
+    return SimpleVocabulary(items)
+directlyProvides(TransportationTypeVocabulary, IVocabularyFactory)
+

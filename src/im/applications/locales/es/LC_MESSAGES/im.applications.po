@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-06-26 15:13+0000\n"
+"POT-Creation-Date: 2019-07-08 18:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,10 @@ msgstr ""
 #: im/applications/profiles/default/types/Activities_Budget_Application.xml
 msgid "Activities Budget Application"
 msgstr "Solicitud con presupuesto institucional"
+
+#: im/applications/vocabularies.py:31
+msgid "Airplane"
+msgstr "Avión"
 
 #: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
 msgid "Application in revision by Consejo Interno"
@@ -34,6 +38,10 @@ msgstr "Aprobar Solicitud"
 msgid "Approved Application"
 msgstr "Solicitud Aprobada"
 
+#: im/applications/vocabularies.py:30
+msgid "Bus"
+msgstr "Autobús"
+
 #: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
 msgid "Cancel"
 msgstr "Cancelar"
@@ -41,6 +49,10 @@ msgstr "Cancelar"
 #: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
 msgid "Canceled"
 msgstr "Solicitud Cancelada"
+
+#: im/applications/vocabularies.py:29
+msgid "Car"
+msgstr "Auto"
 
 #: im/applications/profiles/default/types/Activities_Budget_Application.xml
 #: im/applications/profiles/default/types/coloquio_application.xml
@@ -148,7 +160,7 @@ msgstr "Solicitud de rescursos para coloquio"
 
 #. Default: "Minute of Consejo Interno"
 #: im/applications/content/activities_budget_application.py:67
-#: im/applications/content/coloquio_application.py:65
+#: im/applications/content/coloquio_application.py:62
 msgid "help_applications_minute"
 msgstr "Acta de Consejo Interno"
 
@@ -172,7 +184,7 @@ msgstr "Cantidad Aprobada"
 
 #. Default: "Consejo Interno Date"
 #: im/applications/content/activities_budget_application.py:72
-#: im/applications/content/coloquio_application.py:72
+#: im/applications/content/coloquio_application.py:69
 msgid "label_applications_amount_internalc_date"
 msgstr "Fecha de revisión por el Consejo Interno"
 
@@ -197,27 +209,27 @@ msgid "label_applications_amount_registration_used"
 msgstr "Cantidad usada para cuotas de inscripción"
 
 #. Default: "Special Comision Date"
-#: im/applications/content/coloquio_application.py:50
+#: im/applications/content/coloquio_application.py:47
 msgid "label_applications_amount_specialc_date"
 msgstr "Fecha de revisión por la Comisión Especial"
 
 #. Default: "Amount for Transportation Expenses"
-#: im/applications/behaviors/transportationexpenses.py:24
+#: im/applications/behaviors/transportationexpenses.py:37
 msgid "label_applications_amount_transportation"
 msgstr "Cantidad solicitida para gastos de transporte"
 
 #. Default: "Approved Amount by Consejo Interno for Transportation Expenses"
-#: im/applications/behaviors/transportationexpenses.py:40
+#: im/applications/behaviors/transportationexpenses.py:53
 msgid "label_applications_amount_transportation_authorized"
 msgstr "Cantidad aprobada por el Consejo Interno para gastos de transporte"
 
 #. Default: "Approved Amount by Special Comision for Transportation Expenses"
-#: im/applications/behaviors/transportationexpenses.py:32
+#: im/applications/behaviors/transportationexpenses.py:45
 msgid "label_applications_amount_transportation_recommended"
 msgstr "Cantidad aprobada por la Comisión Especial para gastos de transporte"
 
 #. Default: "Used Amount for Transportation Expenses"
-#: im/applications/behaviors/transportationexpenses.py:48
+#: im/applications/behaviors/transportationexpenses.py:61
 msgid "label_applications_amount_transportation_used"
 msgstr "Cantidad usada para gastos de transporte"
 
@@ -242,32 +254,32 @@ msgid "label_applications_amount_travel_used"
 msgstr "Cantidad usada para gastos de viáticos"
 
 #. Default: "Campus Applications"
-#: im/applications/content/coloquio_application.py:27
+#: im/applications/content/coloquio_application.py:24
 msgid "label_applications_campus"
 msgstr "Sede de la solicitud"
 
 #. Default: "Exposition Date"
-#: im/applications/content/coloquio_application.py:43
+#: im/applications/content/coloquio_application.py:40
 msgid "label_applications_coloquio_exposition_date"
 msgstr "Fecha de la Exposición"
 
 #. Default: "Speaker Institution"
-#: im/applications/content/coloquio_application.py:38
+#: im/applications/content/coloquio_application.py:35
 msgid "label_applications_coloquio_institution"
 msgstr "Institución del Expositor"
 
 #. Default: "Speaker Name"
-#: im/applications/content/coloquio_application.py:33
+#: im/applications/content/coloquio_application.py:30
 msgid "label_applications_coloquio_title"
 msgstr "Nombre del Expositor"
 
 #. Default: "Consejo Interno Comments"
-#: im/applications/content/coloquio_application.py:79
+#: im/applications/content/coloquio_application.py:76
 msgid "label_applications_comments_authorized"
 msgstr "Comentarios de Consejo Interno"
 
 #. Default: "Special Comision Comments"
-#: im/applications/content/coloquio_application.py:57
+#: im/applications/content/coloquio_application.py:54
 msgid "label_applications_comments_recommended"
 msgstr "Comentarios de la Comisión Especial"
 
@@ -288,7 +300,7 @@ msgstr "Fechas no válidas: La fecha de termino debe ser mayor que la fecha de i
 
 #. Default: "Minute Number"
 #: im/applications/content/activities_budget_application.py:66
-#: im/applications/content/coloquio_application.py:64
+#: im/applications/content/coloquio_application.py:61
 msgid "label_applications_minute"
 msgstr "Número de Acta"
 
@@ -336,6 +348,11 @@ msgstr "Fecha de inicio de la actividad"
 #: im/applications/content/activities_budget_application.py:61
 msgid "label_applications_title"
 msgstr "Nombre de la actividad"
+
+#. Default: "Type Transportation"
+#: im/applications/behaviors/transportationexpenses.py:29
+msgid "label_applications_transportation_type"
+msgstr "Tipo de Transporte"
 
 #. Default: "Type activity Activity"
 #: im/applications/content/activities_budget_application.py:77

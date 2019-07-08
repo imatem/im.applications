@@ -60,6 +60,11 @@
       name="im.applications.IMCampus"
   />
 
+  <utility
+      component=".vocabularies.TransportationTypeVocabulary"
+      name="im.applications.TransportationType"
+      />
+
   <!-- Subscribers -->
   <subscriber handler=".handlers.handlerPrepareToNextState" />
 
