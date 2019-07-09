@@ -10,33 +10,35 @@ from zope.component import adapter
 from zope.interface import Interface
 from zope.interface import implementer
 from zope.interface import provider
+from z3c.form.browser.checkbox import CheckBoxFieldWidget
+
+from zope.interface import Invalid
+from zope.interface import invariant
+from zope.interface import implementer
 
 
 class ITransportationexpensesMarker(Interface):
     pass
+
 
 @provider(IFormFieldProvider)
 class ITransportationexpenses(model.Schema):
     """
     """
 
-    # orderItems = schema.Set(
-    #         title=_(u"Your order"),
-    #         value_type=schema.Choice(values=[_(u'Margherita'), _(u'Pepperoni'), _(u'Hawaiian')])
-    #     )
+    amount_transportation = schema.Float(
+        title=_(u'label_applications_amount_transportation', u'Amount for Transportation Expenses'),
+        required=True,
+        min=0.0,
+    )
 
+    directives.widget(transportation_type=CheckBoxFieldWidget)
     transportation_type = schema.Set(
         title=_(u'label_applications_transportation_type', default=u'Type Transportation'),
         value_type=schema.Choice(
             vocabulary='im.applications.TransportationType',
         ),
         required=False,
-    )
-
-    amount_transportation = schema.Float(
-        title=_(u'label_applications_amount_transportation', u'Amount for Transportation Expenses'),
-        required=True,
-        min=0.0,
     )
 
     directives.read_permission(amount_transportation_recommended='im.applications.ViewComision')
@@ -63,13 +65,22 @@ class ITransportationexpenses(model.Schema):
         min=0.0,
     )
 
+    @invariant
+    def validateDateFields(data):
+        if data.amount_transportation > 0 and data.transportation_type == set([]):
+            message = 'Invalid Transportation Type: You must select at least one transportation, please correct it.'
+            raise Invalid(_('label_im_applications_error_transportation', default=message))
+        elif data.amount_transportation == 0:
+            if data.transportation_type.__contains__('car') or data.transportation_type.__contains__('bus') or data.transportation_type.__contains__('airplane'):
+                message = 'Invalid Transportation Type: You amount transportation is zero the transportation type must be empty too, please correct it.'
+                raise Invalid(_('label_im_applications_error_transportation2', default=message))
+
 
 @implementer(ITransportationexpenses)
 @adapter(ITransportationexpensesMarker)
 class Transportationexpenses(object):
     def __init__(self, context):
         self.context = context
-
 
     @property
     def amount_transportation(self):
@@ -81,6 +92,15 @@ class Transportationexpenses(object):
     def amount_transportation(self, value):
         self.context.amount_transportation = value
 
+    @property
+    def transportation_type(self):
+        if hasattr(self.context, 'transportation_type'):
+            return self.context.transportation_type
+        return None
+
+    @transportation_type.setter
+    def transportation_type(self, value):
+        self.context.transportation_type = value
 
     @property
     def amount_transportation_recommended(self):
