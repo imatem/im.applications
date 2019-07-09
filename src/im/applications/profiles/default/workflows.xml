@@ -10,8 +10,8 @@
   <type type_id="coloquio_application">
    <bound-workflow workflow_id="im_applications_workflow"/>
   </type>
-  <!-- <type type_id="moneysack">
+  <type type_id="moneysack">
    <bound-workflow workflow_id="im_applications_moneysack_workflow"/>
-  </type> -->
+  </type>
  </bindings>
 </object>
