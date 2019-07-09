@@ -9,6 +9,7 @@
  <permission>Copy or Move</permission>
  <permission>Add portal content</permission>
  <permission>List folder contents</permission>
+ <permission>Delete objects</permission>
  <state state_id="closed" title="Closed" i18n:attributes="title">
   <exit-transition transition_id="hide"/>
   <permission-map name="Access contents information" acquired="False">
@@ -32,6 +33,9 @@
   <permission-map name="Copy or Move" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Site Administrator</permission-role>
+  </permission-map>
+  <permission-map name="Delete objects" acquired="True">
+   <permission-role>Contributor</permission-role>
   </permission-map>
   <permission-map name="List folder contents" acquired="False">
    <permission-role>Manager</permission-role>
