@@ -12,6 +12,13 @@ from plone.supermodel import model
 from Products.CMFCore.utils import getToolByName
 from zope import schema
 from zope.interface import implementer
+from zope.interface import Invalid
+# from zope.interface import invariant
+
+
+from z3c.form import validator
+# from z3c.form.interfaces import IValidator
+import zope.schema
 
 
 class IColoquioApplication(model.Schema):
@@ -76,6 +83,25 @@ class IColoquioApplication(model.Schema):
         title=_(u'label_applications_comments_authorized', u'Consejo Interno Comments'),
         required=False,
     )
+
+
+class DateInRangeValidator(validator.SimpleFieldValidator):
+    """z3c.form validator class for exposition date
+    """
+    # zope.interface.implements(IValidator)
+    def validate(self, value):
+        """Validate international phone number on input
+        """
+        super(DateInRangeValidator, self).validate(value)
+        if value:
+            if value < self.context.start:
+                raise Invalid(_(u"The start date must be grather than '${name}'", mapping={'name': self.context.start}))
+
+
+validator.WidgetValidatorDiscriminators(
+    DateInRangeValidator, field=IColoquioApplication['exposition_date'])
+
+zope.component.provideAdapter(DateInRangeValidator)
 
 
 @implementer(IColoquioApplication)
