@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-07-08 18:17+0000\n"
+"POT-Creation-Date: 2019-07-09 04:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,6 +57,14 @@ msgstr ""
 msgid "Car"
 msgstr ""
 
+#: im/applications/profiles/default/workflows/im_applications_moneysack_workflow/definition.xml
+msgid "Close the applications reception"
+msgstr ""
+
+#: im/applications/profiles/default/workflows/im_applications_moneysack_workflow/definition.xml
+msgid "Closed"
+msgstr ""
+
 #: im/applications/profiles/default/types/Activities_Budget_Application.xml
 #: im/applications/profiles/default/types/coloquio_application.xml
 #: im/applications/profiles/default/types/moneysack.xml
@@ -65,6 +73,14 @@ msgstr ""
 
 #: im/applications/configure.zcml:31
 msgid "Installs the im.applications add-on."
+msgstr ""
+
+#: im/applications/profiles/default/workflows/im_applications_moneysack_workflow/definition.xml
+msgid "Make private"
+msgstr ""
+
+#: im/applications/profiles/default/workflows/im_applications_moneysack_workflow/definition.xml
+msgid "Private"
 msgstr ""
 
 #: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
@@ -217,22 +233,22 @@ msgid "label_applications_amount_specialc_date"
 msgstr ""
 
 #. Default: "Amount for Transportation Expenses"
-#: im/applications/behaviors/transportationexpenses.py:37
+#: im/applications/behaviors/transportationexpenses.py:30
 msgid "label_applications_amount_transportation"
 msgstr ""
 
 #. Default: "Approved Amount by Consejo Interno for Transportation Expenses"
-#: im/applications/behaviors/transportationexpenses.py:53
+#: im/applications/behaviors/transportationexpenses.py:55
 msgid "label_applications_amount_transportation_authorized"
 msgstr ""
 
 #. Default: "Approved Amount by Special Comision for Transportation Expenses"
-#: im/applications/behaviors/transportationexpenses.py:45
+#: im/applications/behaviors/transportationexpenses.py:47
 msgid "label_applications_amount_transportation_recommended"
 msgstr ""
 
 #. Default: "Used Amount for Transportation Expenses"
-#: im/applications/behaviors/transportationexpenses.py:61
+#: im/applications/behaviors/transportationexpenses.py:63
 msgid "label_applications_amount_transportation_used"
 msgstr ""
 
@@ -353,13 +369,21 @@ msgid "label_applications_title"
 msgstr ""
 
 #. Default: "Type Transportation"
-#: im/applications/behaviors/transportationexpenses.py:29
+#: im/applications/behaviors/transportationexpenses.py:37
 msgid "label_applications_transportation_type"
 msgstr ""
 
 #. Default: "Type activity Activity"
 #: im/applications/content/activities_budget_application.py:77
 msgid "label_applications_typeactivity"
+msgstr ""
+
+#: im/applications/behaviors/transportationexpenses.py:72
+msgid "label_im_applications_error_transportation"
+msgstr ""
+
+#: im/applications/behaviors/transportationexpenses.py:76
+msgid "label_im_applications_error_transportation2"
 msgstr ""
 
 #: im/applications/profiles/default/types/moneysack.xml

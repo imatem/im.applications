@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-07-08 18:17+0000\n"
+"POT-Creation-Date: 2019-07-09 04:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,6 +54,14 @@ msgstr "Solicitud Cancelada"
 msgid "Car"
 msgstr "Auto"
 
+#: im/applications/profiles/default/workflows/im_applications_moneysack_workflow/definition.xml
+msgid "Close the applications reception"
+msgstr "Cerrar la recepción de solicitudes"
+
+#: im/applications/profiles/default/workflows/im_applications_moneysack_workflow/definition.xml
+msgid "Closed"
+msgstr "Cerrado"
+
 #: im/applications/profiles/default/types/Activities_Budget_Application.xml
 #: im/applications/profiles/default/types/coloquio_application.xml
 #: im/applications/profiles/default/types/moneysack.xml
@@ -63,6 +71,14 @@ msgstr "Editar"
 #: im/applications/configure.zcml:31
 msgid "Installs the im.applications add-on."
 msgstr "Instalar el Complemento im.applications"
+
+#: im/applications/profiles/default/workflows/im_applications_moneysack_workflow/definition.xml
+msgid "Make private"
+msgstr "Hacer privado"
+
+#: im/applications/profiles/default/workflows/im_applications_moneysack_workflow/definition.xml
+msgid "Private"
+msgstr "Privado"
 
 #: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
 msgid "Private Application. Not sended"
@@ -214,22 +230,22 @@ msgid "label_applications_amount_specialc_date"
 msgstr "Fecha de revisión por la Comisión Especial"
 
 #. Default: "Amount for Transportation Expenses"
-#: im/applications/behaviors/transportationexpenses.py:37
+#: im/applications/behaviors/transportationexpenses.py:30
 msgid "label_applications_amount_transportation"
 msgstr "Cantidad solicitida para gastos de transporte"
 
 #. Default: "Approved Amount by Consejo Interno for Transportation Expenses"
-#: im/applications/behaviors/transportationexpenses.py:53
+#: im/applications/behaviors/transportationexpenses.py:55
 msgid "label_applications_amount_transportation_authorized"
 msgstr "Cantidad aprobada por el Consejo Interno para gastos de transporte"
 
 #. Default: "Approved Amount by Special Comision for Transportation Expenses"
-#: im/applications/behaviors/transportationexpenses.py:45
+#: im/applications/behaviors/transportationexpenses.py:47
 msgid "label_applications_amount_transportation_recommended"
 msgstr "Cantidad aprobada por la Comisión Especial para gastos de transporte"
 
 #. Default: "Used Amount for Transportation Expenses"
-#: im/applications/behaviors/transportationexpenses.py:61
+#: im/applications/behaviors/transportationexpenses.py:63
 msgid "label_applications_amount_transportation_used"
 msgstr "Cantidad usada para gastos de transporte"
 
@@ -350,7 +366,7 @@ msgid "label_applications_title"
 msgstr "Nombre de la actividad"
 
 #. Default: "Type Transportation"
-#: im/applications/behaviors/transportationexpenses.py:29
+#: im/applications/behaviors/transportationexpenses.py:37
 msgid "label_applications_transportation_type"
 msgstr "Tipo de Transporte"
 
@@ -358,6 +374,14 @@ msgstr "Tipo de Transporte"
 #: im/applications/content/activities_budget_application.py:77
 msgid "label_applications_typeactivity"
 msgstr "Tipo de la actividad"
+
+#: im/applications/behaviors/transportationexpenses.py:72
+msgid "label_im_applications_error_transportation"
+msgstr "Tipo de Transporte no válido: Debes seleccionar al menos un tipo de transporte, por favor corrígelo."
+
+#: im/applications/behaviors/transportationexpenses.py:76
+msgid "label_im_applications_error_transportation2"
+msgstr "Tipo de Transporte no válido: Si tu Cantidad solicitida para gastos de transporte es cero, no debes seleccionar un tipo de transporte, por favor corrígelo."
 
 #: im/applications/profiles/default/types/moneysack.xml
 msgid "moneysack"
