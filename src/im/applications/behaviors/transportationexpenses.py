@@ -7,14 +7,12 @@ from plone.autoform.interfaces import IFormFieldProvider
 from plone.dexterity.interfaces import IDexterityContent
 from plone.supermodel import model
 from zope.component import adapter
-from zope.interface import Interface
 from zope.interface import implementer
-from zope.interface import provider
-from z3c.form.browser.checkbox import CheckBoxFieldWidget
-
+from zope.interface import Interface
 from zope.interface import Invalid
 from zope.interface import invariant
-from zope.interface import implementer
+from zope.interface import provider
+from z3c.form.browser.checkbox import CheckBoxFieldWidget
 
 
 class ITransportationexpensesMarker(Interface):
@@ -66,7 +64,7 @@ class ITransportationexpenses(model.Schema):
     )
 
     @invariant
-    def validateDateFields(data):
+    def validateFields(data):
         if data.amount_transportation > 0 and data.transportation_type == set([]):
             message = 'Invalid Transportation Type: You must select at least one transportation, please correct it.'
             raise Invalid(_('label_im_applications_error_transportation', default=message))
