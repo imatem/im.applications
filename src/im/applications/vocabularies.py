@@ -26,9 +26,9 @@ directlyProvides(IMCampusVocabulary, IVocabularyFactory)
 
 def TransportationTypeVocabulary(context):
     items = [
-        (_(u'Car'), 'car'),
-        (_(u'Bus'), 'bus'),
-        (_(u'Airplane'), 'airplane'),
+        # (_(u'Car'), 'car'),
+        (_(u'Ground transportation'), 'groudtransportation'),
+        (_(u'Air Transport'), 'airtransport'),
     ]
 
     items = [SimpleTerm(i[1], i[1], i[0]) for i in items]

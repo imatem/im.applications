@@ -69,8 +69,8 @@ class ITransportationexpenses(model.Schema):
             message = 'Invalid Transportation Type: You must select at least one transportation, please correct it.'
             raise Invalid(_('label_im_applications_error_transportation', default=message))
         elif data.amount_transportation == 0:
-            if data.transportation_type.__contains__('car') or data.transportation_type.__contains__('bus') or data.transportation_type.__contains__('airplane'):
-                message = 'Invalid Transportation Type: You amount transportation is zero the transportation type must be empty too, please correct it.'
+            if data.transportation_type.__contains__('groudtransportation') or data.transportation_type.__contains__('airtransport'):
+                message = 'Invalid Transportation Type: You amount transportation is zero the transportation type must be empty, please correct it.'
                 raise Invalid(_('label_im_applications_error_transportation2', default=message))
 
 
