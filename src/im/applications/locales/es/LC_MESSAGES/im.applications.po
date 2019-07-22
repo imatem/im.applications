@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-07-09 04:38+0000\n"
+"POT-Creation-Date: 2019-07-22 18:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,8 +19,8 @@ msgid "Activities Budget Application"
 msgstr "Solicitud con presupuesto institucional"
 
 #: im/applications/vocabularies.py:31
-msgid "Airplane"
-msgstr "Avión"
+msgid "Air Transport"
+msgstr "Transporte Aéreo"
 
 #: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
 msgid "Application in revision by Consejo Interno"
@@ -38,10 +38,6 @@ msgstr "Aprobar Solicitud"
 msgid "Approved Application"
 msgstr "Solicitud Aprobada"
 
-#: im/applications/vocabularies.py:30
-msgid "Bus"
-msgstr "Autobús"
-
 #: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
 msgid "Cancel"
 msgstr "Cancelar"
@@ -49,10 +45,6 @@ msgstr "Cancelar"
 #: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
 msgid "Canceled"
 msgstr "Solicitud Cancelada"
-
-#: im/applications/vocabularies.py:29
-msgid "Car"
-msgstr "Auto"
 
 #: im/applications/profiles/default/workflows/im_applications_moneysack_workflow/definition.xml
 msgid "Close the applications reception"
@@ -67,6 +59,10 @@ msgstr "Cerrado"
 #: im/applications/profiles/default/types/moneysack.xml
 msgid "Edit"
 msgstr "Editar"
+
+#: im/applications/vocabularies.py:30
+msgid "Ground transportation"
+msgstr "Transporte Terrestre"
 
 #: im/applications/configure.zcml:31
 msgid "Installs the im.applications add-on."
@@ -132,6 +128,10 @@ msgstr "Enviar Solicitud a Revisión por el Consejo Interno"
 msgid "The im applications information will be saved in the Uni Admin Section"
 msgstr "La información de la solicitiud con cargo a presupuesto institucional será almacenada en la Unidad Administrativa"
 
+#: im/applications/content/coloquio_application.py:98
+msgid "The start date must be grather than '${name}'"
+msgstr "La fecha de inicio debe ser mayor que '${name}'"
+
 #: im/applications/behaviors/configure.zcml:19
 msgid "This behavior provides the amount fields for registration fees"
 msgstr "Este behavior provee los campos de cantidades para cuotas de inscripción"
@@ -146,7 +146,7 @@ msgstr "Este behavior provee los campos de cantidades para gastos de viáticos"
 
 #: im/applications/profiles/default/types/coloquio_application.xml
 msgid "This content is excluse for coloquio responsables, thsi application will generate the the control for Unid Admin"
-msgstr "Este contenido es exclusivo para responsables de coloquio, este solicitud generará los controles para la Unidad Administrativa"
+msgstr "Este contenido es exclusivo para responsables de coloquio, esta solicitud generará los controles para la Unidad Administrativa"
 
 #: im/applications/profiles/default/workflows/im_applications_charged_institutional_workflow/definition.xml
 msgid "To Canceled Application"
@@ -176,7 +176,7 @@ msgstr "Solicitud de rescursos para coloquio"
 
 #. Default: "Minute of Consejo Interno"
 #: im/applications/content/activities_budget_application.py:67
-#: im/applications/content/coloquio_application.py:62
+#: im/applications/content/coloquio_application.py:69
 msgid "help_applications_minute"
 msgstr "Acta de Consejo Interno"
 
@@ -200,7 +200,7 @@ msgstr "Cantidad Aprobada"
 
 #. Default: "Consejo Interno Date"
 #: im/applications/content/activities_budget_application.py:72
-#: im/applications/content/coloquio_application.py:69
+#: im/applications/content/coloquio_application.py:76
 msgid "label_applications_amount_internalc_date"
 msgstr "Fecha de revisión por el Consejo Interno"
 
@@ -225,27 +225,27 @@ msgid "label_applications_amount_registration_used"
 msgstr "Cantidad usada para cuotas de inscripción"
 
 #. Default: "Special Comision Date"
-#: im/applications/content/coloquio_application.py:47
+#: im/applications/content/coloquio_application.py:54
 msgid "label_applications_amount_specialc_date"
 msgstr "Fecha de revisión por la Comisión Especial"
 
 #. Default: "Amount for Transportation Expenses"
-#: im/applications/behaviors/transportationexpenses.py:30
+#: im/applications/behaviors/transportationexpenses.py:28
 msgid "label_applications_amount_transportation"
 msgstr "Cantidad solicitida para gastos de transporte"
 
 #. Default: "Approved Amount by Consejo Interno for Transportation Expenses"
-#: im/applications/behaviors/transportationexpenses.py:55
+#: im/applications/behaviors/transportationexpenses.py:53
 msgid "label_applications_amount_transportation_authorized"
 msgstr "Cantidad aprobada por el Consejo Interno para gastos de transporte"
 
 #. Default: "Approved Amount by Special Comision for Transportation Expenses"
-#: im/applications/behaviors/transportationexpenses.py:47
+#: im/applications/behaviors/transportationexpenses.py:45
 msgid "label_applications_amount_transportation_recommended"
 msgstr "Cantidad aprobada por la Comisión Especial para gastos de transporte"
 
 #. Default: "Used Amount for Transportation Expenses"
-#: im/applications/behaviors/transportationexpenses.py:63
+#: im/applications/behaviors/transportationexpenses.py:61
 msgid "label_applications_amount_transportation_used"
 msgstr "Cantidad usada para gastos de transporte"
 
@@ -270,32 +270,32 @@ msgid "label_applications_amount_travel_used"
 msgstr "Cantidad usada para gastos de viáticos"
 
 #. Default: "Campus Applications"
-#: im/applications/content/coloquio_application.py:24
+#: im/applications/content/coloquio_application.py:31
 msgid "label_applications_campus"
 msgstr "Sede de la solicitud"
 
 #. Default: "Exposition Date"
-#: im/applications/content/coloquio_application.py:40
+#: im/applications/content/coloquio_application.py:47
 msgid "label_applications_coloquio_exposition_date"
 msgstr "Fecha de la Exposición"
 
 #. Default: "Speaker Institution"
-#: im/applications/content/coloquio_application.py:35
+#: im/applications/content/coloquio_application.py:42
 msgid "label_applications_coloquio_institution"
 msgstr "Institución del Expositor"
 
 #. Default: "Speaker Name"
-#: im/applications/content/coloquio_application.py:30
+#: im/applications/content/coloquio_application.py:37
 msgid "label_applications_coloquio_title"
 msgstr "Nombre del Expositor"
 
 #. Default: "Consejo Interno Comments"
-#: im/applications/content/coloquio_application.py:76
+#: im/applications/content/coloquio_application.py:83
 msgid "label_applications_comments_authorized"
 msgstr "Comentarios de Consejo Interno"
 
 #. Default: "Special Comision Comments"
-#: im/applications/content/coloquio_application.py:54
+#: im/applications/content/coloquio_application.py:61
 msgid "label_applications_comments_recommended"
 msgstr "Comentarios de la Comisión Especial"
 
@@ -316,7 +316,7 @@ msgstr "Fechas no válidas: La fecha de termino debe ser mayor que la fecha de i
 
 #. Default: "Minute Number"
 #: im/applications/content/activities_budget_application.py:66
-#: im/applications/content/coloquio_application.py:61
+#: im/applications/content/coloquio_application.py:68
 msgid "label_applications_minute"
 msgstr "Número de Acta"
 
@@ -366,7 +366,7 @@ msgid "label_applications_title"
 msgstr "Nombre de la actividad"
 
 #. Default: "Type Transportation"
-#: im/applications/behaviors/transportationexpenses.py:37
+#: im/applications/behaviors/transportationexpenses.py:35
 msgid "label_applications_transportation_type"
 msgstr "Tipo de Transporte"
 
@@ -375,11 +375,11 @@ msgstr "Tipo de Transporte"
 msgid "label_applications_typeactivity"
 msgstr "Tipo de la actividad"
 
-#: im/applications/behaviors/transportationexpenses.py:72
+#: im/applications/behaviors/transportationexpenses.py:70
 msgid "label_im_applications_error_transportation"
-msgstr "Tipo de Transporte no válido: Debes seleccionar al menos un tipo de transporte, por favor corrígelo."
+msgstr "Tipo de Transporte no válido: Debes seleccionar al menos un tipo de transporte si tu cantidad solicitada de transporte es mayor que cero, por favor corrígelo."
 
-#: im/applications/behaviors/transportationexpenses.py:76
+#: im/applications/behaviors/transportationexpenses.py:74
 msgid "label_im_applications_error_transportation2"
 msgstr "Tipo de Transporte no válido: Si tu Cantidad solicitida para gastos de transporte es cero, no debes seleccionar un tipo de transporte, por favor corrígelo."
 
