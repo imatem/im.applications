@@ -13,12 +13,14 @@ from Products.CMFCore.utils import getToolByName
 from zope import schema
 from zope.interface import implementer
 from zope.interface import Invalid
-# from zope.interface import invariant
+from zope.interface import invariant
+from im.applications.content.moneysack import Moneysack
 
 
 from z3c.form import validator
 # from z3c.form.interfaces import IValidator
 import zope.schema
+from z3c.form import util
 
 
 class IColoquioApplication(model.Schema):
@@ -102,6 +104,37 @@ validator.WidgetValidatorDiscriminators(
     DateInRangeValidator, field=IColoquioApplication['exposition_date'])
 
 zope.component.provideAdapter(DateInRangeValidator)
+
+
+
+class AmountMaxValidator(validator.InvariantsValidator):
+    """
+    This validator verify the max amount permitted
+    """
+
+    def validate(self, obj):
+        errors = super(AmountMaxValidator, self).validateObject(obj)
+
+        xrequest = self.request
+        transportation = xrequest['form.widgets.ITransportationexpenses.amount_transportation'] or '0.0'
+        viatical = xrequest['form.widgets.ITravelexpenses.amount_travel'] or '0.0'
+
+        if self.context:
+            # ya está creado el objeto
+            parent = self.context.aq_parent
+        else:
+            parent = [xparent for xparent in xrequest['PARENTS'] if isinstance(xparent, Moneysack)][0]
+
+        if parent.amountmax:
+            if eval(transportation) + eval(viatical) > parent.amountmax:
+                errors += (Invalid(_(u"The amount must be smaller than '${amountmax}'", mapping={'amountmax': parent.amountmax})), )
+
+        return errors
+
+validator.WidgetsValidatorDiscriminators(
+    AmountMaxValidator, schema=util.getSpecification(IColoquioApplication, force=True))
+
+zope.component.provideAdapter(AmountMaxValidator)
 
 
 @implementer(IColoquioApplication)
