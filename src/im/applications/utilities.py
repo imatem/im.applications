@@ -5,6 +5,7 @@ from plone import api
 from zope.event import notify
 from zope.lifecycleevent import ObjectModifiedEvent
 import datetime
+from Products.CMFCore.WorkflowCore import WorkflowException
 
 
 def allGroupsCommissions():
@@ -77,4 +78,67 @@ def createViaticalControl(data):
         else:
             viaticalcontrol.timecontrol_type = 'untimely'
         notify(ObjectModifiedEvent(viaticalcontrol))
+
+
+def createAirticketControl(data):
+    portal = api.portal.get()
+    uniadmin_path = 'unidad/transporte-aereo'
+    uniadmin_folder = portal.unrestrictedTraverse(uniadmin_path)
+    aircontrol = api.content.create(
+        type='airticket',
+        title=data['title'],
+        container=uniadmin_folder
+    )
+    aircontrol.relatedsolicitud = data['relatedsolicitud']
+    aircontrol.classification = data['classification']
+    aircontrol.campus = data['campus']
+    aircontrol.amount = data['amount']
+    aircontrol.start = DateTime(data['start'].__str__()).asdatetime().replace(tzinfo=None)
+    aircontrol.end = DateTime(data['end'].__str__()).asdatetime().replace(tzinfo=None)
+    today = datetime.date.today()
+
+    if (data['start'] - today).days >= 20:
+        aircontrol.timecontrol_type = 'timely'
+    else:
+        aircontrol.timecontrol_type = 'untimely'
+    notify(ObjectModifiedEvent(aircontrol))
+
+
+def createLandticketControl(data, status='initial'):
+    portal = api.portal.get()
+    uniadmin_path = 'unidad/transporte-terrestre'
+    uniadmin_folder = portal.unrestrictedTraverse(uniadmin_path)
+    landcontrol = api.content.create(
+        type='landticket',
+        title=data['title'],
+        container=uniadmin_folder
+    )
+    landcontrol.relatedsolicitud = data['relatedsolicitud']
+    landcontrol.classification = data['classification']
+    landcontrol.campus = data['campus']
+    landcontrol.amount = data['amount']
+    landcontrol.start = DateTime(data['start'].__str__()).asdatetime().replace(tzinfo=None)
+    landcontrol.end = DateTime(data['end'].__str__()).asdatetime().replace(tzinfo=None)
+    today = datetime.date.today()
+
+    if (data['start'] - today).days >= 20:
+        landcontrol.timecontrol_type = 'timely'
+    else:
+        landcontrol.timecontrol_type = 'untimely'
+
+    if status == 'block':
+        # change status of landcontrol
+        wft = api.portal.get_tool('portal_workflow')
+        control = api.content.get(UID=landcontrol.UID())
+        try:
+            wft.doActionFor(control, 'block')
+        except WorkflowException:
+            # a workflow exception is risen if the state transition is not available
+            # (the sampleProperty content is in a workflow state which
+            # does not have a "submit" transition)
+            pass
+
+    notify(ObjectModifiedEvent(landcontrol))
+
+
 

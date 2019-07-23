@@ -4,6 +4,8 @@ from datetime import timedelta
 from im.applications import _
 from im.applications.utilities import cleanPermissionsCommissions
 from im.applications.utilities import createViaticalControl
+from im.applications.utilities import createLandticketControl
+from im.applications.utilities import createAirticketControl
 from im.applications.utilities import getGroupsCommision
 from plone import api
 from plone.autoform import directives
@@ -106,7 +108,6 @@ validator.WidgetValidatorDiscriminators(
 zope.component.provideAdapter(DateInRangeValidator)
 
 
-
 class AmountMaxValidator(validator.InvariantsValidator):
     """
     This validator verify the max amount permitted
@@ -118,6 +119,7 @@ class AmountMaxValidator(validator.InvariantsValidator):
         xrequest = self.request
         transportation = xrequest['form.widgets.ITransportationexpenses.amount_transportation'] or '0.0'
         viatical = xrequest['form.widgets.ITravelexpenses.amount_travel'] or '0.0'
+        total = eval(transportation) + eval(viatical)
 
         if self.context:
             # ya está creado el objeto
@@ -126,8 +128,11 @@ class AmountMaxValidator(validator.InvariantsValidator):
             parent = [xparent for xparent in xrequest['PARENTS'] if isinstance(xparent, Moneysack)][0]
 
         if parent.amountmax:
-            if eval(transportation) + eval(viatical) > parent.amountmax:
+            if total > parent.amountmax:
                 errors += (Invalid(_(u"The amount must be smaller than '${amountmax}'", mapping={'amountmax': parent.amountmax})), )
+
+        if parent.remaining_amount() < total:
+            errors += (Invalid(_(u"The amount available is less than the amount requested, you dispose of'${remainingamount}'", mapping={'amountmax': parent.remaining_amount})), )
 
         return errors
 
@@ -217,8 +222,8 @@ class ColoquioApplication(Item):
     def prepareToApprove(self):
         self.amount_travel_used = self.amount_travel_authorized
         self.amount_transportation_used = self.amount_transportation_authorized
-        self.sendMail()
         self.createControls()
+        self.sendMail()
 
     def prepareToReject(self):
         self.amount_travel_used = 0
@@ -293,15 +298,33 @@ class ColoquioApplication(Item):
 
         if self.amount_travel_authorized > 0 and data['campus'] != 'Cuernavaca':
             data['amount'] = self.amount_travel_authorized
-            if not api.content.find(portal_type='viatical', relatedsolicitud=data['relatedsolicitud']):
-                createViaticalControl(data)
+            with api.env.adopt_user(username='admin'):
+                if not api.content.find(portal_type='viatical', relatedsolicitud=data['relatedsolicitud']):
+                    createViaticalControl(data)
         if self.amount_transportation_authorized > 0 and data['campus'] != 'Cuernavaca':
             data['amount'] = self.amount_transportation_authorized
-
+            typestransportations = self.transportation_type
+            if 'groudtransportation' in typestransportations and 'airtransport' in typestransportations:
+                with api.env.adopt_user(username='admin'):
+                    if not api.content.find(portal_type='airticket', relatedsolicitud=data['relatedsolicitud']):
+                        createAirticketControl(data)
+                    if not api.content.find(portal_type='landticket', relatedsolicitud=data['relatedsolicitud']):
+                        createLandticketControl(data, 'block')
+            elif 'airtransport' in typestransportations:
+                with api.env.adopt_user(username='admin'):
+                    if not api.content.find(portal_type='airticket', relatedsolicitud=data['relatedsolicitud']):
+                        createAirticketControl(data)
+            elif 'groudtransportation' in typestransportations:
+                with api.env.adopt_user(username='admin'):
+                    if not api.content.find(portal_type='landticket', relatedsolicitud=data['relatedsolicitud']):
+                        createLandticketControl(data)
         return True
 
     def end(self):
         return self.exposition_date + timedelta(days=1)
+
+    def amount_used(self):
+        return self.amount_travel_used + self.amount_transportation_used
 
     # TO DO: Methods that are necessary for uni admin view
     def getCantidadDeDias(self):
@@ -330,3 +353,6 @@ class ColoquioApplication(Item):
 
     def getCantidad_consejo_viaticos(self):
         return self.amount_travel_authorized
+
+    def getCantidad_consejo_pasaje(self):
+        return self.amount_transportation_authorized
