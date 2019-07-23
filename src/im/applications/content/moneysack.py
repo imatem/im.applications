@@ -6,6 +6,7 @@ from zope import schema
 from zope.interface import Invalid
 from zope.interface import invariant
 from zope.interface import implementer
+from plone import api
 
 
 class IMoneysack(model.Schema):
@@ -53,10 +54,13 @@ class Moneysack(Container):
     """
     """
 
-    @property
     def amount_used(self):
-        amount_used = 0.0
-        return amount_used
+        brains = api.content.find(context=self, portal_type='coloquio_application', review_state='approved')
+        values = [b.getObject().amount_used() for b in brains]
+        return sum(values)
+
+    def remaining_amount(self):
+        return self.amount - self.amount_used()
 
 
 
