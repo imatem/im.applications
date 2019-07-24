@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-07-22 18:22+0000\n"
+"POT-Creation-Date: 2019-07-24 17:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -127,11 +127,19 @@ msgstr ""
 msgid "Submit Application to Consejo Interno"
 msgstr ""
 
+#: im/applications/content/coloquio_application.py:140
+msgid "The amount available is less than the amount requested, you dispose of '${remainingamount}'"
+msgstr ""
+
+#: im/applications/content/coloquio_application.py:137
+msgid "The amount must be smaller than '${amountmax}'"
+msgstr ""
+
 #: im/applications/actions/createControls.py:36
 msgid "The im applications information will be saved in the Uni Admin Section"
 msgstr ""
 
-#: im/applications/content/coloquio_application.py:98
+#: im/applications/content/coloquio_application.py:107
 msgid "The start date must be grather than '${name}'"
 msgstr ""
 
@@ -179,12 +187,12 @@ msgstr ""
 
 #. Default: "Minute of Consejo Interno"
 #: im/applications/content/activities_budget_application.py:67
-#: im/applications/content/coloquio_application.py:69
+#: im/applications/content/coloquio_application.py:78
 msgid "help_applications_minute"
 msgstr ""
 
 #. Default: "If this field is empty the max amount application is the Approved Amount"
-#: im/applications/content/moneysack.py:38
+#: im/applications/content/moneysack.py:39
 msgid "help_applications_moneysack_amountmax"
 msgstr ""
 
@@ -203,7 +211,7 @@ msgstr ""
 
 #. Default: "Consejo Interno Date"
 #: im/applications/content/activities_budget_application.py:72
-#: im/applications/content/coloquio_application.py:76
+#: im/applications/content/coloquio_application.py:85
 msgid "label_applications_amount_internalc_date"
 msgstr ""
 
@@ -228,7 +236,7 @@ msgid "label_applications_amount_registration_used"
 msgstr ""
 
 #. Default: "Special Comision Date"
-#: im/applications/content/coloquio_application.py:54
+#: im/applications/content/coloquio_application.py:63
 msgid "label_applications_amount_specialc_date"
 msgstr ""
 
@@ -273,32 +281,37 @@ msgid "label_applications_amount_travel_used"
 msgstr ""
 
 #. Default: "Campus Applications"
-#: im/applications/content/coloquio_application.py:31
+#: im/applications/content/coloquio_application.py:35
 msgid "label_applications_campus"
 msgstr ""
 
 #. Default: "Exposition Date"
-#: im/applications/content/coloquio_application.py:47
+#: im/applications/content/coloquio_application.py:51
 msgid "label_applications_coloquio_exposition_date"
 msgstr ""
 
 #. Default: "Speaker Institution"
-#: im/applications/content/coloquio_application.py:42
+#: im/applications/content/coloquio_application.py:46
 msgid "label_applications_coloquio_institution"
 msgstr ""
 
 #. Default: "Speaker Name"
-#: im/applications/content/coloquio_application.py:37
+#: im/applications/content/coloquio_application.py:41
 msgid "label_applications_coloquio_title"
 msgstr ""
 
+#. Default: "Adtional Comments"
+#: im/applications/content/coloquio_application.py:56
+msgid "label_applications_comments"
+msgstr ""
+
 #. Default: "Consejo Interno Comments"
-#: im/applications/content/coloquio_application.py:83
+#: im/applications/content/coloquio_application.py:92
 msgid "label_applications_comments_authorized"
 msgstr ""
 
 #. Default: "Special Comision Comments"
-#: im/applications/content/coloquio_application.py:61
+#: im/applications/content/coloquio_application.py:70
 msgid "label_applications_comments_recommended"
 msgstr ""
 
@@ -313,38 +326,38 @@ msgid "label_applications_end_date"
 msgstr ""
 
 #: im/applications/content/activities_budget_application.py:118
-#: im/applications/content/moneysack.py:48
+#: im/applications/content/moneysack.py:49
 msgid "label_applications_error_datesbefore"
 msgstr ""
 
 #. Default: "Minute Number"
 #: im/applications/content/activities_budget_application.py:66
-#: im/applications/content/coloquio_application.py:68
+#: im/applications/content/coloquio_application.py:77
 msgid "label_applications_minute"
 msgstr ""
 
 #. Default: "Approved Amount"
-#: im/applications/content/moneysack.py:30
+#: im/applications/content/moneysack.py:31
 msgid "label_applications_moneysack_amount"
 msgstr ""
 
 #. Default: "Max Approved Amount by application"
-#: im/applications/content/moneysack.py:37
+#: im/applications/content/moneysack.py:38
 msgid "label_applications_moneysack_amountmax"
 msgstr ""
 
 #. Default: "End date of the activity"
-#: im/applications/content/moneysack.py:25
+#: im/applications/content/moneysack.py:26
 msgid "label_applications_moneysack_end_date"
 msgstr ""
 
 #. Default: "Start date of the activity"
-#: im/applications/content/moneysack.py:20
+#: im/applications/content/moneysack.py:21
 msgid "label_applications_moneysack_start_date"
 msgstr ""
 
 #. Default: "Title of sack"
-#: im/applications/content/moneysack.py:15
+#: im/applications/content/moneysack.py:16
 msgid "label_applications_moneysack_title"
 msgstr ""
 
