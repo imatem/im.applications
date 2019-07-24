@@ -52,6 +52,11 @@ class IColoquioApplication(model.Schema):
         required=True,
     )
 
+    comments = schema.Text(
+        title=_(u'label_applications_comments', u'Adtional Comments'),
+        required=False,
+    )
+
     directives.read_permission(specialc_date='im.applications.ViewComision')
     directives.write_permission(specialc_date='im.applications.EditComision')
     specialc_date = schema.Date(
@@ -132,7 +137,7 @@ class AmountMaxValidator(validator.InvariantsValidator):
                 errors += (Invalid(_(u"The amount must be smaller than '${amountmax}'", mapping={'amountmax': parent.amountmax})), )
 
         if parent.remaining_amount() < total:
-            errors += (Invalid(_(u"The amount available is less than the amount requested, you dispose of'${remainingamount}'", mapping={'amountmax': parent.remaining_amount})), )
+            errors += (Invalid(_(u"The amount available is less than the amount requested, you dispose of '${remainingamount}'", mapping={'amountmax': parent.remaining_amount})), )
 
         return errors
 
