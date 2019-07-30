@@ -7,6 +7,12 @@
   <!-- -*- extra stuff goes here -*- -->
 
     <permission
+        id="im.applications.AddCampusApplication"
+        title="im.applications: Add CampusApplication"
+    />
+
+
+    <permission
         id="im.applications.AddColoquioApplication"
         title="im.applications: Add ColoquioApplication"
     />

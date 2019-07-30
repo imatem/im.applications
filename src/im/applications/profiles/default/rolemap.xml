@@ -7,6 +7,14 @@
   <permissions>
   <!-- -*- extra stuff goes here -*- -->
 
+    <permission name="im.applications: Add CampusApplication" acquire="True">
+      <role name="Manager"/>
+      <role name="Site Administrator"/>
+      <role name="Owner"/>
+      <role name="Contributor"/>
+    </permission>
+
+
     <permission name="im.applications: Add ColoquioApplication" acquire="True">
       <role name="Manager"/>
       <role name="Site Administrator"/>
