@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-07-24 17:40+0000\n"
+"POT-Creation-Date: 2019-07-31 19:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,6 +33,10 @@ msgstr ""
 msgid "Application in revision by Special Commission"
 msgstr ""
 
+#: im/applications/profiles/default/types/campus_application.xml
+msgid "Applications for use money sack of campus"
+msgstr ""
+
 #: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
 msgid "Approve Application"
 msgstr ""
@@ -58,8 +62,8 @@ msgid "Closed"
 msgstr ""
 
 #: im/applications/profiles/default/types/Activities_Budget_Application.xml
+#: im/applications/profiles/default/types/campus_application.xml
 #: im/applications/profiles/default/types/coloquio_application.xml
-#: im/applications/profiles/default/types/moneysack.xml
 msgid "Edit"
 msgstr ""
 
@@ -156,7 +160,7 @@ msgid "This behavior provides the amount fields for travel expenses"
 msgstr ""
 
 #: im/applications/profiles/default/types/coloquio_application.xml
-msgid "This content is excluse for coloquio responsables, thsi application will generate the the control for Unid Admin"
+msgid "This content is excluse for coloquio or seminary responsables, this application will generate the the control for Unid Admin"
 msgstr ""
 
 #: im/applications/profiles/default/workflows/im_applications_charged_institutional_workflow/definition.xml
@@ -176,9 +180,13 @@ msgid "Uninstalls the im.applications add-on."
 msgstr ""
 
 #: im/applications/profiles/default/types/Activities_Budget_Application.xml
+#: im/applications/profiles/default/types/campus_application.xml
 #: im/applications/profiles/default/types/coloquio_application.xml
-#: im/applications/profiles/default/types/moneysack.xml
 msgid "View"
+msgstr ""
+
+#: im/applications/profiles/default/types/campus_application.xml
+msgid "campus_application"
 msgstr ""
 
 #: im/applications/profiles/default/types/coloquio_application.xml

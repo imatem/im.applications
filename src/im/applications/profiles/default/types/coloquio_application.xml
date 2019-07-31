@@ -10,7 +10,7 @@
       name="title">coloquio_application</property>
   <property
       i18n:translate=""
-      name="description">This content is excluse for coloquio responsables, thsi application will generate the the control for Unid Admin</property>
+      name="description">This content is excluse for coloquio or seminary responsables, this application will generate the the control for Unid Admin</property>
 
   <property name="allow_discussion">False</property>
   <property name="factory">coloquio_application</property>

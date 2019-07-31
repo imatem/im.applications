@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-07-24 17:40+0000\n"
+"POT-Creation-Date: 2019-07-31 19:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,6 +30,10 @@ msgstr "Solicitud en Revisión por el Consejo Interno"
 msgid "Application in revision by Special Commission"
 msgstr "Solicitud en Revisión por la Comisión Especial"
 
+#: im/applications/profiles/default/types/campus_application.xml
+msgid "Applications for use money sack of campus"
+msgstr "Solicitudes para hacer uso de dinero de bolsas de sedes"
+
 #: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
 msgid "Approve Application"
 msgstr "Aprobar Solicitud"
@@ -55,8 +59,8 @@ msgid "Closed"
 msgstr "Cerrado"
 
 #: im/applications/profiles/default/types/Activities_Budget_Application.xml
+#: im/applications/profiles/default/types/campus_application.xml
 #: im/applications/profiles/default/types/coloquio_application.xml
-#: im/applications/profiles/default/types/moneysack.xml
 msgid "Edit"
 msgstr "Editar"
 
@@ -153,8 +157,8 @@ msgid "This behavior provides the amount fields for travel expenses"
 msgstr "Este behavior provee los campos de cantidades para gastos de viáticos"
 
 #: im/applications/profiles/default/types/coloquio_application.xml
-msgid "This content is excluse for coloquio responsables, thsi application will generate the the control for Unid Admin"
-msgstr "Este contenido es exclusivo para responsables de coloquio, esta solicitud generará los controles para la Unidad Administrativa"
+msgid "This content is excluse for coloquio or seminary responsables, this application will generate the the control for Unid Admin"
+msgstr "Este contenido es exclusivo para responsables de coloquios y seminarios con bolsa de dinero"
 
 #: im/applications/profiles/default/workflows/im_applications_charged_institutional_workflow/definition.xml
 msgid "To Canceled Application"
@@ -173,14 +177,18 @@ msgid "Uninstalls the im.applications add-on."
 msgstr "Desinstalar el Complemento im.applications"
 
 #: im/applications/profiles/default/types/Activities_Budget_Application.xml
+#: im/applications/profiles/default/types/campus_application.xml
 #: im/applications/profiles/default/types/coloquio_application.xml
-#: im/applications/profiles/default/types/moneysack.xml
 msgid "View"
 msgstr "Ver"
 
+#: im/applications/profiles/default/types/campus_application.xml
+msgid "campus_application"
+msgstr ""
+
 #: im/applications/profiles/default/types/coloquio_application.xml
 msgid "coloquio_application"
-msgstr "Solicitud de rescursos para coloquio"
+msgstr "Solicitud de recursos para expositor"
 
 #. Default: "Minute of Consejo Interno"
 #: im/applications/content/activities_budget_application.py:67
