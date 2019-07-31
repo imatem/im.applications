@@ -18,7 +18,7 @@
   <property name="link_target"></property>
 
   <!-- Hierarchy control -->
-  <property name="global_allow">True</property>
+  <property name="global_allow">False</property>
   <!-- Schema, class and security -->
   <property name="add_permission">im.applications.AddCampusApplication</property>
   <property name="klass">im.applications.content.campus_application.CampusApplication</property>
@@ -28,25 +28,10 @@
 
   <!-- Enabled behaviors -->
   <property name="behaviors" purge="false">
-    <!-- Details about all standard behaviors following can be read at
-         https://docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html
-    -->
-    <element value="plone.namefromtitle"/>
-    <element value="plone.allowdiscussion"/>
-    <element value="plone.excludefromnavigation"/>
-    <element value="plone.shortname"/>
-    <element value="plone.ownership"/>
-    <element value="plone.publication"/>
-    <element value="plone.categorization"/>
-    <element value="plone.basic"/>
-    <element value="plone.locking" />
-    <!--<element value="plone.app.referenceablebehavior.referenceable.IReferenceable" />-->
-    <!--<element value="plone.leadimage"/>-->
-    <!--<element value="plone.relateditems"/>-->
-    <!--<element value="plone.richtext"/>-->
-    <!--<element value="plone.tableofcontents"/>-->
-    <!--<element value="plone.versionable" />-->
-    <!--<element value="plone.translatable" />-->
+    <element value="plone.app.content.interfaces.INameFromTitle"/>
+    <element value="im.applications.travelexpenses"/>
+    <element value="im.applications.transportationexpenses"/>
+    <element value="plone.app.versioningbehavior.behaviors.IVersionable"/>
   </property>
 
   <!-- View information -->
@@ -90,7 +75,7 @@
   <action
       action_id="edit"
       category="object"
-      condition_expr="not:object/@@plone_lock_info/is_locked_for_current_user|python:True"
+      condition_expr=""
       i18n:attributes="title"
       title="Edit"
       url_expr="string:${object_url}/edit"

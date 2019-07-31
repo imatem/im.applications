@@ -10,8 +10,8 @@
     <permission name="im.applications: Add CampusApplication" acquire="True">
       <role name="Manager"/>
       <role name="Site Administrator"/>
-      <role name="Owner"/>
-      <role name="Contributor"/>
+      <!-- <role name="Owner"/>
+      <role name="Contributor"/> -->
     </permission>
 
 
