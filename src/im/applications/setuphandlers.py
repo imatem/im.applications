@@ -19,6 +19,9 @@ def post_install(context):
     """Post install script"""
     # Do something at the end of the installation of this package.
 
+    if not context.readDataFile('im.applications.marker.txt'):
+        return
+
     actual_groups = [gp.id for gp in api.group.get_groups()]
 
     # We will create groups for permissions
