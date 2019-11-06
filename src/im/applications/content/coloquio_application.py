@@ -356,8 +356,56 @@ class ColoquioApplication(Item):
         # return self.description_activity
         return 'DESCRIPTION'
 
+    def getWFStateName(self):
+        workflowTool = getToolByName(self, "portal_workflow")
+        current_state = workflowTool.getInfoFor(self, 'review_state', None)
+        statename = workflowTool.getTitleForStateOnType(current_state, self.portal_type)
+        return statename
+
     def getCantidad_consejo_viaticos(self):
         return self.amount_travel_authorized
 
     def getCantidad_consejo_pasaje(self):
         return self.amount_transportation_authorized
+
+    def getCargo_presupuesto(self):
+        return self.aq_parent.title
+
+    def getTipo_pasaje(self):
+
+        return [kk for k, kk in enumerate(self.transportation_type)]
+
+
+    def getTotal(self):
+        return self.amount_travel + self.amount_transportation
+
+    def getCantidadRecomendadaTotal(self):
+        transportation = 0.0
+        viatical = 0.0
+        try:
+            transportation = self.amount_transportation_recommended
+            viatical = self.amount_travel_recommended
+        except Exception:
+            pass
+        return transportation + viatical
+
+    def getCantidadConsejoTotal(self):
+        transportation = 0.0
+        viatical = 0.0
+        try:
+            transportation = self.amount_transportation_authorized
+            viatical = self.amount_travel_authorized
+        except Exception:
+            pass
+        return transportation + viatical
+
+    def getCantidadAutorizadaTotal(self):
+        transportation = 0.0
+        viatical = 0.0
+        try:
+            transportation = self.amount_transportation_used
+            viatical = self.amount_travel_used
+        except Exception:
+            pass
+        return transportation + viatical
+
