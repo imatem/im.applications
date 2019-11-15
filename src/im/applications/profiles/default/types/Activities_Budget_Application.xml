@@ -10,7 +10,7 @@
       name="title">Activities Budget Application</property>
   <property
       i18n:translate=""
-      name="description">Solicitud con cargo al presupuesto del IM</property>
+      name="description">Solicitud con cargo al Instituto</property>
 
   <property name="allow_discussion">False</property>
   <property name="factory">Activities Budget Application</property>

@@ -16,7 +16,7 @@ msgstr ""
 
 #: im/applications/profiles/default/types/Activities_Budget_Application.xml
 msgid "Activities Budget Application"
-msgstr "Solicitud con presupuesto institucional"
+msgstr "Solicitud con cargo al Instituto"
 
 #: im/applications/vocabularies.py:31
 msgid "Air Transport"
