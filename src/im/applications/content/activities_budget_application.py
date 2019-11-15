@@ -108,7 +108,7 @@ class IActivitiesBudgetApplication(model.Schema):
 
     description_activity = schema.Text(
         title=_(u'label_applications_description_activity', u'Description Activity'),
-        required=True,
+        required=False,
     )
 
     @invariant
