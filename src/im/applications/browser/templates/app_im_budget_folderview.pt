@@ -1,0 +1,72 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="im.applications">
+  <head>
+
+  </head>
+
+  <body>
+  <!-- Products.CMFPlone.skins.plone_content.folder_tabular_view.pt -->
+
+    <metal:content-core fill-slot="content-core">
+      <metal:content-core define-macro="content-core">
+
+        <fieldset id="folder-listing">
+          <legend i18n:translate="" i18n:domain="im.applications">Solicitudes con cargo al IM</legend>
+          <metal:block define-macro="listing" extend-macro="context/folder_listing/macros/content-core">
+            <metal:entries fill-slot="entries">
+              <table class="listing">
+                <thead>
+                  <th i18n:translate="" i18n:domain="plone">Name</th>
+                  <th i18n:translate="" i18n:domain="plone">Author</th>
+                  <th i18n:translate="" i18n:domain="plone">Type</th>
+                  <th i18n:translate="">label_applications_amount</th>
+                  <th i18n:domain="plone" i18n:translate="box_last_modified">last modified</th>
+                </thead>
+                <metal:block use-macro="context/folder_listing/macros/entries">
+                  <metal:entry fill-slot="entry">
+                    <tr metal:define-macro="listitem">
+                      <td class="summary">
+                        <img tal:replace="structure item_icon" />
+                        <a href="#"
+                          tal:attributes="href python:item_type in use_view_action and item_url+'/view' or item_url;
+                                          class string:$item_type_class $item_wf_state_class url"
+                          tal:content="item/Title | item/id">
+                          Item Title
+                        </a>
+                      </td>
+
+                      <td></td>
+                      <td></td>
+                      <td></td>
+
+                      <tal:byline condition="show_about">
+                        <td>
+                        <tal:modified condition="python: item_type != 'Event'">
+                          <span tal:replace="python:toLocalizedTime(item_modified,long_format=1)">
+                            August 16, 2001 at 23:35:59
+                          </span>
+                        </tal:modified>
+                        </td>
+                      </tal:byline>
+                      <tal:byline condition="python: not show_about">
+                        <td></td>
+                      </tal:byline>
+                    </tr>
+                  </metal:entry>
+                </metal:block>
+              </table>
+            </metal:entries>
+          </metal:block>
+        </fieldset>
+
+      </metal:content-core>
+    </metal:content-core>
+
+
+  </body>
+</html>

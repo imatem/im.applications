@@ -29,4 +29,12 @@
       permission="zope2.View"
     />
 
+  <browser:page
+      name="appimbudget_folderview"
+      template="templates/app_im_budget_folderview.pt"
+      for="Products.ATContentTypes.interface.IATFolder"
+      class=".foldersview.AppImBudgetFolderView"
+      permission="zope2.View"
+    />
+
 </configure>
