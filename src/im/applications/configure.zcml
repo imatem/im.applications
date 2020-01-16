@@ -65,6 +65,11 @@
       name="im.applications.TransportationType"
       />
 
+  <utility
+      component=".vocabularies.TypeActivityIMVocabularyFactory"
+      name="im.applications.TypeActivityIM"
+      />
+
   <!-- Subscribers -->
   <subscriber handler=".handlers.handlerPrepareToNextState" />
 

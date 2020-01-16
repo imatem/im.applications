@@ -12,6 +12,8 @@ from zope.interface import implementer
 from zope.interface import Invalid
 from zope.interface import invariant
 from DateTime import DateTime
+from Products.CMFCore.utils import getToolByName
+from zope.i18n import translate
 
 
 class IActivitiesBudgetApplication(model.Schema):
@@ -73,9 +75,15 @@ class IActivitiesBudgetApplication(model.Schema):
         required=True,
     )
 
-    typeactivity = schema.TextLine(
+    # typeactivity = schema.TextLine(
+    #     title=_(u'label_applications_typeactivity', u'Type activity Activity'),
+    #     required=True,
+    # )
+
+    typeactivity = schema.Choice(
         title=_(u'label_applications_typeactivity', u'Type activity Activity'),
         required=True,
+        vocabulary='im.applications.TypeActivityIM',
     )
 
     responsables = schema.Text(
@@ -142,11 +150,19 @@ class ActivitiesBudgetApplication(Item):
         return self.place_activity
 
     def getPais(self):
-        return 'COUNTRY'
+        return ''
 
     def getObjetoViaje(self):
-        return self.description_activity
+        return self.title
+        # return self.typeactivity + ': ' + self.title + '\n ' + self.description_activity
+        # return self.description_activity
 
     def getCantidad_consejo_viaticos(self):
         return self.amount
+
+    def getWFStateName(self):
+        workflowTool = getToolByName(self, "portal_workflow")
+        current_state = workflowTool.getInfoFor(self, 'review_state', None)
+        statename = workflowTool.getTitleForStateOnType(current_state, self.portal_type)
+        return translate(statename, domain='im.applications', target_language=self.REQUEST.LANGUAGE)
 
