@@ -109,7 +109,7 @@ class IActivitiesBudgetApplication(model.Schema):
     amount = schema.Float(
         title=_(u'label_applications_amount', u'Approved Amount'),
         # description=_(u'help_applications_amount', u'Amount when the solicitud was created'),
-        required=False,
+        required=True,
         min=1.0,
         # max=25000.0,
     )
