@@ -59,8 +59,15 @@ class IActivitiesBudgetApplication(model.Schema):
     #     required=False
     # )
 
+
     title = schema.TextLine(
         title=_(u'label_applications_title', default=u'Activity Name'),
+        required=True,
+    )
+
+    edition = schema.TextLine(
+        title=_(u'label_applications_edition', default=u'Edition'),
+        description=_(u'help_applications_edition', default=u'The edition of the activity, in case of academic activity. By example Thirty-third'),
         required=True,
     )
 
@@ -72,7 +79,7 @@ class IActivitiesBudgetApplication(model.Schema):
 
     internalc_date = schema.Date(
         title=_(u'label_applications_amount_internalc_date', default=u'Consejo Interno Date'),
-        required=True,
+        required=False,
     )
 
     # typeactivity = schema.TextLine(
@@ -89,6 +96,14 @@ class IActivitiesBudgetApplication(model.Schema):
     responsables = schema.Text(
         title=_(u'label_applications_responsables', u'Responsable(s) Name'),
         required=True,
+    )
+
+    requested_amount = schema.Float(
+        title=_(u'label_applications_requested_amount', u'Requested Amount'),
+        # description=_(u'help_applications_amount', u'Amount when the solicitud was created'),
+        required=False,
+        min=1.0,
+        # max=25000.0,
     )
 
     amount = schema.Float(
