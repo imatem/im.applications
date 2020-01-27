@@ -24,7 +24,7 @@
                   <th i18n:translate="" i18n:domain="plone">Name</th>
                   <th>Autor</th>
                   <!-- <th i18n:translate="" i18n:domain="plone">Type</th> -->
-                  <th i18n:translate="">label_applications_amount</th>
+                  <th i18n:translate="">Cantidad Aprobada</th>
                   <th i18n:translate="" i18n:domain="plone">Estado</th>
                   <th i18n:domain="plone" i18n:translate="box_last_modified">last modified</th>
                 </thead>
