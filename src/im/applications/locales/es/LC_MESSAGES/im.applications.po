@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-07-31 19:30+0000\n"
+"POT-Creation-Date: 2020-01-27 23:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,6 +50,10 @@ msgstr "Cancelar"
 msgid "Canceled"
 msgstr "Solicitud Cancelada"
 
+#: im/applications/browser/templates/app_im_budget_folderview.pt:27
+msgid "Cantidad Aprobada"
+msgstr "Cantidad Aprobada"
+
 #: im/applications/profiles/default/workflows/im_applications_moneysack_workflow/definition.xml
 msgid "Close the applications reception"
 msgstr "Cerrar la recepción de solicitudes"
@@ -58,11 +62,51 @@ msgstr "Cerrar la recepción de solicitudes"
 msgid "Closed"
 msgstr "Cerrado"
 
+#: im/applications/vocabularies.py:53
+msgid "Coloquio"
+msgstr ""
+
+#: im/applications/vocabularies.py:54
+msgid "Conferencia"
+msgstr ""
+
+#: im/applications/vocabularies.py:55
+msgid "Congreso"
+msgstr ""
+
+#: im/applications/vocabularies.py:56
+msgid "Curso"
+msgstr ""
+
+#: im/applications/vocabularies.py:70
+msgid "Cátedra"
+msgstr ""
+
+#: im/applications/vocabularies.py:57
+msgid "Diplomado"
+msgstr ""
+
 #: im/applications/profiles/default/types/Activities_Budget_Application.xml
 #: im/applications/profiles/default/types/campus_application.xml
 #: im/applications/profiles/default/types/coloquio_application.xml
 msgid "Edit"
 msgstr "Editar"
+
+#: im/applications/vocabularies.py:58
+msgid "Encuentro"
+msgstr ""
+
+#: im/applications/vocabularies.py:71
+msgid "Escuela"
+msgstr ""
+
+#: im/applications/vocabularies.py:69
+msgid "Feria"
+msgstr ""
+
+#: im/applications/vocabularies.py:59
+msgid "Foro"
+msgstr ""
 
 #: im/applications/vocabularies.py:30
 msgid "Ground transportation"
@@ -72,9 +116,29 @@ msgstr "Transporte Terrestre"
 msgid "Installs the im.applications add-on."
 msgstr "Instalar el Complemento im.applications"
 
+#: im/applications/vocabularies.py:60
+msgid "Jornada"
+msgstr ""
+
 #: im/applications/profiles/default/workflows/im_applications_moneysack_workflow/definition.xml
 msgid "Make private"
 msgstr "Hacer privado"
+
+#: im/applications/vocabularies.py:61
+msgid "Mesa redonda"
+msgstr ""
+
+#: im/applications/vocabularies.py:62
+msgid "Módulos de exposiciones"
+msgstr ""
+
+#: im/applications/vocabularies.py:63
+msgid "Módulos de ferias"
+msgstr ""
+
+#: im/applications/vocabularies.py:72
+msgid "Otra actividad"
+msgstr ""
 
 #: im/applications/profiles/default/workflows/im_applications_moneysack_workflow/definition.xml
 msgid "Private"
@@ -108,6 +172,14 @@ msgstr "Regresar a Revisión por la Comisión Especial"
 msgid "Return to Consejo"
 msgstr "Regresar a Revisión por el Consejo Interno"
 
+#: im/applications/vocabularies.py:64
+msgid "Reunión"
+msgstr ""
+
+#: im/applications/vocabularies.py:65
+msgid "Seminario"
+msgstr ""
+
 #: im/applications/profiles/default/workflows/im_applications_charged_institutional_workflow/definition.xml
 msgid "Send to Uni Admin"
 msgstr "Enviar a la Unidad Administrativa"
@@ -116,9 +188,17 @@ msgstr "Enviar a la Unidad Administrativa"
 msgid "Sent to the Administrative Unit"
 msgstr "Enviado a la Unidad Administrativa"
 
+#: im/applications/vocabularies.py:66
+msgid "Simposio"
+msgstr ""
+
 #: im/applications/profiles/default/types/Activities_Budget_Application.xml
-msgid "Solicitud con cargo al presupuesto del IM"
-msgstr "Solicitud con cargo al presupuesto institucional"
+msgid "Solicitud con cargo al Instituto"
+msgstr "Solicitud con cargo al Instituto"
+
+#: im/applications/browser/templates/app_im_budget_folderview.pt:19
+msgid "Solicitudes con cargo al Instituto"
+msgstr "Solicitudes con cargo al Instituto"
 
 #: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
 msgid "Submit Application to Commission"
@@ -127,6 +207,10 @@ msgstr "Enviar Solicitud a Revisión por la Comisión Especial"
 #: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
 msgid "Submit Application to Consejo Interno"
 msgstr "Enviar Solicitud a Revisión por el Consejo Interno"
+
+#: im/applications/vocabularies.py:67
+msgid "Taller"
+msgstr ""
 
 #: im/applications/content/coloquio_application.py:140
 msgid "The amount available is less than the amount requested, you dispose of '${remainingamount}'"
@@ -176,6 +260,10 @@ msgstr "Gastos de viáticos"
 msgid "Uninstalls the im.applications add-on."
 msgstr "Desinstalar el Complemento im.applications"
 
+#: im/applications/vocabularies.py:68
+msgid "Videoconferencia"
+msgstr ""
+
 #: im/applications/profiles/default/types/Activities_Budget_Application.xml
 #: im/applications/profiles/default/types/campus_application.xml
 #: im/applications/profiles/default/types/coloquio_application.xml
@@ -184,14 +272,19 @@ msgstr "Ver"
 
 #: im/applications/profiles/default/types/campus_application.xml
 msgid "campus_application"
-msgstr ""
+msgstr "Solicitudes para hacer uso de dinero de bolsas de sedes"
 
 #: im/applications/profiles/default/types/coloquio_application.xml
 msgid "coloquio_application"
 msgstr "Solicitud de recursos para expositor"
 
+#. Default: "The edition of the activity, in case of academic activity. By example Thirty-third"
+#: im/applications/content/activities_budget_application.py:70
+msgid "help_applications_edition"
+msgstr "En caso de ser una actividad académcia que se repite, poner el número de edición. Por ejemplo, Segundo o Trigésimo Tercer"
+
 #. Default: "Minute of Consejo Interno"
-#: im/applications/content/activities_budget_application.py:67
+#: im/applications/content/activities_budget_application.py:76
 #: im/applications/content/coloquio_application.py:78
 msgid "help_applications_minute"
 msgstr "Acta de Consejo Interno"
@@ -210,12 +303,12 @@ msgid "im.applications (uninstall)"
 msgstr ""
 
 #. Default: "Approved Amount"
-#: im/applications/content/activities_budget_application.py:87
+#: im/applications/content/activities_budget_application.py:110
 msgid "label_applications_amount"
 msgstr "Cantidad Aprobada"
 
 #. Default: "Consejo Interno Date"
-#: im/applications/content/activities_budget_application.py:72
+#: im/applications/content/activities_budget_application.py:81
 #: im/applications/content/coloquio_application.py:85
 msgid "label_applications_amount_internalc_date"
 msgstr "Fecha de revisión por el Consejo Interno"
@@ -321,22 +414,27 @@ msgid "label_applications_comments_recommended"
 msgstr "Comentarios de la Comisión Especial"
 
 #. Default: "Description Activity"
-#: im/applications/content/activities_budget_application.py:110
+#: im/applications/content/activities_budget_application.py:133
 msgid "label_applications_description_activity"
-msgstr "Descripción de la actividad"
+msgstr "Comentarios sobre la actividad"
+
+#. Default: "Edition"
+#: im/applications/content/activities_budget_application.py:69
+msgid "label_applications_edition"
+msgstr "Edición"
 
 #. Default: "End date of the activity"
-#: im/applications/content/activities_budget_application.py:100
+#: im/applications/content/activities_budget_application.py:123
 msgid "label_applications_end_date"
 msgstr "Fecha de termino de la actividad"
 
-#: im/applications/content/activities_budget_application.py:118
+#: im/applications/content/activities_budget_application.py:141
 #: im/applications/content/moneysack.py:49
 msgid "label_applications_error_datesbefore"
 msgstr "Fechas no válidas: La fecha de termino debe ser mayor que la fecha de inicio, por favor corrígela"
 
 #. Default: "Minute Number"
-#: im/applications/content/activities_budget_application.py:66
+#: im/applications/content/activities_budget_application.py:75
 #: im/applications/content/coloquio_application.py:77
 msgid "label_applications_minute"
 msgstr "Número de Acta"
@@ -367,22 +465,27 @@ msgid "label_applications_moneysack_title"
 msgstr "Título de la bolsa de recursos"
 
 #. Default: "Place Activity"
-#: im/applications/content/activities_budget_application.py:105
+#: im/applications/content/activities_budget_application.py:128
 msgid "label_applications_place_activity"
 msgstr "Lugar de la actividad"
 
+#. Default: "Requested Amount"
+#: im/applications/content/activities_budget_application.py:102
+msgid "label_applications_requested_amount"
+msgstr "Cantidad Solicitada"
+
 #. Default: "Responsable(s) Name"
-#: im/applications/content/activities_budget_application.py:82
+#: im/applications/content/activities_budget_application.py:97
 msgid "label_applications_responsables"
 msgstr "Nombre(s) de los responsable(s)"
 
 #. Default: "Start date of the activity"
-#: im/applications/content/activities_budget_application.py:95
+#: im/applications/content/activities_budget_application.py:118
 msgid "label_applications_start_date"
 msgstr "Fecha de inicio de la actividad"
 
 #. Default: "Activity Name"
-#: im/applications/content/activities_budget_application.py:61
+#: im/applications/content/activities_budget_application.py:64
 msgid "label_applications_title"
 msgstr "Nombre de la actividad"
 
@@ -392,7 +495,7 @@ msgid "label_applications_transportation_type"
 msgstr "Tipo de Transporte"
 
 #. Default: "Type activity Activity"
-#: im/applications/content/activities_budget_application.py:77
+#: im/applications/content/activities_budget_application.py:91
 msgid "label_applications_typeactivity"
 msgstr "Tipo de la actividad"
 
