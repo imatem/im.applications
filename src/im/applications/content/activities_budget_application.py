@@ -168,6 +168,9 @@ class ActivitiesBudgetApplication(Item):
         return ''
 
     def getObjetoViaje(self):
+        if self.description_activity:
+            return self.title + '. Por considerar: ' + self.description_activity
+
         return self.title
         # return self.typeactivity + ': ' + self.title + '\n ' + self.description_activity
         # return self.description_activity
