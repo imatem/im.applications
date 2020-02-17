@@ -4,5 +4,8 @@
     <type portal_type="coloquio_application">
       <field name="any" difftype="Compound Diff for Dexterity types"/>
     </type>
+    <type portal_type="Activities Budget Application">
+      <field name="any" difftype="Compound Diff for Dexterity types"/>
+    </type>
   </difftypes>
 </object>

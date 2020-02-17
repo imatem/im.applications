@@ -32,6 +32,7 @@
          https://docs.plone.org/external/plone.app.dexterity/docs/reference/standard-behaviours.html
     -->
     <element value="plone.app.content.interfaces.INameFromTitle"/>
+    <element value="plone.app.versioningbehavior.behaviors.IVersionable"/>
     <!-- <element value="plone.locking.interfaces.ILockable"/> -->
     <!-- <element value="plone.locking.interfaces.ITTWLockable"/> -->
 
