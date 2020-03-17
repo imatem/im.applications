@@ -3,6 +3,7 @@
   <roles>
     <role name="IMConsejero"/>
     <role name="IMComisionado"/>
+    <role name="IMResponsableConsejo"/>
   </roles>
   <permissions>
   <!-- -*- extra stuff goes here -*- -->
