@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<object name="activities_budget_application-content" meta_type="WorkflowPolicy">
+ <property name="title">Activities Budget Application Content Policy</property>
+ <bindings>
+  <default>
+   <bound-workflow workflow_id="im_applications_charged_institutional_content_workflow"/>
+  </default>
+  <type default_chain="true" type_id="Folder"/>
+ </bindings>
+</object>
