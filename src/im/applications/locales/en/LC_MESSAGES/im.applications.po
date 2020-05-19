@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2020-01-27 23:33+0000\n"
+"POT-Creation-Date: 2020-05-19 00:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,6 +46,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
+#: im/applications/profiles/default/workflows/im_applications_activities_budget_application_workflow/definition.xml
 #: im/applications/profiles/default/workflows/im_applications_workflow/definition.xml
 msgid "Canceled"
 msgstr ""
@@ -140,6 +141,10 @@ msgstr ""
 msgid "Otra actividad"
 msgstr ""
 
+#: im/applications/profiles/default/workflows/im_applications_activities_budget_application_workflow/definition.xml
+msgid "Pending"
+msgstr ""
+
 #: im/applications/profiles/default/workflows/im_applications_moneysack_workflow/definition.xml
 msgid "Private"
 msgstr ""
@@ -180,10 +185,12 @@ msgstr ""
 msgid "Seminario"
 msgstr ""
 
+#: im/applications/profiles/default/workflows/im_applications_activities_budget_application_workflow/definition.xml
 #: im/applications/profiles/default/workflows/im_applications_charged_institutional_workflow/definition.xml
 msgid "Send to Uni Admin"
 msgstr ""
 
+#: im/applications/profiles/default/workflows/im_applications_activities_budget_application_workflow/definition.xml
 #: im/applications/profiles/default/workflows/im_applications_charged_institutional_workflow/definition.xml
 msgid "Sent to the Administrative Unit"
 msgstr ""
@@ -244,6 +251,7 @@ msgstr ""
 msgid "This content is excluse for coloquio or seminary responsables, this application will generate the the control for Unid Admin"
 msgstr ""
 
+#: im/applications/profiles/default/workflows/im_applications_activities_budget_application_workflow/definition.xml
 #: im/applications/profiles/default/workflows/im_applications_charged_institutional_workflow/definition.xml
 msgid "To Canceled Application"
 msgstr ""
